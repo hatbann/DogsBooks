@@ -4,7 +4,7 @@ import styles from './css/Content.module.css';
 const Content = ({ contentObj }) => {
   return (
     <div className={styles.container}>
-      <img src={contentObj.uri} className={styles.img}></img>
+      <img src={contentObj.uri} className={styles.img} />
     </div>
   );
 };
