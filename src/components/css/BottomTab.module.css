@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+}
+
+.pagename {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 100vw;
+  border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+.bar_line {
+  border: 1px solid rgb(190, 190, 190);
+  width: 100vw;
+  position: fixed;
+  bottom: 45px;
+}
+
+.bottomTabs {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 45px;
+  justify-content: space-between;
+}
+
+.tab {
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.tab:first-child {
+  margin-left: 20px;
+}
+
+.tab:last-child {
+  margin-right: 20px;
+}
