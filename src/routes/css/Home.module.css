@@ -1,21 +1,37 @@
-.container {
-  font-family: 'Noto Sans KR', sans-serif;
-  margin-bottom: 50px;
-}
-
 .profile {
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  justify-content: center;
+}
+
+.profile_comment {
+  font-size: 15px;
 }
 
 .profile_img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  margin-top: 20px;
+  margin-top: 30px;
+}
+
+.plant {
+  margin-top: 5px;
 }
 
 .recommands {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todays {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
 }

@@ -18,7 +18,7 @@ const CustomSlider = ({ contents }) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <Slider {...settings} className={styles.slider}>
         {contents.map((content) => (
           <Content contentObj={content} key={content.id} />
@@ -38,7 +38,7 @@ export const TodaysSlider = ({ contents }) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <Slider {...settings} className={styles.slider}>
         {contents.map((content) => (
           <TodaysBooks contentObj={content} key={content.id} />

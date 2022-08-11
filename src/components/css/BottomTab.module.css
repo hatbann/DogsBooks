@@ -2,7 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: rgb(62, 210, 255);
 }
 
 .bottomTabs {
@@ -13,14 +19,18 @@
 
 .tab {
   text-align: center;
-  display: flex;
   align-items: center;
+  margin: 0 20px;
 }
 
-.tab:first-child {
-  margin-left: 20px;
+.BottomTab {
+  position: absolute;
+  z-index: 1;
+  background-color: aqua;
 }
 
-.tab:last-child {
-  margin-right: 20px;
+.BottomTab.fixed {
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }

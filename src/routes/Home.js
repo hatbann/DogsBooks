@@ -65,27 +65,27 @@ const todays = [
 
 const Home = (props) => {
   return (
-    <div className={styles.container}>
+    <>
       <Top location={'home'} />
       <div className={styles.profile}>
-        <div>프로추리러, 선영님의 세계</div>
+        <div className={styles.profile_comment}>프로추리러, 선영님의 세계</div>
         <img
           src={require('../assets/img1.png')}
           className={styles.profile_img}
         ></img>
-        <Link to="/mypage">
+        <Link to="/mypage" className={styles.plant}>
           <span>myplant</span>
         </Link>
       </div>
       <div className={styles.recommands}>
         <span>추리를 좋아하는&nbsp;선영님을 위한 추천도서</span>
-        <CustomSlider contents={recommands} />
+        <CustomSlider contents={recommands} className={styles.slider} />
       </div>
-      <div>
+      <div className={styles.todays}>
         <span>오늘의 도서</span>
         <TodaysSlider contents={todays} />
       </div>
-    </div>
+    </>
   );
 };
 

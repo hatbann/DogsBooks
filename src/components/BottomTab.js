@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import styles from './css/BottomTab.module.css';
 
-const BottomTab = (props) => {
+const BottomTab = ({ scrollactive }) => {
   return (
     <div className={styles.container}>
-      <div className={styles.bottomTabs}>
+      <div className={scrollactive ? 'BottomTab fixed' : 'BottomTab'}>
         <Link to="/">
           <span className={styles.tab}>Home</span>
         </Link>
