@@ -9,33 +9,8 @@ import Mypage from '../routes/Mypage';
 
 import styles from './css/App.module.css';
 function App() {
-  const boxRef = useRef(null);
-
-  const [ScrollActive, setScrollActive] = useState(false);
-  const [ScrollY, setScrollY] = useState(0);
-
-  function logit() {
-    setScrollY(boxRef.current.scrollTop);
-    if (boxRef.current.scrollTop > 0) {
-      setScrollActive(true);
-    } else {
-      setScrollActive(false);
-    }
-  }
-
-  useEffect(() => {
-    function watchScroll() {
-      boxRef.current.addEventListener('scroll', logit);
-    }
-    watchScroll();
-
-    return () => {
-      boxRef.current.removeEventListener('scroll', logit);
-    };
-  });
-
   return (
-    <div className={styles.container} ref={boxRef}>
+    <div className={styles.container}>
       <BrowserRouter className={styles.router}>
         <Routes className={styles.element}>
           <Route path="/" element={<Home />} className={styles.element} />
@@ -43,7 +18,7 @@ function App() {
           <Route path="/bookneighbor" element={<BookNeighbor />} />
           <Route path="/mypage" element={<Mypage />} />
         </Routes>
-        <BottomTab scrollactive={ScrollActive} />
+        <BottomTab className={styles.tab} />
       </BrowserRouter>
     </div>
   );

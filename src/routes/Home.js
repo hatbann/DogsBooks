@@ -65,7 +65,7 @@ const todays = [
 
 const Home = (props) => {
   return (
-    <>
+    <div className={styles.container}>
       <Top location={'home'} />
       <div className={styles.profile}>
         <div className={styles.profile_comment}>프로추리러, 선영님의 세계</div>
@@ -85,7 +85,7 @@ const Home = (props) => {
         <span>오늘의 도서</span>
         <TodaysSlider contents={todays} />
       </div>
-    </>
+    </div>
   );
 };
 
