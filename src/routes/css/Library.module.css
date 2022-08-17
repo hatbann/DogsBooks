@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.libraryContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  height: 100%;
+  margin-top: 50px;
+}
+
+.bookContainer {
+  display: flex;
+  justify-content: center;
+  width: 70vw;
+  height: 100px;
+}
+
+.bookImg {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.detailInfo {
+  font-size: 10px;
+}

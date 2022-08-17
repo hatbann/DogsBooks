@@ -1,0 +1,24 @@
+.switch {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  background-color: aqua;
+  width: 30vw;
+  border-radius: 15vw;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.btn {
+  width: 8.5vw;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin-right: 1.2vw;
+  border-radius: 4vw;
+  cursor: pointer;
+}
+
+.btn:last-child {
+  margin-right: 0;
+}
