@@ -43,13 +43,16 @@ const Library = (props) => {
   return (
     <div className={styles.container}>
       <Top location={'서재'} />
-      <Switch onClick={onClick} options={options} />
-      <div>
-        {options.map((option) => {
-          if (option.id === pageNum) {
-            return <div key={option.id}>{option.page}</div>;
-          }
-        })}
+      <div className={styles.content}>
+        {' '}
+        <Switch onClick={onClick} options={options} />
+        <div>
+          {options.map((option) => {
+            if (option.id === pageNum) {
+              return <div key={option.id}>{option.page}</div>;
+            }
+          })}
+        </div>
       </div>
     </div>
   );

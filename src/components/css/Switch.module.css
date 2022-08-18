@@ -1,22 +1,25 @@
 .switch {
-  margin-top: 100px;
   display: flex;
-  justify-content: center;
-  background-color: aqua;
-  width: 30vw;
+  background-color: rgb(194, 255, 255);
+  width: 40vw;
   border-radius: 15vw;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding: 2px;
 }
 
 .btn {
-  width: 8.5vw;
-  background-color: black;
-  color: white;
+  width: 11vw;
+  display: flex;
+  background-color: rgb(95, 95, 95);
+  color: rgb(231, 231, 231);
   text-align: center;
-  margin-right: 1.2vw;
+  align-items: center;
+  justify-content: center;
+  margin-right: 3vw;
   border-radius: 4vw;
+  padding: 3px;
   cursor: pointer;
+  font-size: 10px;
+  font-weight: 300;
 }
 
 .btn:last-child {
