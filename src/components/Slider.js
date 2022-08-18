@@ -12,6 +12,7 @@ const CustomSlider = ({ contents }) => {
   const settings = {
     dots: true,
     infinite: true,
+    arrows: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -32,6 +33,7 @@ export const TodaysSlider = ({ contents }) => {
   const settings = {
     dots: true,
     infinite: true,
+    arrows: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,

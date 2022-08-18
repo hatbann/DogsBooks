@@ -17,14 +17,39 @@
   display: flex;
   justify-content: center;
   width: 70vw;
-  height: 100px;
+  height: auto;
+  margin-bottom: 40px;
 }
 
 .bookImg {
-  width: 50px;
-  margin-right: 10px;
+  width: 65px;
+  margin-right: 25px;
 }
 
+.detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.author {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(138, 138, 138);
+}
 .detailInfo {
   font-size: 10px;
+}
+
+.BookReportTitle {
+  font-size: 12px;
+}
+
+.Calendar {
+  margin-top: 50px;
 }
