@@ -1,15 +1,15 @@
 .switch {
   display: flex;
-  background-color: rgb(194, 255, 255);
-  width: 40vw;
+  background-color: rgb(255, 255, 255);
+  width: 80vw;
   border-radius: 15vw;
   padding: 2px;
 }
 
 .btn {
-  width: 11vw;
+  width: 25vw;
   display: flex;
-  background-color: rgb(95, 95, 95);
+  background-color: #3a93ff;
   color: rgb(231, 231, 231);
   text-align: center;
   align-items: center;
@@ -18,8 +18,8 @@
   border-radius: 4vw;
   padding: 3px;
   cursor: pointer;
-  font-size: 10px;
-  font-weight: 300;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 .btn:last-child {
