@@ -1,7 +1,6 @@
 .switch {
   display: flex;
   background-color: rgb(255, 255, 255);
-  width: 80vw;
   border-radius: 15vw;
   padding: 2px;
 }

@@ -79,11 +79,11 @@ const contents = [
 const Borrow = (props) => {
   return (
     <div>
-      <ul className={styles.contents_Container}>
+      <div className={styles.contents_Container}>
         {contents.map((content) => {
           return <NeighborContent key={content.id} content={content} />;
         })}
-      </ul>
+      </div>
     </div>
   );
 };

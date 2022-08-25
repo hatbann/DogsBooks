@@ -12,7 +12,7 @@ const user = {
 
 const Profile = (props) => {
   return (
-    <div className={styles.content}>
+    <div className={styles.profile_container}>
       <div className={styles.profile}>
         <img src={user.img} className={styles.profileImg} />
         <div className={styles.profile_detail}>
@@ -25,7 +25,7 @@ const Profile = (props) => {
             <ProgressBar
               completed={user.percentage}
               bgColor="#9bffe1"
-              width="55vw"
+              width="200px"
               height="3vw"
               labelSize="10px"
               labelColor="#474747"
@@ -34,10 +34,22 @@ const Profile = (props) => {
         </div>
       </div>
       <div className={styles.settings}>
-        <div>프로필</div>
-        <div>Dogs</div>
-        <div>동네 설정</div>
-        <div>로그아웃</div>
+        <div className={styles.setting}>
+          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" />
+          프로필
+        </div>
+        <div className={styles.setting}>
+          <img src="https://cdn-icons-png.flaticon.com/512/1076/1076877.png" />
+          Dogs
+        </div>
+        <div className={styles.setting}>
+          <img src="https://cdn-icons-png.flaticon.com/512/684/684809.png" />
+          동네 설정
+        </div>
+        <div className={styles.setting}>
+          <img src="https://cdn-icons-png.flaticon.com/512/159/159707.png" />
+          로그아웃
+        </div>
       </div>
     </div>
   );

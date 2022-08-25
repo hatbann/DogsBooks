@@ -39,7 +39,7 @@ const Mypage = (props) => {
   return (
     <div>
       <Top location={'설정'} />
-      <div className={styles.content}>
+      <div className={styles.contents}>
         {' '}
         <Switch onClick={onClick} options={options} />
         <div>
