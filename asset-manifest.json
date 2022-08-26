@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dogsbooks/static/css/main.c01ea11b.css",
-    "main.js": "/dogsbooks/static/js/main.d5917cde.js",
+    "main.css": "/dogsbooks/static/css/main.c45ea6c3.css",
+    "main.js": "/dogsbooks/static/js/main.daaee9cc.js",
     "static/media/profile11.jpg": "/dogsbooks/static/media/profile11.9920e03ac6dba5282f39.jpg",
     "static/media/img1.png": "/dogsbooks/static/media/img1.58e7e84ff98a4bca4758.png",
     "static/media/profile12.png": "/dogsbooks/static/media/profile12.ab243d8e88cc87df3476.png",
@@ -10,11 +10,11 @@
     "static/media/slick.ttf": "/dogsbooks/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/dogsbooks/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/dogsbooks/index.html",
-    "main.c01ea11b.css.map": "/dogsbooks/static/css/main.c01ea11b.css.map",
-    "main.d5917cde.js.map": "/dogsbooks/static/js/main.d5917cde.js.map"
+    "main.c45ea6c3.css.map": "/dogsbooks/static/css/main.c45ea6c3.css.map",
+    "main.daaee9cc.js.map": "/dogsbooks/static/js/main.daaee9cc.js.map"
   },
   "entrypoints": [
-    "static/css/main.c01ea11b.css",
-    "static/js/main.d5917cde.js"
+    "static/css/main.c45ea6c3.css",
+    "static/js/main.daaee9cc.js"
   ]
 }
