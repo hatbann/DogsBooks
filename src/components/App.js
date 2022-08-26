@@ -13,7 +13,18 @@ function App() {
     <div className={styles.container}>
       <BrowserRouter className={styles.router}>
         <Routes className={styles.element}>
-          <Route path="/" element={<Home />} className={styles.element} />
+          <Route
+            exact={true}
+            path="/dogsbooks"
+            element={<Home />}
+            className={styles.element}
+          />
+          <Route
+            exact={true}
+            path="/"
+            element={<Home />}
+            className={styles.element}
+          />
           <Route path="/library/*" element={<Library />} />
           <Route path="/bookneighbor" element={<BookNeighbor />} />
           <Route path="/mypage" element={<Mypage />} />
