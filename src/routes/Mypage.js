@@ -45,7 +45,12 @@ const Mypage = (props) => {
         <div>
           {options.map((option) => {
             if (option.id === pageNum) {
-              return <div key={option.id}>{option.page}</div>;
+              return (
+                <div>
+                  <h1 className={styles.pagename}>{option.label}</h1>
+                  <div key={option.id}>{option.page}</div>
+                </div>
+              );
             }
           })}
         </div>

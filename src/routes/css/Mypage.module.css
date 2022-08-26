@@ -5,12 +5,18 @@
   align-items: center;
 }
 
+.pagename {
+  font-size: 25px;
+  font-weight: 500;
+  margin: 20px;
+  margin-top: 40px;
+}
+
 .profile {
-  margin-top: 30px;
   width: 80vw;
   border-radius: 1vw;
   display: flex;
-  padding: 2vw;
+  margin-left: 10px;
   justify-content: center;
 }
 
@@ -41,7 +47,7 @@
 
 .settings {
   width: 80vw;
-  margin-top: 30px;
+  margin-top: 50px;
   font-size: 14px;
   margin-left: 40px;
 }
@@ -56,4 +62,53 @@
   width: 17px;
   height: 17px;
   margin-right: 6px;
+}
+
+.frined_list {
+  margin-top: 30px;
+}
+
+.friend {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.friend_profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(58, 58, 58);
+  margin-right: 30px;
+  margin-left: 10px;
+}
+
+.friend_img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 7px;
+}
+
+.book > img {
+  width: 65px;
+  height: 96px;
+}
+
+.book {
+  font-size: 0;
+  margin-right: 15px;
+}
+
+.lendBooks {
+  width: 330px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lendBook {
+  width: 27%;
+  margin: 20px 10px;
 }

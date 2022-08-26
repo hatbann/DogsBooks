@@ -43,6 +43,9 @@ const BookNeighbor = (props) => {
             className={styles.switch}
           />
         </div>
+        <button className={styles.top_chat}>
+          <img src="https://cdn-icons-png.flaticon.com/512/786/786205.png" />
+        </button>
       </div>
       <div className={styles.page}>
         {options.map((option) => {

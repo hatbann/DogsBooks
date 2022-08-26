@@ -23,7 +23,6 @@
 
 .bookContainer {
   display: flex;
-  justify-content: center;
   width: 70vw;
   height: auto;
   margin-bottom: 40px;

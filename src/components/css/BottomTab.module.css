@@ -13,13 +13,13 @@
 
 .bottomTabs {
   display: flex;
-  width: 80vw;
-  justify-content: space-between;
+  width: 90%;
+  justify-content: center;
 }
 
 .tab {
   text-align: center;
   align-items: center;
   margin: 0 20px;
-  font-size: 13px;
+  font-size: 17px;
 }
