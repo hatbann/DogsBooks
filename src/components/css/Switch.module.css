@@ -21,6 +21,14 @@
   font-weight: 400;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+a:visited {
+  color: black;
+}
+
 .btn:last-child {
   margin-right: 0;
 }
