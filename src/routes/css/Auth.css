@@ -16,3 +16,8 @@
   display: flex;
   justify-content: space-around;
 }
+
+.authContainer button {
+  width: 70px !important;
+  height: 25px !important;
+}

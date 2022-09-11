@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import Top from '../components/Top';
 import CustomSlider, { TodaysSlider } from '../components/Slider';
 import styles from './css/Home.module.css';
+import { LoggedInInfo } from '../components/App';
 
 const recommands = [
   {
@@ -64,6 +65,9 @@ const todays = [
 ];
 
 const Home = (props) => {
+  const loggedInInfo = useContext(LoggedInInfo);
+
+  console.log(loggedInInfo);
   return (
     <div className={styles.container}>
       <Top location={'home'} />

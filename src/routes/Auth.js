@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from './css/Auth.css';
+
+import { LoggedInInfo } from '../components/App';
 
 const Auth = () => {
   const [userId, setUserId] = useState('');
@@ -7,6 +9,8 @@ const Auth = () => {
   const [userName, setUserName] = useState('');
   const [userNickname, setUserNickname] = useState('');
   const [newAcount, setNewAccount] = useState(false); //기본이 로그인
+
+  const { logInstate, logInaction } = useContext(LoggedInInfo);
 
   const onChange = (event) => {
     const {
@@ -39,10 +43,12 @@ const Auth = () => {
       setUserPw('');
       setUserName('');
       setUserNickname('');
+      logInaction(true); //회원가입시 home화면으로 넘어가게 함
     } else {
       setUserId('');
       setUserPw('');
       console.log('로그인');
+      logInaction(true); //로그인시 home화면으로 넘어가게 함
     }
   };
 
@@ -67,6 +73,7 @@ const Auth = () => {
               name="userId"
               value={userId}
               onChange={onChange}
+              required
             ></input>
           </div>
           <div className="authInput">
@@ -78,6 +85,7 @@ const Auth = () => {
               name="userPw"
               value={userPw}
               onChange={onChange}
+              required
             ></input>
           </div>
           <div className="authInput">
@@ -89,6 +97,7 @@ const Auth = () => {
               name="userName"
               value={userName}
               onChange={onChange}
+              required
             ></input>
           </div>
           <div className="authInput">
@@ -100,6 +109,7 @@ const Auth = () => {
               name="userNickname"
               value={userNickname}
               onChange={onChange}
+              required
             ></input>
           </div>
           <div className="formBtns">
@@ -119,7 +129,8 @@ const Auth = () => {
               value={userId}
               name="userId"
               placeholder="아이디를 입력하세요"
-            ></input>
+              required
+            />
           </div>
           <div className="authInput">
             <label htmlFor="userPw">비밀번호</label>
@@ -130,15 +141,16 @@ const Auth = () => {
               value={userPw}
               name="userPw"
               placeholder="비밀번호를 입력하세요"
-            ></input>
+              required
+            />
           </div>
           <div className="formBtns">
-            <input type="button" onClick={onSubmit} value="로그인"></input>
-            <input
-              type="button"
-              onClick={onChangeForm}
-              value="회원가입"
-            ></input>
+            <button type="submit" onClick={onSubmit}>
+              로그인
+            </button>
+            <button type="submit" onClick={onChangeForm}>
+              회원가입
+            </button>
           </div>
         </form>
       )}
