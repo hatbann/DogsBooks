@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import BottomTab from '../components/BottomTab';
+import AppRouter from '../routes/Router';
+import Auth from '../routes/Auth';
 import Home from '../routes/Home';
 import Library from '../routes/Library';
 import BookNeighbor from '../routes/BookNeighbor';
@@ -9,7 +11,13 @@ import Mypage from '../routes/Mypage';
 
 import styles from './css/App.module.css';
 function App() {
-  return (
+  const [init, setInit] = useState(false);
+  const [isLoggedIn, setIstLoggedIn] = useState(false);
+  const [userObj, setUserObj] = useState(null);
+
+  //로그인 해서 정보가져오는 파트 구현해야함
+
+  return isLoggedIn ? (
     <div className={styles.container}>
       <BrowserRouter className={styles.router}>
         <Routes className={styles.element}>
@@ -32,6 +40,10 @@ function App() {
         <BottomTab className={styles.tab} />
       </BrowserRouter>
     </div>
+  ) : (
+    <>
+      <Auth />
+    </>
   );
 }
 
