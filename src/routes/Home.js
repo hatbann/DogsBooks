@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Top from '../components/Top';
@@ -64,13 +64,39 @@ const todays = [
   },
 ];
 
+let booktitle = '';
+
+let URL = `http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttblcyeon461605002&Query=${booktitle}&QueryType=Title&MaxResults=3&start=1&Sort=Accuracy&SearchTarget=Book&output=xml&Version=20131101`;
+
 const Home = (props) => {
   const loggedInInfo = useContext(LoggedInInfo);
+  const [search, setSearch] = useState('');
+  const [info, setInfo] = useState({});
 
-  console.log(loggedInInfo);
+  const onChange = (e) =>{
+    const {
+      target:{value},
+    } = e;
+    setSearch(value);
+  }
+
+  const onSearch= (e)=>{
+    
+    e.preventDefault();
+    booktitle = search;
+    fetch(URL).then((response)=> console.log(response));
+  }
+
   return (
     <div className={styles.container}>
       <Top location={'home'} />
+      <div className={styles.bookSearchForm}>
+        <form>
+          <label htmlFor='bookSearch'></label>
+          <input type="text" id='bookSearch' placeholder='도서 검색' value={search} onChange={onChange}/>
+          <button type='submit' id={styles.bookSearchBtn} onSubmit={onSearch}>검색</button>
+        </form>
+      </div>
       <div className={styles.profile}>
         <div className={styles.profile_comment}>프로추리러, 선영님의 세계</div>
         <img
