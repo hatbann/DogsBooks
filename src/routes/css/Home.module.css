@@ -41,6 +41,11 @@
   margin-bottom: 100px;
 }
 
-.bookSearchForm{
-  margin-top:50px;
+.bookSearchForm {
+  margin-top: 50px;
+}
+
+#bookSearchBtn {
+  width: auto;
+  height: auto;
 }

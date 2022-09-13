@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import Top from '../components/Top';
 import CustomSlider, { TodaysSlider } from '../components/Slider';
@@ -66,35 +67,48 @@ const todays = [
 
 let booktitle = '';
 
-let URL = `http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttblcyeon461605002&Query=${booktitle}&QueryType=Title&MaxResults=3&start=1&Sort=Accuracy&SearchTarget=Book&output=xml&Version=20131101`;
-
 const Home = (props) => {
   const loggedInInfo = useContext(LoggedInInfo);
   const [search, setSearch] = useState('');
-  const [info, setInfo] = useState({});
+  const [data, setData] = useState([]);
 
-  const onChange = (e) =>{
+  const onChange = (e) => {
     const {
-      target:{value},
+      target: { value },
     } = e;
     setSearch(value);
-  }
+  };
 
-  const onSearch= (e)=>{
-    
-    e.preventDefault();
-    booktitle = search;
-    fetch(URL).then((response)=> console.log(response));
-  }
+  const onSearch = async (e) => {
+    try {
+      const URL = `https://cors-anywhere.herokuapp.com/http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttblcyeon461605002&Query=${search}&QueryType=Title&MaxResults=3&start=1&Sort=Accuracy&SearchTarget=Book&output=js&Version=20131101`;
+      const response = await axios.get(URL);
+      const arr = response.data.item;
+      arr.map((info) => data.push(info));
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <div className={styles.container}>
       <Top location={'home'} />
       <div className={styles.bookSearchForm}>
         <form>
-          <label htmlFor='bookSearch'></label>
-          <input type="text" id='bookSearch' placeholder='도서 검색' value={search} onChange={onChange}/>
-          <button type='submit' id={styles.bookSearchBtn} onSubmit={onSearch}>검색</button>
+          <label htmlFor="bookSearch"></label>
+          <input
+            type="text"
+            id="bookSearch"
+            placeholder="도서 검색"
+            value={search}
+            onChange={onChange}
+          />
+          <Link to="/search" state={{ data: data }}>
+            <button type="button" id={styles.bookSearchBtn} onClick={onSearch}>
+              검색
+            </button>
+          </Link>
         </form>
       </div>
       <div className={styles.profile}>
