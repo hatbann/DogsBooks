@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import Top from '../components/Top';
@@ -72,6 +72,7 @@ const Home = (props) => {
   const [search, setSearch] = useState('');
   const [data, setData] = useState([]);
 
+  let navigate = useNavigate();
   const onChange = (e) => {
     const {
       target: { value },
@@ -86,6 +87,7 @@ const Home = (props) => {
       const arr = response.data.item;
       arr.map((info) => data.push(info));
       console.log(data);
+      navigate('/search', {state : data});
     } catch (e) {
       console.log(e);
     }
@@ -104,11 +106,9 @@ const Home = (props) => {
             value={search}
             onChange={onChange}
           />
-          <Link to="/search" state={{ data: data }}>
             <button type="button" id={styles.bookSearchBtn} onClick={onSearch}>
               검색
             </button>
-          </Link>
         </form>
       </div>
       <div className={styles.profile}>

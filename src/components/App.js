@@ -7,6 +7,7 @@ import Auth from '../routes/Auth';
 import Home from '../routes/Home';
 import Library from '../routes/Library';
 import BookNeighbor from '../routes/BookNeighbor';
+import Borrow from './Borrow';
 import Mypage from '../routes/Mypage';
 import Search from '../routes/Search';
 
@@ -47,6 +48,7 @@ function App() {
               <Route path="/bookneighbor" element={<BookNeighbor />} />
               <Route path="/mypage" element={<Mypage />} />
               <Route path="/search" element={<Search />} />
+              <Route path='/bookneighbor/borrow' element={<Borrow/>}/>
             </Routes>
             <BottomTab className={styles.tab} />
           </BrowserRouter>
