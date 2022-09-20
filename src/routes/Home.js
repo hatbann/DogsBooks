@@ -79,7 +79,6 @@ const Home = ({userObj}) => {
     setSearch(value);
   };
 
-  console.log(userObj);
   const onSearch = async (e) => {
     try {
       const URL = `https://cors-anywhere.herokuapp.com/http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttblcyeon461605002&Query=${search}&QueryType=Title&MaxResults=3&start=1&Sort=Accuracy&SearchTarget=Book&output=js&Version=20131101`;

@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Top from '../components/Top';
 import BookList from '../components/BookList';
 import BookReports from '../components/BookReports';
-import Calendar from '../components/Calendar';
 import styles from './css/Library.module.css';
 
 import Switch from '../components/Switch';
@@ -19,11 +18,7 @@ const options = [
     page: <BookReports />,
     id: 1,
   },
-  {
-    label: '달력',
-    page: <Calendar />,
-    id: 2,
-  },
+
 ];
 
 let optionsNum = 3;

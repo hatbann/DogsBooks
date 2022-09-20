@@ -11,6 +11,8 @@ import BookNeighbor from '../routes/BookNeighbor';
 import Borrow from '../components/Borrow';
 import Mypage from '../routes/Mypage';
 import Search from '../routes/Search';
+import BookInfo from '../components/BookInfo';
+import Write from '../components/Write';
 
 
 
@@ -37,8 +39,11 @@ const AppRouter = ({isLoggedIn, userObj, refreshUser }) => {
                   />
                   <Route path="/library/*" element={<Library userObj = {userObj}/>} />
                   <Route path="/bookneighbor" element={<BookNeighbor userObj = {userObj}/>}  />
-                  <Route path="/mypage" element={<Mypage userObj = {userObj}/>}  userObj = {userObj}/>/>
+                  <Route path="/mypage" element={<Mypage userObj = {userObj}/>}  userObj = {userObj}/>
+                  <Route path="/search" element={<Search/>}  userObj = {userObj}/>
                   <Route path='/bookneighbor/borrow' element={<Borrow userObj = {userObj}/>} />
+                  <Route path='/search/bookinfo' element={<BookInfo />} />
+                  <Route path='/write' element={<Write />} />
                 </Routes>
                 <BottomTab />
               </BrowserRouter>
