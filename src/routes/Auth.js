@@ -1,13 +1,13 @@
-import React, { useState, useContext } from 'react';
-import styles from './css/Auth.css';
+import React, { useState, useContext } from "react";
+import styles from "./css/Auth.css";
 
-import { LoggedInInfo } from '../components/App';
+import { LoggedInInfo } from "../components/App";
 
 const Auth = () => {
-  const [userId, setUserId] = useState('');
-  const [userPw, setUserPw] = useState('');
-  const [userName, setUserName] = useState('');
-  const [userNickname, setUserNickname] = useState('');
+  const [userId, setUserId] = useState("");
+  const [userPw, setUserPw] = useState("");
+  const [userName, setUserName] = useState("");
+  const [userNickname, setUserNickname] = useState("");
   const [newAcount, setNewAccount] = useState(false); //기본이 로그인
 
   const { logInstate, logInaction } = useContext(LoggedInInfo);
@@ -16,19 +16,19 @@ const Auth = () => {
     const {
       target: { name, value },
     } = event;
-    if (name === 'userId') {
+    if (name === "userId") {
       setUserId(value);
       return;
     }
-    if (name === 'userPw') {
+    if (name === "userPw") {
       setUserPw(value);
       return;
     }
-    if (name === 'userName') {
+    if (name === "userName") {
       setUserName(value);
       return;
     }
-    if (name === 'userNickname') {
+    if (name === "userNickname") {
       setUserNickname(value);
       return;
     }
@@ -38,16 +38,16 @@ const Auth = () => {
     event.preventDefault();
     //가입&로그인 로직짜기
     if (newAcount) {
-      console.log('회원가입');
-      setUserId('');
-      setUserPw('');
-      setUserName('');
-      setUserNickname('');
+      console.log("회원가입");
+      setUserId("");
+      setUserPw("");
+      setUserName("");
+      setUserNickname("");
       logInaction(true); //회원가입시 home화면으로 넘어가게 함
     } else {
-      setUserId('');
-      setUserPw('');
-      console.log('로그인');
+      setUserId("");
+      setUserPw("");
+      console.log("로그인");
       logInaction(true); //로그인시 home화면으로 넘어가게 함
     }
   };
@@ -60,11 +60,11 @@ const Auth = () => {
   //처음 보이는 창 : 로그인 ->  회원가입 버튼 누르면 변경
   return (
     <div>
-      <h1>{newAcount ? '회원가입' : '로그인'}</h1>
+      <h1>{newAcount ? "회원가입" : "로그인"}</h1>
       {newAcount ? (
         <form className="authContainer">
           <div className="authInput">
-            {' '}
+            {" "}
             <label htmlFor="userId">아이디</label>
             <input
               type="text"
@@ -113,7 +113,7 @@ const Auth = () => {
             ></input>
           </div>
           <div className="formBtns">
-            {' '}
+            {" "}
             <input type="button" value="회원가입" onClick={onSubmit}></input>
             <input type="button" value="로그인" onClick={onChangeForm}></input>
           </div>
