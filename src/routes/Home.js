@@ -5,7 +5,7 @@ import axios from 'axios';
 import Top from '../components/Top';
 import CustomSlider, { TodaysSlider } from '../components/Slider';
 import styles from './css/Home.module.css';
-import { LoggedInInfo } from '../components/App';
+
 
 const recommands = [
   {
@@ -67,8 +67,7 @@ const todays = [
 
 let booktitle = '';
 
-const Home = (props) => {
-  const loggedInInfo = useContext(LoggedInInfo);
+const Home = ({userObj}) => {
   const [search, setSearch] = useState('');
   const [data, setData] = useState([]);
 
@@ -80,6 +79,7 @@ const Home = (props) => {
     setSearch(value);
   };
 
+  console.log(userObj);
   const onSearch = async (e) => {
     try {
       const URL = `https://cors-anywhere.herokuapp.com/http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttblcyeon461605002&Query=${search}&QueryType=Title&MaxResults=3&start=1&Sort=Accuracy&SearchTarget=Book&output=js&Version=20131101`;
@@ -92,6 +92,7 @@ const Home = (props) => {
       console.log(e);
     }
   };
+
 
   return (
     <div className={styles.container}>
@@ -112,7 +113,7 @@ const Home = (props) => {
         </form>
       </div>
       <div className={styles.profile}>
-        <div className={styles.profile_comment}>프로추리러, 선영님의 세계</div>
+        <div className={styles.profile_comment}>{`프로추리러, ${userObj.displayName}님의 세계`}</div>
         <img
           src={require('../assets/img1.png')}
           className={styles.profile_img}
@@ -122,7 +123,7 @@ const Home = (props) => {
         </Link>
       </div>
       <div className={styles.recommands}>
-        <span>추리를 좋아하는&nbsp;선영님을 위한 추천도서</span>
+        <span>{`추리를 좋아하는 ${userObj.displayName}님을 위한 추천도서`}</span>
         <CustomSlider contents={recommands} className={styles.slider} />
       </div>
       <div className={styles.todays}>

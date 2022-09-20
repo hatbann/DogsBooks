@@ -1,64 +1,51 @@
 import React, { useState, useRef, useEffect, createContext } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
-import BottomTab from '../components/BottomTab';
+import { getAuth, onAuthStateChanged, updateCurrentUser } from 'firebase/auth';
+import { authService } from '../firebase';
 
-import Auth from '../routes/Auth';
-import Home from '../routes/Home';
-import Library from '../routes/Library';
-import BookNeighbor from '../routes/BookNeighbor';
-import Borrow from './Borrow';
-import Mypage from '../routes/Mypage';
-import Search from '../routes/Search';
+import AppRouter from '../routes/AppRouter';
 
 import styles from './css/App.module.css';
 
-export const LoggedInInfo = createContext();
+
 
 function App() {
-  const [init, setInit] = useState(false);
+  const [init, setIntit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
 
-  const loginValue = {
-    logInstate: isLoggedIn,
-    logInaction: setIsLoggedIn,
+  useEffect(() => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+        setUserObj(user);
+      } else {
+        setIsLoggedIn(false);
+      }
+      setIntit(true);
+    });
+  }, []);
+
+  const refreshUser = async () => {
+    const user = authService.currentUser;
+    setUserObj({ ...user });
   };
 
-  //로그인 해서 정보가져오는 파트 구현해야함
+
   return (
-    <LoggedInInfo.Provider value={loginValue}>
-      {isLoggedIn ? (
-        <div className={styles.container}>
-          <BrowserRouter className={styles.router}>
-            <Routes className={styles.element}>
-              <Route
-                exact={true}
-                path="/dogsbooks"
-                element={<Home />}
-                className={styles.element}
-              />
-              <Route
-                exact={true}
-                path="/"
-                element={<Home />}
-                className={styles.element}
-              />
-              <Route path="/library/*" element={<Library />} />
-              <Route path="/bookneighbor" element={<BookNeighbor />} />
-              <Route path="/mypage" element={<Mypage />} />
-              <Route path="/search" element={<Search />} />
-              <Route path='/bookneighbor/borrow' element={<Borrow/>}/>
-            </Routes>
-            <BottomTab className={styles.tab} />
-          </BrowserRouter>
-        </div>
-      ) : (
-        <>
-          <Auth />
-        </>
-      )}
-    </LoggedInInfo.Provider>
+    <div>
+    {init ? (
+      <AppRouter
+        refreshUser={refreshUser}
+        isLoggedIn={isLoggedIn}
+        userObj={userObj}
+      />
+    ) : (
+      'Initializing....'
+    )}
+  </div>
   );
 }
 

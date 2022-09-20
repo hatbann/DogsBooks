@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getAuth, onAuthStateChanged, updateCurrentUser } from 'firebase/auth';
+
 import Top from '../components/Top';
 import styles from './css/Mypage.module.css';
 import Switch from '../components/Switch';
@@ -13,19 +15,16 @@ const options = [
     id: 0,
   },
   {
-    label: '친구목록',
-    page: <Friend />,
-    id: 1,
-  },
-  {
     label: '빌려준 책 목록',
-    page: <LendList />,
-    id: 2,
+    page: <LendList/>,
+    id: 1,
   },
 ];
 
-const Mypage = (props) => {
+const Mypage = ({userObj}) => {
   const [pageNum, setPageNum] = useState(0);
+
+
 
   const onClick = (e) => {
     const text = e.target.textContent;
@@ -45,6 +44,7 @@ const Mypage = (props) => {
         <div>
           {options.map((option) => {
             if (option.id === pageNum) {
+              option.user = userObj;
               return (
                 <div>
                   <h1 className={styles.pagename}>{option.label}</h1>
