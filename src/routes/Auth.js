@@ -1,14 +1,10 @@
-import React, { useState, useContext } from 'react';
-import { authService } from '../firebase';
-import {
-  GoogleAuthProvider,
-  signInWithPopup,
-} from 'firebase/auth';
-import { async } from '@firebase/util';
+import React, { useState, useContext } from "react";
+import { authService } from "../firebase";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { async } from "@firebase/util";
 
-import AuthForm from './AuthForm';
-import styles from './css/Auth.module.css';
-
+import AuthForm from "./AuthForm";
+import styles from "./css/Auth.module.css";
 
 const Auth = () => {
   const onSocialClick = async (event) => {
@@ -18,7 +14,7 @@ const Auth = () => {
     let provider;
     try {
       let result;
-      if (name === 'google') {
+      if (name === "google") {
         provider = new GoogleAuthProvider();
         result = await signInWithPopup(authService, provider);
         const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -26,20 +22,18 @@ const Auth = () => {
     } catch (error) {}
   };
 
-
   //처음 보이는 창 : 로그인 ->  회원가입 버튼 누르면 변경
   return (
     <div className={styles.container}>
       <AuthForm />
 
-        <button
-          onClick={onSocialClick}
-          name="google"
-          className={`${styles.btn} ${styles.Google}`}
-        >
-          Continue with Google 
-        </button>
-
+      <button
+        onClick={onSocialClick}
+        name="google"
+        className={`${styles.btn} ${styles.Google}`}
+      >
+        Continue with Google
+      </button>
     </div>
   );
 };
