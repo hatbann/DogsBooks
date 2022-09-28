@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 
 import Top from '../components/Top';
+import Top2 from "../components/Top2";
 import BookList from '../components/BookList';
 import BookReports from '../components/BookReports';
 import styles from './css/Library.module.css';
@@ -38,6 +39,7 @@ const Library = (props) => {
 
   return (
     <div className={styles.container}>
+      <Top2/>
       <Top location={"서재"} />
       <div className={styles.content}>
         {" "}

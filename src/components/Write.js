@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation,useNavigate} from 'react-router-dom';
+import styles from './css/Write.module.css';
+
 
 const Write = () => {
     const {state} = useLocation();
@@ -27,16 +29,32 @@ const Write = () => {
       }
 
     return (
-        <div>
+        <div className={styles.wrapper}>
+          <section>
+                <div className={styles.sectionTop}>
+                    <img src={state.cover} className={styles.coverImg}/>
+                    <h2>{state.title}</h2>
+                    <span>저자 {state.author}</span>
+                </div>
+                <div className={styles.sectionBottom}>
+                    <div>
+                        {state.description}
+                    </div>
+                </div>
+            </section>
+
            <form id='writeForm' onSubmit={onSubmit}>
-               <div>
+               <div className={styles.title}>
                     <label for='title'>책 제목</label>
                     <input type='text' placeholder={state? `${state.title}` : '제목'} value={state? `${state.title}` : `${title}`} onChange={onChange} name='title' id='title'></input>
                </div>
-               <div>
+
+               <div className={styles.title}>
                     <label for='date'>날짜</label>
                     <input type='date' name='date' id='date'></input>
                </div>
+
+               <div className={styles.title}>
                <label for='star'>별점</label>
                <select name='star'>
                     <option value="">선택하세요</option>
@@ -46,9 +64,15 @@ const Write = () => {
                     <option value="4">4</option>
                     <option value="5">5</option>
                </select>
+               </div>
+
+               <div className={styles.title}>
                <label for='context'>독후감</label>
-           <textarea name='context' form='writeForm'></textarea>
-           <input type='submit' value='제출'></input>
+           <textarea name='context' form='writeForm'></textarea></div>
+
+
+           <input className={styles.Btn} type='submit' value='제출'></input>
+
            </form>
         </div>
     );

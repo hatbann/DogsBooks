@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAuth, onAuthStateChanged, updateCurrentUser } from 'firebase/auth';
 
 import Top from '../components/Top';
+import Top2 from '../components/Top2';
 import styles from './css/Mypage.module.css';
 import Switch from '../components/Switch';
 import Profile from '../components/Profile';
@@ -37,6 +38,7 @@ const Mypage = ({userObj}) => {
 
   return (
     <div>
+      <Top2/>
       <Top location={'설정'} />
       <div className={styles.contents}>
         {' '}

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Top from "../components/Top";
+import Top2 from "../components/Top2";
 import CustomSlider, { TodaysSlider } from "../components/Slider";
 import styles from "./css/Home.module.css";
 
@@ -10,25 +11,30 @@ const recommands = [
   {
     uri: "http://www.readersnews.com/news/photo/201707/73990_32707_616.jpg",
     id: 0,
+    title: "범인없는 살인의 밤",
   },
   {
     uri:
       "https://img.daily.co.kr/@files/www.daily.co.kr/content_watermark/life/2017/20170504/859b9ec69dcef60de3606fd9eab7e29e.jpg",
     id: 1,
+    title: "가면산장 살인사건",
   },
   {
     uri:
       "http://ojsfile.ohmynews.com/STD_IMG_FILE/2020/0418/IE002632888_STD.jpg",
     id: 2,
+    title: "산매리 저수지",
   },
   {
     uri:
       "http://image.kyobobook.co.kr/images/book/xlarge/844/x9791158930844.jpg",
     id: 3,
+    title: "도플갱어의 섬",
   },
   {
     uri: "https://newsimg.sedaily.com/2019/10/30/1VPQ0XY4RJ_1.jpg",
     id: 4,
+    title: "동급생",
   },
 ];
 
@@ -101,6 +107,7 @@ const Home = ({ userObj }) => {
 
   return (
     <div className={styles.container}>
+    <Top2/>
       <Top location={"home"} />
       <div className={styles.bookSearchForm}>
         <form>
@@ -122,11 +129,12 @@ const Home = ({ userObj }) => {
           className={styles.profile_comment}
         >{`프로추리러, ${userObj.displayName}님의 세계`}</div>
         <img
-          src={require("../assets/img1.png")}
+
+          src={require("../assets/titledog.png")}
           className={styles.profile_img}
         ></img>
         <Link to="/mypage" className={styles.plant}>
-          <span>myplant</span>
+          <span>내가 모은 강아지들 보기</span>
         </Link>
       </div>
       <div className={styles.recommands}>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Top from '../components/Top';
+import Top2 from '../components/Top2';
 import styles from './css/BookNeighbor.module.css';
 import Borrow from '../components/Borrow';
 import Lend from '../components/Lend';
@@ -32,6 +33,7 @@ const BookNeighbor = (props) => {
 
   return (
     <div className={styles.container}>
+      <Top2/>
       <Top location={'책이웃'} />
       <div className={styles.top}>
         {' '}
