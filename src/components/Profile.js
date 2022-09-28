@@ -1,24 +1,43 @@
-import React from 'react';
-import userImg from '../assets/img1.png';
-import styles from '../routes/css/Mypage.module.css';
-import ProgressBar from '@ramonak/react-progress-bar';
+import React, { useState, useEffect } from "react";
+import {
+  getAuth,
+  onAuthStateChanged,
+  updateCurrentUser,
+  signOut,
+} from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+
+import userImg from "../assets/img1.png";
+import styles from "../routes/css/Mypage.module.css";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 const user = {
   img: userImg,
-  name: ' 조선영',
+  name: " 조선영",
   level: 13,
   percentage: 70,
 };
 
-const Profile = (props) => {
+const Profile = () => {
+  const auth = getAuth();
+  const userObj = auth.currentUser;
+
+  const navigate = useNavigate();
+
+  const onLogOutClick = () => {
+    const auth = getAuth();
+    signOut(auth);
+    navigate("/");
+  };
+
   return (
     <div className={styles.profile_container}>
       <div className={styles.profile}>
         <img src={user.img} className={styles.profileImg} />
         <div className={styles.profile_detail}>
-          <div style={{ marginBottom: '7px' }}>
-            {' '}
-            <span className={styles.name}>{user.name}</span>
+          <div style={{ marginBottom: "7px" }}>
+            {" "}
+            <span className={styles.name}>{userObj.displayName}</span>
             <span className={styles.level}>{user.level} Lv</span>
           </div>
           <div>
@@ -46,10 +65,13 @@ const Profile = (props) => {
           <img src="https://cdn-icons-png.flaticon.com/512/684/684809.png" />
           동네 설정
         </div>
-        <div className={styles.setting}>
+        <button
+          className={`${styles.setting} ${styles.logout}`}
+          onClick={onLogOutClick}
+        >
           <img src="https://cdn-icons-png.flaticon.com/512/159/159707.png" />
           로그아웃
-        </div>
+        </button>
       </div>
     </div>
   );

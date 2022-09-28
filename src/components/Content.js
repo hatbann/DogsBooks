@@ -5,6 +5,7 @@ const Content = ({ contentObj }) => {
   return (
     <div className={styles.container}>
       <img src={contentObj.uri} className={styles.img} />
+      <span className={styles.title}>{contentObj.title}</span>
     </div>
   );
 };

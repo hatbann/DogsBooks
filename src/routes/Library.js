@@ -1,28 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+
 
 import Top from '../components/Top';
+import Top2 from "../components/Top2";
 import BookList from '../components/BookList';
 import BookReports from '../components/BookReports';
-import Calendar from '../components/Calendar';
 import styles from './css/Library.module.css';
 
-import Switch from '../components/Switch';
+
+import Switch from "../components/Switch";
 
 const options = [
   {
-    label: '책목록',
+    label: "책목록",
     page: <BookList />,
     id: 0,
   },
   {
-    label: '독서록',
+    label: "독서록",
     page: <BookReports />,
     id: 1,
-  },
-  {
-    label: '달력',
-    page: <Calendar />,
-    id: 2,
   },
 ];
 
@@ -42,9 +39,10 @@ const Library = (props) => {
 
   return (
     <div className={styles.container}>
-      <Top location={'서재'} />
+      <Top2/>
+      <Top location={"서재"} />
       <div className={styles.content}>
-        {' '}
+        {" "}
         <Switch onClick={onClick} options={options} />
         <div>
           {options.map((option) => {

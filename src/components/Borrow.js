@@ -77,6 +77,8 @@ const contents = [
 ];
 
 const Borrow = (props) => {
+  let info = props;
+  console.log(props);
   return (
     <div>
       <div className={styles.contents_Container}>
