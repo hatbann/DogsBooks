@@ -13,6 +13,7 @@ import Mypage from '../routes/Mypage';
 import Search from '../routes/Search';
 import BookInfo from '../components/BookInfo';
 import Write from '../components/Write';
+import SelectGenre from './SelectGenre';
 
 
 
@@ -44,13 +45,19 @@ const AppRouter = ({isLoggedIn, userObj, refreshUser }) => {
                   <Route path='/bookneighbor/borrow' element={<Borrow userObj = {userObj}/>} />
                   <Route path='/search/bookinfo' element={<BookInfo />} />
                   <Route path='/write' element={<Write />} />
+                  <Route path="/selectGenre" element={<SelectGenre/>} />
                 </Routes>
                 <BottomTab />
               </BrowserRouter>
             </div>
           ) : (
             <>
+              <BrowserRouter>
               <Auth />
+                <Routes>
+                <Route path="/selectGenre" element={<SelectGenre/>} />
+                </Routes>
+              </BrowserRouter>
             </>
             )
         }</>

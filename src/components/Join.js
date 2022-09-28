@@ -4,6 +4,7 @@ import {
   getAuth,
   updateProfile,
 } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "../routes/css/Auth.module.css";
 
 const Join = ({ toggleToSignIn }) => {
@@ -12,6 +13,8 @@ const Join = ({ toggleToSignIn }) => {
   const [userName, setUserName] = useState("");
   const [userNickname, setUserNickname] = useState("");
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
   const onChange = (event) => {
     const {
       target: { name, value },
@@ -26,6 +29,7 @@ const Join = ({ toggleToSignIn }) => {
       setUserNickname(value);
     }
   };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -36,6 +40,7 @@ const Join = ({ toggleToSignIn }) => {
       updateProfile(auth.currentUser, {
         displayName: userNickname,
       });
+      navigate("/selectGenre");
     } catch (e) {
       if (e.message === "Firebase: Error (auth/email-already-in-use).") {
         setError("이미 계정이 존재합니다");
@@ -85,9 +90,9 @@ const Join = ({ toggleToSignIn }) => {
             />
           </div>
           <div>
-            <input
+              <input
               type="submit"
-              value={"회원가입"}
+              value={"장르 선택하기"}
               className={styles.submit}
               onClick={onSubmit}
             ></input>
