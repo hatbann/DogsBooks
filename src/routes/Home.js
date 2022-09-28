@@ -129,6 +129,7 @@ const Home = ({ userObj }) => {
           className={styles.profile_comment}
         >{`프로추리러, ${userObj.displayName}님의 세계`}</div>
         <img
+
           src={require("../assets/titledog.png")}
           className={styles.profile_img}
         ></img>

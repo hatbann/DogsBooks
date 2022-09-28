@@ -6,6 +6,7 @@
     justify-content: center;
 }
 
+
 .section{
     display: flex;
     flex-direction: column;
@@ -52,12 +53,12 @@
 
 .writeBtn{
     background-color: black;
+
     border: none;
     color: white;
     padding: 10px 80px;
     margin-top: 30px;
     cursor: pointer;
-
   
     border-radius:5px;
     box-shadow: 0px 0px 1px 1px rgb(0,0,0);    font-family: "GmarketSansMedium";
@@ -68,3 +69,4 @@
     color:black;
     background-color: skyblue;
   }
+

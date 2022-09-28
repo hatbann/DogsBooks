@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation,useNavigate} from 'react-router-dom';
 import styles from './css/Write.module.css';
 
+
 const Write = () => {
     const {state} = useLocation();
     const [title, setTitle] = useState('');
@@ -71,6 +72,7 @@ const Write = () => {
 
 
            <input className={styles.Btn} type='submit' value='제출'></input>
+
            </form>
         </div>
     );
