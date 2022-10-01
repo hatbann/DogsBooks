@@ -1,4 +1,4 @@
-.container{
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,37 +6,54 @@
   height: 100vh;
 }
 
-.inputForm{
+.inputForm {
   display: flex;
   align-items: center;
 }
 
-.inputs{
+.inputs {
   display: flex;
   flex-direction: column;
   margin-right: 10px;
 }
 
-.input{
+.input {
   width: 170px;
   height: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border: none;
   border-bottom: 1px solid gray;
 }
-.btn{
+
+.wrapper h1 {
+  margin-bottom: 20px;
+  font-size: 25px;
+  font-family: 'GmarketSansMedium';
+  margin-left: -10px;
+  font-weight: 600;
+}
+
+.btn {
   height: 30px;
   background-color: transparent;
   border: 1px solid gray;
   border-radius: 4px;
+  width: 100%;
 }
 
-.join{
+.login_btn {
+  margin-left: 10px;
+}
+.genre_btn {
+  margin: 10px 0;
+}
+
+.join {
   border: none;
   font-size: 12px;
 }
 
-.Google{
+.Google {
   margin-top: 10px;
   border: none;
 }
