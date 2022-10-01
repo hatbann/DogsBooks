@@ -17,6 +17,7 @@ const SelectGenre = () => {
     //완료 버튼 클릭시 우선 localStorage에 저장하게 했다
     //완료하면 main 화면으로 넘어간다.
     //이제 Submit부분에서 localStorage. ~~~이 부분을 삭제하고 firebase로 넘기는 부분 수행하면 된다.
+
     const onSubmit= (event)=>{
         event.preventDefault();
         localStorage.setItem('selected', JSON.stringify(selected));
