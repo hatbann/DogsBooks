@@ -24,7 +24,7 @@ const AuthForm = (props) => {
       setPassword(value);
     }
   };
-  const onSubmit = async (event) => {
+  /*const onSubmit = async (event) => {
     event.preventDefault();
     try {
       let data;
@@ -45,6 +45,7 @@ const AuthForm = (props) => {
       }
     }
   };
+  */
 
   const toggleAccount = () => {
     setNewAccount((prev) => !prev);

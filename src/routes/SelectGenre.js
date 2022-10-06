@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
-
+import { Link, useNavigate ,useLocation} from "react-router-dom";
+import {
+    getAuth,
+  } from 'firebase/auth';
+  import { dbService } from '../fbase';
+  import {doc, setDoc} from "firebase/firestore";
 
 const $ = (type) => {
     return document.querySelector(type);
@@ -9,9 +13,11 @@ const $ = (type) => {
 const SelectGenre = () => {
     const navigate = useNavigate();
     const [selected, setSelected] = useState([]);
-
+    const auth = getAuth();
     //console에 제대로 체크 됐는지 확인하려고 사용한것
     useEffect(()=>{
+        const userRef = doc(dbService, "UserInfo", `${auth.currentUser.uid}`);
+        setDoc(userRef, {genre1: 0,genre2:0 ,genre3:0,genre4:0});
         console.log(selected);
     },[selected]);
 

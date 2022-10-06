@@ -5,6 +5,8 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { dbService } from '../fbase';
+import {doc, setDoc} from "firebase/firestore";
 import styles from '../routes/css/Auth.module.css';
 
 const Join = ({ toggleToSignIn }) => {
@@ -40,7 +42,8 @@ const Join = ({ toggleToSignIn }) => {
       updateProfile(auth.currentUser, {
         displayName: userNickname,
       });
-      navigate('/selectGenre');
+
+      navigate('/selectGenre', );
     } catch (e) {
       if (e.message === 'Firebase: Error (auth/email-already-in-use).') {
         setError('이미 계정이 존재합니다');

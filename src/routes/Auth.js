@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { authService } from "../firebase";
+import  authService  from "../fbase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { async } from "@firebase/util";
 

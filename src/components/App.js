@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, createContext } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import { getAuth, onAuthStateChanged, updateCurrentUser } from 'firebase/auth';
-import { authService } from '../firebase';
+import  authService  from '../fbase';
 
 import AppRouter from '../routes/AppRouter';
 
