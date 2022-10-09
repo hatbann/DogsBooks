@@ -1,18 +1,19 @@
-import React, { useState, useRef, useEffect, createContext } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import React, { useState, useRef, useEffect, createContext } from 'react';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
-import BottomTab from "../components/BottomTab";
+import BottomTab from '../components/BottomTab';
 
-import Auth from "../routes/Auth";
-import Home from "../routes/Home";
-import Library from "../routes/Library";
-import BookNeighbor from "../routes/BookNeighbor";
-import Borrow from "../components/Borrow";
-import Mypage from "../routes/Mypage";
-import Search from "../routes/Search";
-import BookInfo from "../components/BookInfo";
-import Write from "../components/Write";
-import SelectGenre from "./SelectGenre";
+import Auth from '../routes/Auth';
+import Home from '../routes/Home';
+import Library from '../routes/Library';
+import BookNeighbor from '../routes/BookNeighbor';
+import Borrow from '../components/Borrow';
+import Mypage from '../routes/Mypage';
+import Search from '../routes/Search';
+import BookInfo from '../components/BookInfo';
+import Write from '../components/Write';
+import SelectGenre from './SelectGenre';
+import BookReports from '../components/BookReports';
 
 const AppRouter = ({ isLoggedIn, userObj, refreshUser }) => {
   return (
@@ -34,6 +35,11 @@ const AppRouter = ({ isLoggedIn, userObj, refreshUser }) => {
               <Route
                 path="/library/*"
                 element={<Library userObj={userObj} />}
+              />
+              <Route
+                path="/libary/reports"
+                element={<BookReports userObj={userObj} />}
+                userObj={userObj}
               />
               <Route
                 path="/bookneighbor"
