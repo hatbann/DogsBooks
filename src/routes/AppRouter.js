@@ -1,5 +1,11 @@
 import React, { useState, useRef, useEffect, createContext } from 'react';
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  useLocation,
+  HashRouter,
+} from 'react-router-dom';
 
 import BottomTab from '../components/BottomTab';
 
@@ -20,7 +26,7 @@ const AppRouter = ({ isLoggedIn, userObj, refreshUser }) => {
     <>
       {isLoggedIn ? (
         <div>
-          <BrowserRouter>
+          <HashRouter>
             <Routes>
               <Route
                 exact={true}
@@ -60,16 +66,16 @@ const AppRouter = ({ isLoggedIn, userObj, refreshUser }) => {
               <Route path="/selectGenre" element={<SelectGenre />} />
             </Routes>
             <BottomTab />
-          </BrowserRouter>
+          </HashRouter>
         </div>
       ) : (
         <>
-          <BrowserRouter>
+          <HashRouter>
             <Auth />
             <Routes>
               <Route path="/selectGenre" element={<SelectGenre />} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </>
       )}
     </>
