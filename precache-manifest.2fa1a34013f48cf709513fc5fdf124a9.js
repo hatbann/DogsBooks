@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "d1a6f78d3132d59c70ca",
-    "url": "/dogsbooks/static/css/main.a6c63a60.chunk.css"
+    "revision": "584cab6be4e4f392dabb",
+    "url": "/dogsbooks/static/css/main.e5af37df.chunk.css"
   },
   {
-    "revision": "d1a6f78d3132d59c70ca",
-    "url": "/dogsbooks/static/js/main.d1a6f78d.chunk.js"
+    "revision": "584cab6be4e4f392dabb",
+    "url": "/dogsbooks/static/js/main.584cab6b.chunk.js"
   },
   {
-    "revision": "1eba3af3cb5e793df15f",
+    "revision": "d521af7afeee920af5c8",
     "url": "/dogsbooks/static/css/1.171a992a.chunk.css"
   },
   {
-    "revision": "1eba3af3cb5e793df15f",
-    "url": "/dogsbooks/static/js/1.1eba3af3.chunk.js"
+    "revision": "d521af7afeee920af5c8",
+    "url": "/dogsbooks/static/js/1.d521af7a.chunk.js"
   },
   {
     "revision": "1d20c264f95f7232e559",
@@ -24,20 +24,20 @@ self.__precacheManifest = [
     "url": "/dogsbooks/static/media/img1.2ba70a60.png"
   },
   {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/dogsbooks/static/media/slick.b7c9e1e4.woff"
-  },
-  {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/dogsbooks/static/media/slick.d41f55a7.ttf"
-  },
-  {
     "revision": "ced611daf7709cc778da928fec876475",
     "url": "/dogsbooks/static/media/slick.ced611da.eot"
   },
   {
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/dogsbooks/static/media/slick.b7c9e1e4.woff"
+  },
+  {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "/dogsbooks/static/media/slick.f97e3bbf.svg"
+  },
+  {
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/dogsbooks/static/media/slick.d41f55a7.ttf"
   },
   {
     "revision": "68e1a2e51150093acb8588cb0f6b7dce",
@@ -52,15 +52,15 @@ self.__precacheManifest = [
     "url": "/dogsbooks/static/media/profile12.83fd6250.png"
   },
   {
-    "revision": "66b8161edb118d19e739568075b52450",
-    "url": "/dogsbooks/static/media/Happiness-Sans-Regular.66b8161e.ttf"
-  },
-  {
     "revision": "008a869bc9c3d32ebcb481dc3388166e",
     "url": "/dogsbooks/static/media/Happiness-Sans-Title.008a869b.ttf"
   },
   {
-    "revision": "fbbf26c8bdeb5e1131bf913653bd806c",
+    "revision": "66b8161edb118d19e739568075b52450",
+    "url": "/dogsbooks/static/media/Happiness-Sans-Regular.66b8161e.ttf"
+  },
+  {
+    "revision": "6786a6cc331c6e2ffa109199a8333168",
     "url": "/dogsbooks/index.html"
   }
 ];
