@@ -8,7 +8,7 @@
   "runtime~main.js": "/dogsbooks/static/js/runtime~main.1d20c264.js",
   "runtime~main.js.map": "/dogsbooks/static/js/runtime~main.1d20c264.js.map",
   "static/media/img1.png": "/dogsbooks/static/media/img1.2ba70a60.png",
-  "static/media/slick-theme.css": "/dogsbooks/static/media/slick.f97e3bbf.svg",
+  "static/media/slick-theme.css": "/dogsbooks/static/media/slick.d41f55a7.ttf",
   "static/media/titledog.png": "/dogsbooks/static/media/titledog.68e1a2e5.png",
   "static/media/profile11.jpg": "/dogsbooks/static/media/profile11.c690ccaf.jpg",
   "static/media/profile12.png": "/dogsbooks/static/media/profile12.83fd6250.png",
@@ -16,6 +16,6 @@
   "static/css/main.a6c63a60.chunk.css.map": "/dogsbooks/static/css/main.a6c63a60.chunk.css.map",
   "static/css/1.171a992a.chunk.css.map": "/dogsbooks/static/css/1.171a992a.chunk.css.map",
   "index.html": "/dogsbooks/index.html",
-  "precache-manifest.0ec15cab58c7588e0f38384715fe39d8.js": "/dogsbooks/precache-manifest.0ec15cab58c7588e0f38384715fe39d8.js",
+  "precache-manifest.26e96e0718c5ff3549ec2c5015e44a0d.js": "/dogsbooks/precache-manifest.26e96e0718c5ff3549ec2c5015e44a0d.js",
   "service-worker.js": "/dogsbooks/service-worker.js"
 }
