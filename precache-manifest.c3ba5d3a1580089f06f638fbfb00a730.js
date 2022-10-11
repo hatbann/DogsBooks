@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "2972b360554944499410",
+    "revision": "d1a6f78d3132d59c70ca",
     "url": "/dogsbooks/static/css/main.a6c63a60.chunk.css"
   },
   {
-    "revision": "2972b360554944499410",
-    "url": "/dogsbooks/static/js/main.2972b360.chunk.js"
+    "revision": "d1a6f78d3132d59c70ca",
+    "url": "/dogsbooks/static/js/main.d1a6f78d.chunk.js"
   },
   {
     "revision": "1eba3af3cb5e793df15f",
@@ -24,10 +24,6 @@ self.__precacheManifest = [
     "url": "/dogsbooks/static/media/img1.2ba70a60.png"
   },
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/dogsbooks/static/media/slick.ced611da.eot"
-  },
-  {
     "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
     "url": "/dogsbooks/static/media/slick.b7c9e1e4.woff"
   },
@@ -38,6 +34,10 @@ self.__precacheManifest = [
   {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
     "url": "/dogsbooks/static/media/slick.d41f55a7.ttf"
+  },
+  {
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/dogsbooks/static/media/slick.ced611da.eot"
   },
   {
     "revision": "68e1a2e51150093acb8588cb0f6b7dce",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/dogsbooks/static/media/Happiness-Sans-Regular.66b8161e.ttf"
   },
   {
-    "revision": "0d63dd756867aec70305d2aceb8ca5ed",
+    "revision": "dd72d331248bcc47fcd7910fad6bdb9d",
     "url": "/dogsbooks/index.html"
   }
 ];
