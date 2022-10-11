@@ -10,6 +10,9 @@ import {
   orderBy,
 } from 'firebase/firestore';
 import styles from './css/Write.module.css';
+import like from '../assets/like.png';
+import dislike from '../assets/dislike.png';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 const Write = ({ userObj }) => {
   const { state } = useLocation();
@@ -18,6 +21,7 @@ const Write = ({ userObj }) => {
   const today = `${dateObj.getFullYear()}/${dateObj.getMonth()}/${dateObj.getDate()}`;
   const [review, setReview] = useState(''); //review하는 거, form
   const [reviews, setReviews] = useState([]); //review들을 가져오는 것
+  const [recommend, setRecommend] = useState(true);
   console.log(state);
   const navigate = useNavigate();
 
@@ -43,6 +47,8 @@ const Write = ({ userObj }) => {
     const date = e.target[1].value;
     const star = e.target[2].value;
     const review = e.target[3].value;
+    const bookimg = state.cover;
+    const author = state.author;
     //reviews에 생성된 doc들 제목이 너무 중구난방인데 userObj.uid로 설정하는 게 나을까?
     const docRef = addDoc(collection(dbService, 'reviews'), {
       text: review, //독서록 내용
@@ -50,9 +56,10 @@ const Write = ({ userObj }) => {
       creatorId: userObj.uid, //독서록 작성한 유저의 아이디
       title: title, //책 제목
       star: star, //책에 준 별점
+      bookimg: bookimg, // 책 이미지
+      author: author, //저자
       CID: state.categoryId, //책의 카테고리 아이디
     });
-    console.log(title, date, star, review);
     setReview('제출함(임시)'); //디비에 제출 됐는지 확인하려고 설정해둠. 문제 없으면 ""로 바꿀 예정
     navigate('/library/*');
   };
@@ -68,6 +75,25 @@ const Write = ({ userObj }) => {
       setReview(value); //리뷰 작성
     }
   };
+
+  /*
+  const onSetRecommend = (e) => {
+    const recommend = document.querySelector('.recommend');
+    const unrecommend = document.querySelector('.unrecommned');
+    if (e.target.name === 'recommend') {
+      setRecommend(true);
+      if (!recommend.classList.contains('setRecommend')) {
+        recommend.classList.add('setRecommend');
+      }
+      unrecommend.classList.remove('setUnRecommned');
+    }
+    if (e.target.name === 'unrecommned') {
+      setRecommend(false);
+      recommend.classList.remove('setRecommend');
+      unrecommend.classList.add('setUnRecommned');
+    }
+  };
+  */
 
   return (
     <div className={styles.wrapper}>
@@ -123,4 +149,18 @@ const Write = ({ userObj }) => {
   );
 };
 
+/*      <div className={styles.recommendSection}>
+<label>Recommend</label>
+<img
+  src={like}
+  className={`${styles.recommend} ${styles.Btn2} ${styles.setRecommend}`}
+  name="recommend"
+/>
+<img
+  src={dislike}
+  className={`${styles.unrecommend} ${styles.Btn2}`}
+  name="unrecommend"
+/>
+</div>
+*/
 export default Write;

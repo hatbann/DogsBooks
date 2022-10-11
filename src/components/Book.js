@@ -5,6 +5,8 @@ import styles from '../routes/css/Library.module.css';
 
 const Book = ({ bookInfo }) => {
   const navigate = useNavigate();
+  const time = String(bookInfo.createdAt).split(' ');
+  const timestr = `${time[3]}/${time[1]}/${time[2]}/${time[0]}`;
 
   const onClick = () => {
     navigate('/libary/reports', { state: bookInfo });
@@ -13,7 +15,7 @@ const Book = ({ bookInfo }) => {
   return (
     <div>
       <li className={styles.bookContainer} onClick={onClick}>
-        <img className={styles.bookImg} src={bookInfo.uri} />
+        <img className={styles.bookImg} src={bookInfo.bookimg} />
         <div className={styles.detail}>
           {' '}
           <div style={{ marginBottom: '8px' }}>
@@ -22,7 +24,8 @@ const Book = ({ bookInfo }) => {
             <span className={styles.author}>{bookInfo.author}</span>
           </div>
           <div className={styles.detailInfo}>
-            {bookInfo.createdAt}/{bookInfo.star}/{bookInfo.recommend}
+            <div> {timestr}</div>
+            <div>별점 : {bookInfo.star}</div>
           </div>
           <div>
             <span className={styles.BookReportTitle}>

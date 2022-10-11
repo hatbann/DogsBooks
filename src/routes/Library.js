@@ -22,7 +22,7 @@ const Library = (props) => {
       );
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
+        console.log(doc.data().createdAt.toDate());
         setBooks((prev) => [
           ...prev,
           {
@@ -31,7 +31,9 @@ const Library = (props) => {
             title: doc.data().title,
             text: doc.data().text,
             star: doc.data().star,
-            createdAt: doc.data().createdAt.seconds,
+            bookimg: doc.data().bookimg,
+            author: doc.data().author,
+            createdAt: doc.data().createdAt.toDate(),
           },
         ]);
       });
