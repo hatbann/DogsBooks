@@ -1,20 +1,21 @@
 {
-  "files": {
-    "main.css": "/dogsbooks/static/css/main.c45ea6c3.css",
-    "main.js": "/dogsbooks/static/js/main.daaee9cc.js",
-    "static/media/profile11.jpg": "/dogsbooks/static/media/profile11.9920e03ac6dba5282f39.jpg",
-    "static/media/img1.png": "/dogsbooks/static/media/img1.58e7e84ff98a4bca4758.png",
-    "static/media/profile12.png": "/dogsbooks/static/media/profile12.ab243d8e88cc87df3476.png",
-    "static/media/slick.svg": "/dogsbooks/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/dogsbooks/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/dogsbooks/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/dogsbooks/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "/dogsbooks/index.html",
-    "main.c45ea6c3.css.map": "/dogsbooks/static/css/main.c45ea6c3.css.map",
-    "main.daaee9cc.js.map": "/dogsbooks/static/js/main.daaee9cc.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.c45ea6c3.css",
-    "static/js/main.daaee9cc.js"
-  ]
+  "main.css": "/dogsbooks/static/css/main.a6c63a60.chunk.css",
+  "main.js": "/dogsbooks/static/js/main.d1a6f78d.chunk.js",
+  "main.js.map": "/dogsbooks/static/js/main.d1a6f78d.chunk.js.map",
+  "static/css/1.171a992a.chunk.css": "/dogsbooks/static/css/1.171a992a.chunk.css",
+  "static/js/1.1eba3af3.chunk.js": "/dogsbooks/static/js/1.1eba3af3.chunk.js",
+  "static/js/1.1eba3af3.chunk.js.map": "/dogsbooks/static/js/1.1eba3af3.chunk.js.map",
+  "runtime~main.js": "/dogsbooks/static/js/runtime~main.1d20c264.js",
+  "runtime~main.js.map": "/dogsbooks/static/js/runtime~main.1d20c264.js.map",
+  "static/media/img1.png": "/dogsbooks/static/media/img1.2ba70a60.png",
+  "static/media/slick-theme.css": "/dogsbooks/static/media/slick.d41f55a7.ttf",
+  "static/media/titledog.png": "/dogsbooks/static/media/titledog.68e1a2e5.png",
+  "static/media/profile11.jpg": "/dogsbooks/static/media/profile11.c690ccaf.jpg",
+  "static/media/profile12.png": "/dogsbooks/static/media/profile12.83fd6250.png",
+  "static/media/App.module.css": "/dogsbooks/static/media/Happiness-Sans-Title.008a869b.ttf",
+  "static/css/main.a6c63a60.chunk.css.map": "/dogsbooks/static/css/main.a6c63a60.chunk.css.map",
+  "static/css/1.171a992a.chunk.css.map": "/dogsbooks/static/css/1.171a992a.chunk.css.map",
+  "index.html": "/dogsbooks/index.html",
+  "precache-manifest.2ea251f9fe7dfe172aefa53f8a00ab47.js": "/dogsbooks/precache-manifest.2ea251f9fe7dfe172aefa53f8a00ab47.js",
+  "service-worker.js": "/dogsbooks/service-worker.js"
 }
