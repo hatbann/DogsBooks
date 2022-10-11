@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "d1a6f78d3132d59c70ca",
+    "revision": "2972b360554944499410",
     "url": "/dogsbooks/static/css/main.a6c63a60.chunk.css"
   },
   {
-    "revision": "d1a6f78d3132d59c70ca",
-    "url": "/dogsbooks/static/js/main.d1a6f78d.chunk.js"
+    "revision": "2972b360554944499410",
+    "url": "/dogsbooks/static/js/main.2972b360.chunk.js"
   },
   {
     "revision": "1eba3af3cb5e793df15f",
@@ -24,20 +24,20 @@ self.__precacheManifest = [
     "url": "/dogsbooks/static/media/img1.2ba70a60.png"
   },
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/dogsbooks/static/media/slick.ced611da.eot"
-  },
-  {
-    "revision": "f97e3bbf73254b0112091d0192f17aec",
-    "url": "/dogsbooks/static/media/slick.f97e3bbf.svg"
-  },
-  {
     "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
     "url": "/dogsbooks/static/media/slick.b7c9e1e4.woff"
   },
   {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
     "url": "/dogsbooks/static/media/slick.d41f55a7.ttf"
+  },
+  {
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/dogsbooks/static/media/slick.ced611da.eot"
+  },
+  {
+    "revision": "f97e3bbf73254b0112091d0192f17aec",
+    "url": "/dogsbooks/static/media/slick.f97e3bbf.svg"
   },
   {
     "revision": "68e1a2e51150093acb8588cb0f6b7dce",
@@ -52,15 +52,15 @@ self.__precacheManifest = [
     "url": "/dogsbooks/static/media/profile12.83fd6250.png"
   },
   {
-    "revision": "66b8161edb118d19e739568075b52450",
-    "url": "/dogsbooks/static/media/Happiness-Sans-Regular.66b8161e.ttf"
-  },
-  {
     "revision": "008a869bc9c3d32ebcb481dc3388166e",
     "url": "/dogsbooks/static/media/Happiness-Sans-Title.008a869b.ttf"
   },
   {
-    "revision": "fbbf26c8bdeb5e1131bf913653bd806c",
+    "revision": "66b8161edb118d19e739568075b52450",
+    "url": "/dogsbooks/static/media/Happiness-Sans-Regular.66b8161e.ttf"
+  },
+  {
+    "revision": "b90a1c6fa241207051cf4ce011745fca",
     "url": "/dogsbooks/index.html"
   }
 ];
