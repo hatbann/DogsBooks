@@ -1,0 +1,53 @@
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: "GmarketSansMedium";
+}
+
+.container h1{
+    margin-top: 80px;
+    font-size: 2.5rem;
+    color: #3781C5;
+}
+
+.container>div{
+    background-color: #3780c5b8;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.container div span{
+    display:inline-block;
+    font-size: 1.4rem;
+    color: white;
+
+}
+
+.input{
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.checkboxlabel{
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+     margin-right: 10px;
+}
+
+input[type="checkbox"]:checked + .checkboxlabel {
+    background-color: #3780c5b8;
+  }
+
+input[type="checkbox"]{
+    display: none;
+}

@@ -99,7 +99,9 @@ const Home = ({ userObj }) => {
       const arr = response.data.item;
       arr.map((info) => data.push(info));
 
-      navigate("/search", { state: data });
+      navigate("/search", { state:  {
+        data,search
+      }});
     } catch (e) {
       console.log(e);
     }

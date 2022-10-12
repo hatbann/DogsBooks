@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { dbService } from "../fbase";
 import { doc, setDoc } from "firebase/firestore";
+import styles from "./css/SelectGenre.module.css";
 
 const $ = (type) => {
   return document.querySelector(type);
@@ -41,43 +42,60 @@ const SelectGenre = () => {
     }
   };
   return (
-    <div>
+    <div className={styles.container}>
       <h1>장르선택</h1>
+      <div>
+          <span> 관심있는 장르를 선택해주세요!
+</span>
+<span>(중복 선택 가능합니다.)</span>
+       
+      </div>
       <form method="post">
-        <div>
+        <div className={styles.input}>
           <input
             type="checkbox"
-            id="checkbox"
+            id="checkbox1"
             value="koreanNovel"
             onClick={onChecked}
           />
+                    <label className={styles.checkboxlabel}
+          for="checkbox1"></label>
           한국소설
         </div>
-        <div>
+        <div className={styles.input}>
           <input
             type="checkbox"
-            id="checkbox"
+            id="checkbox2"
             value="Humanities"
             onClick={onChecked}
+            className={styles.checkbox}
           />
+                  <label className={styles.checkboxlabel}
+          for="checkbox2"></label>
           인문학
         </div>
-        <div>
+        <div className={styles.input}>
           <input
             type="checkbox"
-            id="checkbox"
+            id="checkbox3"
             value="science"
             onClick={onChecked}
+            className={styles.checkbox}
           />
+                  <label className={styles.checkboxlabel}
+          for="checkbox3"></label>
           과학
         </div>
-        <div>
+        <div className={styles.input}>
           <input
             type="checkbox"
-            id="checkbox"
+            id="checkbox4"
             value="economics"
             onClick={onChecked}
+            className={styles.checkbox}
           />
+                  <label className={styles.checkboxlabel}
+          for="checkbox4"></label>
           경제/경영
         </div>
         <input type="submit" value={"완료"} onClick={onSubmit}></input>

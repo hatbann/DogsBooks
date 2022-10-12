@@ -20,6 +20,8 @@ import BookInfo from '../components/BookInfo';
 import Write from '../components/Write';
 import SelectGenre from './SelectGenre';
 import BookReports from '../components/BookReports';
+import WriteLent from 'components/WriteLent';
+
 
 const AppRouter = ({ isLoggedIn, userObj, refreshUser }) => {
   return (
@@ -64,6 +66,7 @@ const AppRouter = ({ isLoggedIn, userObj, refreshUser }) => {
               <Route path="/search/bookinfo" element={<BookInfo />} />
               <Route path="/write" element={<Write userObj={userObj} />} />
               <Route path="/selectGenre" element={<SelectGenre />} />
+              <Route path="/writeLent" element={<WriteLent/>} />
             </Routes>
             <BottomTab />
           </HashRouter>

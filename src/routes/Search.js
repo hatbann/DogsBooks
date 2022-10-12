@@ -5,12 +5,16 @@ import Top from "../components/Top";
 import Top2 from "../components/Top2";
 
 const Search = () => {
-  const {state} = useLocation();
+  const location = useLocation();
   let navigate = useNavigate();
 
+  const data = location.state.data;
+  const searchKeyword = location.state.search;
   const onClick =(bookinfo)=>{
     try {
-      navigate('/search/bookinfo', {state : bookinfo});
+      navigate('/search/bookinfo', {state : {
+        bookinfo, searchKeyword
+      }});
     } catch (error) {
       console.log(error);
     }
@@ -22,7 +26,7 @@ const Search = () => {
       <Top2/>
       <div className={styles.title}>( 검색결과 )</div>
       {
-        state.map((bookinfo) =>{
+        data.map((bookinfo) =>{
           return (
             <div className={styles.bookContent}>
               <div className={styles.bookContentLeft} onClick={(e)=> {onClick(bookinfo)}}>
