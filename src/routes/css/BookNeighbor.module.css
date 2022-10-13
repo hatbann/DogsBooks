@@ -3,49 +3,42 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 40px;
-  font-family: "GmarketSansMedium";
-  
+  font-family: 'GmarketSansMedium';
 }
 
-
-.search{
+.search {
   margin-top: 130px;
   display: flex;
   justify-content: center;
-
 }
 
-.search form input{
+.search form input {
   border: none;
   border-bottom: 1px solid rgb(166, 166, 166);
   margin-right: 10px;
-
 }
 
-.search form input:focus{
+.search form input:focus {
   outline: none;
 }
 
-.search form input:focus::placeholder{
+.search form input:focus::placeholder {
   color: transparent;
 }
-
-
-
 
 #bookSearchBtn {
   width: auto;
   height: auto;
-  background-color:#0a0a23;
+  background-color: #0a0a23;
   color: #fff;
-  border:none;
-  border-radius:5px;
-  box-shadow: 0px 0px 1px 1px rgb(0,0,0);
-  font-family: "GmarketSansMedium";
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px 1px rgb(0, 0, 0);
+  font-family: 'GmarketSansMedium';
 }
 
-#bookSearchBtn:hover{
-  color:black;
+#bookSearchBtn:hover {
+  color: black;
   background-color: skyblue;
 }
 
@@ -92,22 +85,153 @@
   font-size: 10px;
 }
 
+/*책 빌려주기 버튼 CSS*/
 
-.writeBtn{
+.writeBtn {
   position: fixed;
   bottom: 6%;
   z-index: 1000;
 }
 
-.writeBtn button{
+.writeBtn button {
   border: none;
-  background-color: #3781C5;
+  background-color: #3781c5;
   color: white;
   font-size: 1.5rem;
   padding: 10px 20px;
   border-radius: 20px;
+  width: 100%;
+  height: 100%;
 }
 
-.writeBtn button:hover{
+.writeBtn button:hover {
   cursor: pointer;
+}
+
+/*빌려주기 폼 CSS*/
+label {
+  font-size: 1.5rem;
+}
+
+.writeLent_Container {
+  font-family: 'GmarketSansMedium';
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.writeLent_TopContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  line-height: 30px;
+  z-index: 20000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 1px 1px rgb(0, 0, 0);
+  margin-top: 60px;
+}
+
+.writeLent_TopContainer_Content {
+  height: 100%;
+  font-size: 15px;
+  font-family: 'GmarketSansMedium';
+}
+
+.writeLent_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70vw;
+}
+
+.addImg label span {
+  display: inline-block;
+  width: 100px;
+  height: 150px;
+  background-color: #dadada;
+  font-size: 4rem;
+  color: #696969;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attached_img img {
+  max-width: 80vw;
+  max-height: 150px;
+  margin-bottom: 10px;
+}
+
+.attached_img div {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.writeLent_Title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.writeLent_Title input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #696969;
+  padding: 5px;
+  width: 55vw;
+}
+
+.writeLent_Contents {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.writeLent_Contents label {
+  margin-bottom: 10px;
+  margin-left: 1px;
+}
+
+.writeLent_Contents textarea {
+  height: 20vh;
+  padding: 0;
+  outline: none;
+  font-size: 1.4rem;
+  font-family: 'GmarketSansMedium';
+}
+
+.writeLent_Loc {
+  width: 100%;
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.writeLent_Loc label {
+  margin-right: 10px;
+}
+
+.writeLent_SubmitBtn {
+  position: fixed;
+  bottom: 20%;
+  background-color: #3781c5;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  width: 50vw;
+  font-size: 1.5rem;
+  font-family: 'GmarketSansMedium';
+  border-radius: 15px;
 }

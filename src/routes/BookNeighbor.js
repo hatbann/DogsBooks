@@ -4,9 +4,7 @@ import Top2 from '../components/Top2';
 import styles from './css/BookNeighbor.module.css';
 import { useNavigate } from 'react-router-dom';
 
-
-import NeighborContent from 'components/NeighborContent';
-
+import NeighborContent from '../components/NeighborContent';
 
 const contents = [
   {
@@ -81,11 +79,9 @@ const contents = [
   },
 ];
 
-
 const BookNeighbor = (props) => {
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
-
 
   const onChange = (e) => {
     const {
@@ -94,45 +90,43 @@ const BookNeighbor = (props) => {
     setSearch(value);
   };
 
-  const onSearch = async (e) => {
+  const onSearch = async (e) => {};
 
-  };
-
-  const onClickLent = (e)=>{
+  const onClickLent = (e) => {
     try {
       navigate('/writeLent');
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <div className={styles.container}>
-      <Top2/>
+      <Top2 />
       <Top location={'책이웃'} />
       <div className={styles.search}>
         <form>
-        <input type="text" placeholder="빌리고 싶은 책 검색"
-        value={search}
-        onChange={onChange}
-        ></input>
+          <input
+            type="text"
+            placeholder="빌리고 싶은 책 검색"
+            value={search}
+            onChange={onChange}
+          ></input>
           <button type="button" id={styles.bookSearchBtn} onClick={onSearch}>
             검색
           </button>
         </form>
       </div>
       <section>
-      <div className={styles.contents_Container}>
-        {contents.map((content) => {
-          return <NeighborContent key={content.id} content={content} />;
-        })}
+        <div className={styles.contents_Container}>
+          {contents.map((content) => {
+            return <NeighborContent key={content.id} content={content} />;
+          })}
+        </div>
+      </section>
+      <div className={styles.writeBtn}>
+        <button onClick={onClickLent}>책 빌려주기</button>
       </div>
-    </section>
-    <div className={styles.writeBtn}>
-        <button onClick={onClickLent}>
-            책 빌려주기
-        </button>
-    </div>
     </div>
   );
 };
