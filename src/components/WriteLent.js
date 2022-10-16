@@ -1,38 +1,76 @@
-import { async } from '@firebase/util';
-import React, { useState } from 'react';
-import { getDownloadURL, ref, uploadString } from '@firebase/storage';
-import { dbService, storageService } from '../fbase';
-import { useRef } from 'react';
-import styled from 'styled-components';
+import { async } from "@firebase/util";
+import React, { useEffect, useState } from "react";
+import { getDownloadURL, ref, uploadString } from "@firebase/storage";
+import { dbService, storageService } from "../fbase";
+import {
+  collection,
+  addDoc,
+  query,
+  onSnapshot,
+  orderBy,
+} from "firebase/firestore";
+import { useRef } from "react";
 
-import styles from '../routes/css/BookNeighbor.module.css';
-import Top2 from './Top2';
+import styles from "../routes/css/BookNeighbor.module.css";
+import Top2 from "./Top2";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const WriteLent = () => {
-  const [title, setTitle] = useState('');
-  const [contents, setContents] = useState('');
+const WriteLent = ({ userObj }) => {
+  const [title, setTitle] = useState("");
+  const [lentContent, setLentContent] = useState("");
+  const [lentContents, setLentContents] = useState([]);
   const [location, setLocation] = useState(-1); //location 은 string으로 받아서 number로 바꾸기?
-  const [imgfile, setImgfile] = useState('');
+  const [imgfile, setImgfile] = useState("");
   const [state, setState] = useState({ size: 1 });
+  const navigate = useNavigate();
 
-  //제출시 넘어갈 것들 : title, contents, location(number), imgfile
+  useEffect(() => {
+    const q = query(
+      collection(dbService, "lentContents"), //collection 'lentContents'를 사용함
+      orderBy("createdAt", "desc") //내림차순
+    );
+    onSnapshot(q, (snapshot) => {
+      const lentContentArr = snapshot.docs.map((document) => ({
+        id: document.id,
+        ...document.data(),
+      }));
+      setLentContents(lentContentArr);
+    });
+  }, []);
+
+  //제출시 넘어갈 것들 : title, content, location(number), imgfile
   const onSubmit = async (event) => {
     event.preventDefault();
+    //const imgfile = event.file[0].value;
+    const title = event.target[1].value;
+    const lentContent = event.target[2].value;
+    const location = event.target[3].value;
+    const docRef = addDoc(collection(dbService, "lentContents"), {
+      title: title, //빌려주기 글 제목(아마 빌려줄 책 제목 수기작성)
+      content: lentContent, //빌려주기 글 내용: 가이드라인 제시되면 좋겠음
+      location: location, //빌려주기 위치 설정
+      imgfile: imgfile, //이미지 파일
+      creatorId: userObj.uid, //글 작성자 아이디
+      createdAt: Date.now(),
+    });
+    setLentContent(""); //navigate 설정되면 지울 예정
+    navigate("/Mypage"); //LendList로 어케 볼 수 있냐
   };
 
   const onChange = (event) => {
     const {
       target: { name, value },
     } = event;
-    if (name === 'title') {
+    if (name === "title") {
       setTitle(value);
       return;
     }
-    if (name === 'contents') {
-      setContents(value);
+    if (name === "content") {
+      setLentContent(value);
       return;
     }
-    if (name === 'location') {
+    if (name === "location") {
+      setLocation(value);
     }
   };
 
@@ -54,8 +92,9 @@ const WriteLent = () => {
 
   //remove버튼 누르면 미리보기 사라지게
   const onClearImg = (event) => {
-    setImgfile('');
+    setImgfile("");
   };
+
   return (
     <div className={styles.writeLent_Container}>
       <Top2 />
@@ -81,7 +120,7 @@ const WriteLent = () => {
                   type="file"
                   accept="image/*"
                   onChange={onFileChange}
-                  style={{ display: 'none' }}
+                  style={{ display: "none" }}
                 ></input>
               </>
             )}
@@ -106,8 +145,13 @@ const WriteLent = () => {
             ></input>
           </div>
           <div className={styles.writeLent_Contents}>
-            <label htmlFor="contents">내용</label>
-            <textarea id="contents" form="lentForm" name="contents"></textarea>
+            <label htmlFor="content">내용</label>
+            <textarea
+              id="content"
+              form="lentForm"
+              name="content"
+              placeholder="책 대여 방법, 기간 등의 정보를 알려주세요!"
+            ></textarea>
           </div>
           <div className={styles.writeLent_Loc}>
             <label htmlFor="selectLoc">위치</label>
