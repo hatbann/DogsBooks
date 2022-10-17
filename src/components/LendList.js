@@ -1,7 +1,40 @@
-import React from 'react';
-import styles from '../routes/css/Mypage.module.css';
+import React, { useState, useEffect } from "react";
+import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
+import { dbService } from "../fbase";
+import { getAuth } from "firebase/auth";
+
+import styles from "../routes/css/Mypage.module.css";
 
 const LendList = (props) => {
+  const [lentBooks, setLentBooks] = useState([]);
+  const auth = getAuth();
+
+  useEffect(() => {
+    async function fetchData() {
+      const q = query(
+        collection(dbService, "lentContents"),
+        where("creatorId", "==", `${auth.currentUser.uid}`),
+        orderBy("createdAt", "desc")
+      );
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        setLentBooks((prev) => [
+          ...prev,
+          {
+            id: doc.data().createdAt.seconds,
+            creatorId: doc.data().creatorId,
+            title: doc.data().title,
+            content: doc.data().content,
+            img: doc.data().imgfile,
+            location: doc.data().location,
+            createdAt: doc.data().createdAt.toDate(),
+          },
+        ]);
+      });
+    }
+    fetchData();
+  }, []);
+
   return (
     <div className={styles.lendBooks}>
       <img
