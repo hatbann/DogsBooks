@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../routes/css/BookNeighbor.module.css';
+import { useLocation } from 'react-router-dom';
+import styles from '../routes/css/Mypage.module.css';
 
-const LIMIT = 100;
-
-const NeighborContent = ({ content }) => {
-  const [limit, setLimit] = useState(LIMIT);
+const LendBook = () => {
+  const location = useLocation();
+  const title = location.state.lentbook.title;
+  const content = location.state.lentbook.content;
+  const img = location.state.lentbook.img;
+  const regionNum = location.state.lentbook.location;
+  const time = location.state.lentbook.createdAt;
+  console.log(regionNum);
   const [region, setRegion] = useState('');
-  const time = String(Date(content.createdAt)).split(' ');
-  const timestr = `${time[3]}/${time[1]}/${time[2]}/${time[0]}`;
-
-  const summary = content.content.slice(0, LIMIT);
-  const regionNum = content.location;
-
   useEffect(() => {
     switch (Number(regionNum)) {
       case 1:
@@ -92,38 +91,16 @@ const NeighborContent = ({ content }) => {
       default:
         break;
     }
-  });
-
+  }, []);
   return (
-    <div>
-      <div className={styles.content}>
-        <img src={content.userImg} className={styles.userImg} />
-        <div>
-          <div className={styles.content_title}>
-            {content.title}
-            <span
-              style={{
-                marginLeft: '5px',
-                fontSize: '10px',
-                fontWeight: '400',
-                color: '#a8a8a8',
-              }}
-            >
-              {region}
-            </span>
-          </div>
-          <div className={styles.date}>{timestr}</div>
-          {content.content.length < LIMIT ? (
-            <p className={styles.content_detail}>{content.detail}</p>
-          ) : (
-            <>
-              <p className={styles.content_detail}>{summary}...더보기</p>
-            </>
-          )}
-        </div>
-      </div>
+    <div className={styles.LendBookContainer}>
+      <img src="https://t1.daumcdn.net/thumb/R720x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/1Uyx/image/dqojGXuupTck8nXTGHAsPYRjlaM.jpeg"></img>
+
+      <h1>{title}</h1>
+      <span>{region}</span>
+      <p>{content}</p>
     </div>
   );
 };
 
-export default NeighborContent;
+export default LendBook;

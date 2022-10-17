@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Top from '../components/Top';
 import Top2 from '../components/Top2';
 import styles from './css/BookNeighbor.module.css';
 import { useNavigate } from 'react-router-dom';
 
 import NeighborContent from '../components/NeighborContent';
+import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import { dbService } from '../fbase';
 
-const contents = [
+/*const contents = [
   {
     userImg:
       'https://i.pinimg.com/564x/ab/eb/4a/abeb4a02663f383dec81ef2130f8ba42.jpg',
@@ -78,10 +80,37 @@ const contents = [
     id: 6,
   },
 ];
+*/
 
 const BookNeighbor = (props) => {
   const [search, setSearch] = useState('');
+  const [contents, setContents] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    async function fetchData() {
+      const q = query(
+        collection(dbService, 'lentContents'),
+        orderBy('createdAt', 'desc')
+      );
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        setContents((prev) => [
+          ...prev,
+          {
+            id: doc.data().createdAt.seconds,
+            cid: doc.data().creatorId,
+            title: doc.data().title,
+            content: doc.data().content,
+            imgfile: doc.data().imgfile,
+            location: doc.data().location,
+            createdAt: doc.data().createdAt,
+          },
+        ]);
+      });
+    }
+    fetchData();
+  }, []);
 
   const onChange = (e) => {
     const {
