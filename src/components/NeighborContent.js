@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from '../routes/css/BookNeighbor.module.css';
+import { getAuth } from 'firebase/auth';
+
+import Comment from './Comment';
 
 const LIMIT = 100;
 
@@ -8,6 +12,8 @@ const NeighborContent = ({ content }) => {
   const [region, setRegion] = useState('');
   const time = String(Date(content.createdAt)).split(' ');
   const timestr = `${time[3]}/${time[1]}/${time[2]}/${time[0]}`;
+
+  const navigate = useNavigate();
 
   const summary = content.content.slice(0, LIMIT);
   const regionNum = content.location;
@@ -94,10 +100,22 @@ const NeighborContent = ({ content }) => {
     }
   });
 
+  const onClick = (e) => {
+    navigate('/bookneighbor/neighborContent', {
+      state: {
+        region,
+        timestr,
+        content: content.content,
+        title: content.title,
+        img: content.imgfile,
+      },
+    });
+  };
+
   return (
     <div>
-      <div className={styles.content}>
-        <img src={content.userImg} className={styles.userImg} />
+      <div className={styles.content} onClick={onClick}>
+        <img src={content.imgfile} className={styles.userImg} />
         <div>
           <div className={styles.content_title}>
             {content.title}
@@ -125,5 +143,31 @@ const NeighborContent = ({ content }) => {
     </div>
   );
 };
+
+const BookNeighborDetailPage = () => {
+  const location = useLocation();
+  const region = location.state.region;
+  const timestr = location.state.timestr;
+  const content = location.state.content;
+  const title = location.state.title;
+  const img = location.state.img;
+
+  const auth = getAuth();
+  const userobj = auth.currentUser;
+  return (
+    <div className={styles.bookNeighborDetailPage}>
+      <img src={img} />
+      <h1>{title}</h1>
+      <div>
+        <span>{region}</span>
+        <span>{timestr}</span>
+      </div>
+      <p>{content}</p>
+      <Comment user={userobj} />
+    </div>
+  );
+};
+
+export { BookNeighborDetailPage };
 
 export default NeighborContent;

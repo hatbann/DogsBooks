@@ -235,3 +235,39 @@ label {
   font-family: 'GmarketSansMedium';
   border-radius: 15px;
 }
+
+/*책이웃글 세부*/
+.bookNeighborDetailPage {
+  font-family: 'GmarketSansMedium';
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+}
+.bookNeighborDetailPage img {
+  width: 35vw;
+  margin-bottom: 20px;
+}
+.bookNeighborDetailPage h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.bookNeighborDetailPage div {
+  color: #696969;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.bookNeighborDetailPage div span:first-child {
+  margin-right: 10px;
+}
+
+.bookNeighborDetailPage p {
+  font-size: 1.4rem;
+  margin-bottom: 50px;
+  width: 75vw;
+  line-height: 1.7rem;
+}

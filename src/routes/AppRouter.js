@@ -23,6 +23,7 @@ import BookReports from '../components/BookReports';
 import WriteLent from '../components/WriteLent';
 import LendList from '../components/LendList';
 import LendBook from '../components/LendBook';
+import { BookNeighborDetailPage } from '../components/NeighborContent';
 
 const AppRouter = ({ isLoggedIn, userObj, refreshUser }) => {
   return (
@@ -75,6 +76,10 @@ const AppRouter = ({ isLoggedIn, userObj, refreshUser }) => {
                 path="/mypage/lendlist/lendBook"
                 element={<LendBook userObj={userObj} />}
               />
+              <Route
+                path="/bookneighbor/neighborContent"
+                element={<BookNeighborDetailPage userObj={userObj} />}
+              ></Route>
             </Routes>
             <BottomTab />
           </HashRouter>

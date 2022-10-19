@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { getAuth } from "firebase/auth";
-import { dbService } from "../fbase";
-import { doc, setDoc } from "firebase/firestore";
-import styles from "./css/SelectGenre.module.css";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { getAuth } from 'firebase/auth';
+import { dbService } from '../fbase';
+import { doc, setDoc } from 'firebase/firestore';
+import styles from './css/SelectGenre.module.css';
 
 const $ = (type) => {
   return document.querySelector(type);
@@ -15,7 +15,7 @@ const SelectGenre = () => {
   const auth = getAuth();
   //console에 제대로 체크 됐는지 확인하려고 사용한것
   useEffect(() => {
-    const userRef = doc(dbService, "UserInfo", `${auth.currentUser.uid}`);
+    const userRef = doc(dbService, 'UserInfo', `${auth.currentUser.uid}`);
     setDoc(userRef, { genre1: 0, genre2: 0, genre3: 0, genre4: 0 });
     console.log(selected);
   }, [selected]);
@@ -26,8 +26,8 @@ const SelectGenre = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem("selected", JSON.stringify(selected));
-    navigate("/dogsbooks");
+    localStorage.setItem('selected', JSON.stringify(selected));
+    navigate('/dogsbooks');
   };
   //체크 버튼 클릭시 해당 버튼의 값이 selected 배열에 들어가고,
   //체크버튼 비활성화시 배열에서 삭제된다
@@ -45,10 +45,8 @@ const SelectGenre = () => {
     <div className={styles.container}>
       <h1>장르선택</h1>
       <div>
-          <span> 관심있는 장르를 선택해주세요!
-</span>
-<span>(중복 선택 가능합니다.)</span>
-       
+        <span> 관심있는 장르를 선택해주세요!</span>
+        <span>(중복 선택 가능합니다.)</span>
       </div>
       <form method="post">
         <div className={styles.input}>
@@ -58,8 +56,7 @@ const SelectGenre = () => {
             value="koreanNovel"
             onClick={onChecked}
           />
-                    <label className={styles.checkboxlabel}
-          for="checkbox1"></label>
+          <label className={styles.checkboxlabel} for="checkbox1"></label>
           한국소설
         </div>
         <div className={styles.input}>
@@ -70,8 +67,7 @@ const SelectGenre = () => {
             onClick={onChecked}
             className={styles.checkbox}
           />
-                  <label className={styles.checkboxlabel}
-          for="checkbox2"></label>
+          <label className={styles.checkboxlabel} for="checkbox2"></label>
           인문학
         </div>
         <div className={styles.input}>
@@ -82,8 +78,7 @@ const SelectGenre = () => {
             onClick={onChecked}
             className={styles.checkbox}
           />
-                  <label className={styles.checkboxlabel}
-          for="checkbox3"></label>
+          <label className={styles.checkboxlabel} for="checkbox3"></label>
           과학
         </div>
         <div className={styles.input}>
@@ -94,11 +89,12 @@ const SelectGenre = () => {
             onClick={onChecked}
             className={styles.checkbox}
           />
-                  <label className={styles.checkboxlabel}
-          for="checkbox4"></label>
+          <label className={styles.checkboxlabel} for="checkbox4"></label>
           경제/경영
         </div>
-        <input type="submit" value={"완료"} onClick={onSubmit}></input>
+        <div id={styles.formbtn}>
+          <input type="submit" value={'완료'} onClick={onSubmit}></input>
+        </div>
       </form>
     </div>
   );

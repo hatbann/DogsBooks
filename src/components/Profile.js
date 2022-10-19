@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   getAuth,
   onAuthStateChanged,
   updateCurrentUser,
   signOut,
-} from "firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
+} from 'firebase/auth';
+import { Link, useNavigate } from 'react-router-dom';
 
-import userImg from "../assets/img1.png";
-import styles from "../routes/css/Mypage.module.css";
-import ProgressBar from "@ramonak/react-progress-bar";
+import userImg from '../assets/img1.png';
+import styles from '../routes/css/Mypage.module.css';
+import ProgressBar from '@ramonak/react-progress-bar';
 
 const user = {
   img: userImg,
-  name: " 조선영",
+  name: ' 조선영',
   level: 13,
   percentage: 70,
 };
@@ -27,7 +27,7 @@ const Profile = () => {
   const onLogOutClick = () => {
     const auth = getAuth();
     signOut(auth);
-    navigate("/");
+    navigate('/');
   };
 
   return (
@@ -35,8 +35,8 @@ const Profile = () => {
       <div className={styles.profile}>
         <img src={user.img} className={styles.profileImg} />
         <div className={styles.profile_detail}>
-          <div style={{ marginBottom: "7px" }}>
-            {" "}
+          <div style={{ marginBottom: '7px' }}>
+            {' '}
             <span className={styles.name}>{userObj.displayName}</span>
             <span className={styles.level}>{user.level} Lv</span>
           </div>
