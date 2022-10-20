@@ -74,7 +74,7 @@ const AppRouter = ({ isLoggedIn, userObj, refreshUser }) => {
               />
               <Route
                 path="/mypage/lendlist/lendBook"
-                element={<LendBook userObj={userObj} />}
+                element={<BookNeighborDetailPage userObj={userObj} />}
               />
               <Route
                 path="/bookneighbor/neighborContent"

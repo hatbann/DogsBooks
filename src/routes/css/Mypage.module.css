@@ -10,6 +10,7 @@
   font-weight: 500;
   margin: 20px;
   margin-top: 40px;
+  font-family: 'GmarketSansMedium';
 }
 
 .profile {
@@ -112,19 +113,23 @@
 
 .lendBooks {
   width: 78vw;
+  font-family: 'GmarketSansMedium';
 }
 
 .lendBook {
   display: inline-block;
-  background-color: red;
   width: 22vw;
   height: 15vh;
   margin: 2vw;
 }
 
-.lendBook span {
+.lendBook img {
+  width: 22vw;
+}
+
+.lendBook h1 {
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .LendBookContainer {

@@ -54,6 +54,7 @@
 .content {
   margin: 30px;
   margin-bottom: 20px;
+  width: 70vw;
   display: flex;
 }
 
@@ -61,16 +62,15 @@
   margin-top: 40px;
 }
 .userImg {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
+  width: 20vw;
+  height: 15vh;
   margin-right: 20px;
 }
 
 .content_title {
   font-size: 13px;
   font-weight: 500;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
 }
 
 .date {
