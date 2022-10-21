@@ -23,6 +23,7 @@ const Write = ({ userObj }) => {
   const [reviews, setReviews] = useState([]); //review들을 가져오는 것
   const [recommend, setRecommend] = useState(true);
   console.log(state);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,6 +42,11 @@ const Write = ({ userObj }) => {
     });
   }, []);
 
+  //추천 알고리즘을 위해 장르 1depth로 설정해주는 거
+  const categoryName = state.categoryName;
+  const cnSplit = categoryName.split(">");
+  const genre = cnSplit[1];
+
   const onSubmit = (e) => {
     e.preventDefault();
     const title = e.target[0].value;
@@ -49,6 +55,7 @@ const Write = ({ userObj }) => {
     const review = e.target[3].value;
     const bookimg = state.cover;
     const author = state.author;
+
     //reviews에 생성된 doc들 제목이 너무 중구난방인데 userObj.uid로 설정하는 게 나을까?
     const docRef = addDoc(collection(dbService, "reviews"), {
       text: review, //독서록 내용
@@ -59,7 +66,9 @@ const Write = ({ userObj }) => {
       bookimg: bookimg, // 책 이미지
       author: author, //저자
       CID: state.categoryId, //책의 카테고리 아이디
+      genre: genre,
     });
+
     setReview(""); //디비에 제출 됐는지 확인하려고 설정해둠. 문제 없으면 ""로 바꿀 예정
     navigate("/library/*");
   };
