@@ -7,7 +7,7 @@
 }
 
 .container h1 {
-  margin-top: 80px;
+  margin-top: 40px;
   font-size: 2.5rem;
   color: #3781c5;
   margin-bottom: 10px;
@@ -59,6 +59,7 @@ input[type='checkbox'] {
 #formbtn {
   text-align: center;
   margin-top: 40px;
+  margin-bottom: 100px;
 }
 
 #formbtn input {
