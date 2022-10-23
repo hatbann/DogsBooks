@@ -10,6 +10,7 @@ const LendList = ({ userobj }) => {
   const [lentBooks, setLentBooks] = useState([]);
   const navigate = useNavigate();
   const auth = getAuth();
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -18,7 +19,6 @@ const LendList = ({ userobj }) => {
         where('creatorId', '==', `${auth.currentUser.uid}`),
         orderBy('createdAt', 'desc')
       );
-
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         console.log(doc.data());
@@ -32,11 +32,13 @@ const LendList = ({ userobj }) => {
             img: doc.data().imgfile,
             location: doc.data().location,
             createdAt: doc.data().createdAt,
+            cid : doc.id,
           },
         ]);
       });
     }
     fetchData();
+    
   }, []);
 
   const onClick = (lentbook) => {
@@ -129,8 +131,12 @@ const LendList = ({ userobj }) => {
         content: lentbook.content,
         title: lentbook.title,
         img: lentbook.img,
+        uid : lentbook.creatorId,
+        id : lentbook.cid,
+        page : 'profile',
       },
     });
+    console.log(lentbook);
   };
   return (
     <div className={styles.lendBooks}>

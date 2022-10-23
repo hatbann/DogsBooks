@@ -224,7 +224,6 @@ label {
 }
 
 .writeLent_SubmitBtn {
-  position: fixed;
   bottom: 20%;
   background-color: #3781c5;
   border: none;
@@ -234,6 +233,7 @@ label {
   font-size: 1.5rem;
   font-family: 'GmarketSansMedium';
   border-radius: 15px;
+  margin-bottom: 20vh;
 }
 
 /*책이웃글 세부*/
@@ -267,7 +267,41 @@ label {
 
 .bookNeighborDetailPage p {
   font-size: 1.4rem;
-  margin-bottom: 50px;
   width: 75vw;
   line-height: 1.7rem;
+}
+
+.editDeleteBtn{
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+.editDeleteBtn button{
+  border: none;
+  outline: none;
+   background-color: #0a0a23;
+   color: white;
+  padding: 10px 30px;
+  font-family: 'GmarketSansMedium';
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.editDeleteBtn button:first-child{
+  margin-right: 10px;
+}
+
+.lentcheckBtn{
+  border: none;
+  font-family: 'GmarketSansMedium';
+  padding: 5px 10px;
+  margin-left: 10px;
+  color: white;
+}
+
+.possible{
+  background-color: #3781c5;
+}
+.impossible{
+  background-color: tomato;
 }

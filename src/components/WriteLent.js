@@ -49,7 +49,6 @@ const WriteLent = ({ userObj }) => {
     const title = event.target[0].value;
     const lentContent = event.target[1].value;
     const location = event.target[2].value;
-    console.log(imgfile);
     await addDoc(collection(dbService, 'lentContents'), {
       title: title, //빌려주기 글 제목(아마 빌려줄 책 제목 수기작성)
       content: lentContent, //빌려주기 글 내용: 가이드라인 제시되면 좋겠음

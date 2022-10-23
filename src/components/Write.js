@@ -85,24 +85,6 @@ const Write = ({ userObj }) => {
     }
   };
 
-  /*
-  const onSetRecommend = (e) => {
-    const recommend = document.querySelector('.recommend');
-    const unrecommend = document.querySelector('.unrecommned');
-    if (e.target.name === 'recommend') {
-      setRecommend(true);
-      if (!recommend.classList.contains('setRecommend')) {
-        recommend.classList.add('setRecommend');
-      }
-      unrecommend.classList.remove('setUnRecommned');
-    }
-    if (e.target.name === 'unrecommned') {
-      setRecommend(false);
-      recommend.classList.remove('setRecommend');
-      unrecommend.classList.add('setUnRecommned');
-    }
-  };
-  */
 
   return (
     <div className={styles.wrapper}>
