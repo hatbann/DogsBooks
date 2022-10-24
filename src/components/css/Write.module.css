@@ -5,6 +5,7 @@
   padding: 2px;
   margin-top: 60px;
   text-align: center;
+  font-family: 'GmarketSansMedium';
 }
 
 .wrapper {
@@ -13,6 +14,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: 'GmarketSansMedium';
 }
 
 .title {
@@ -74,6 +76,44 @@ a:visited {
   width: 90%;
   text-align: center;
   line-height: 20px;
+}
+
+.writeForm {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.writeForm div {
+  font-family: 'GmarketSansMedium';
+}
+.writeForm div label {
+  margin-bottom: 5px;
+}
+
+.writeForm div input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #696969;
+  padding: 5px;
+  width: 55vw;
+}
+
+.writeForm div textarea {
+  height: 20vh;
+  padding: 0;
+  outline: none;
+  font-size: 1.4rem;
+  width: 100%;
+  font-family: 'GmarketSansMedium';
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .Btn {

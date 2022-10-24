@@ -1,3 +1,8 @@
+button {
+  width: auto;
+  height: auto;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -271,27 +276,27 @@ label {
   line-height: 1.7rem;
 }
 
-.editDeleteBtn{
+.editDeleteBtn {
   margin-bottom: 50px;
   margin-top: 10px;
 }
 
-.editDeleteBtn button{
+.editDeleteBtn button {
   border: none;
   outline: none;
-   background-color: #0a0a23;
-   color: white;
+  background-color: #0a0a23;
+  color: white;
   padding: 10px 30px;
   font-family: 'GmarketSansMedium';
   border-radius: 10px;
   cursor: pointer;
 }
 
-.editDeleteBtn button:first-child{
+.editDeleteBtn button:first-child {
   margin-right: 10px;
 }
 
-.lentcheckBtn{
+.lentcheckBtn {
   border: none;
   font-family: 'GmarketSansMedium';
   padding: 5px 10px;
@@ -299,9 +304,62 @@ label {
   color: white;
 }
 
-.possible{
+.possible {
   background-color: #3781c5;
 }
-.impossible{
+.impossible {
   background-color: tomato;
+}
+
+.editContainer {
+  text-align: center;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editForm * {
+  font-family: 'GmarketSansMedium';
+}
+.editForm form div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.editForm label {
+  margin-right: 10px;
+}
+
+.editForm input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #696969;
+  padding: 5px;
+  width: 55vw;
+}
+
+.editForm textarea {
+  height: 20vh;
+  padding: 0;
+  outline: none;
+  font-size: 1.4rem;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#editBtn button {
+  background-color: #0a0a23;
+  padding: 10px 30px;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+#editBtn button:first-child {
+  margin-right: 10px;
 }
