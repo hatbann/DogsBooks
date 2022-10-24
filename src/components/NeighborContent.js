@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "../routes/css/BookNeighbor.module.css";
@@ -7,6 +8,7 @@ import { dbService } from "../fbase";
 
 import Comment from "./Comment";
 import { async } from "@firebase/util";
+
 
 const LIMIT = 100;
 
@@ -211,6 +213,7 @@ const BookNeighborDetailPage = () => {
     const {
       target: { name, value },
     } = event;
+
     if (name === "title") {
       setTitle(value);
       return;
@@ -347,10 +350,16 @@ const BookNeighborDetailPage = () => {
           )}
           <Comment user={userobj} />
         </>
+
       )}
     </div>
   );
 };
+
+
+
+
+
 
 export { BookNeighborDetailPage };
 
