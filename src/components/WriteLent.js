@@ -1,7 +1,7 @@
-import { async } from '@firebase/util';
-import React, { useEffect, useState } from 'react';
-import { getDownloadURL, ref, uploadString } from '@firebase/storage';
-import { dbService, storageService } from '../fbase';
+import { async } from "@firebase/util";
+import React, { useEffect, useState } from "react";
+import { getDownloadURL, ref, uploadString } from "@firebase/storage";
+import { dbService, storageService } from "../fbase";
 import {
   collection,
   addDoc,
@@ -9,21 +9,21 @@ import {
   onSnapshot,
   orderBy,
   serverTimestamp,
-} from 'firebase/firestore';
-import { useRef } from 'react';
-import { v4 } from 'uuid';
+} from "firebase/firestore";
+import { useRef } from "react";
+import { v4 } from "uuid";
 
-import styles from '../routes/css/BookNeighbor.module.css';
-import Top2 from './Top2';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { getAuth } from 'firebase/auth';
+import styles from "../routes/css/BookNeighbor.module.css";
+import Top2 from "./Top2";
+import { useLocation, useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 
 const WriteLent = ({ userObj }) => {
-  const [title, setTitle] = useState('');
-  const [lentContent, setLentContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [lentContent, setLentContent] = useState("");
   const [lentContents, setLentContents] = useState([]);
   const [location, setLocation] = useState(-1); //location 은 string으로 받아서 number로 바꾸기?
-  const [imgfile, setImgfile] = useState('');
+  const [imgfile, setImgfile] = useState("");
   const [state, setState] = useState({ size: 1 });
   const navigate = useNavigate();
 
@@ -31,8 +31,8 @@ const WriteLent = ({ userObj }) => {
 
   useEffect(() => {
     const q = query(
-      collection(dbService, 'lentContents'), //collection 'lentContents'를 사용함
-      orderBy('createdAt', 'desc') //내림차순
+      collection(dbService, "lentContents"), //collection 'lentContents'를 사용함
+      orderBy("createdAt", "desc") //내림차순
     );
     onSnapshot(q, (snapshot) => {
       const lentContentArr = snapshot.docs.map((document) => ({
@@ -49,7 +49,7 @@ const WriteLent = ({ userObj }) => {
     const title = event.target[0].value;
     const lentContent = event.target[1].value;
     const location = event.target[2].value;
-    await addDoc(collection(dbService, 'lentContents'), {
+    await addDoc(collection(dbService, "lentContents"), {
       title: title, //빌려주기 글 제목(아마 빌려줄 책 제목 수기작성)
       content: lentContent, //빌려주기 글 내용: 가이드라인 제시되면 좋겠음
       location: location, //빌려주기 위치 설정
@@ -57,8 +57,8 @@ const WriteLent = ({ userObj }) => {
       creatorId: userObj.uid, //글 작성자 아이디
       createdAt: serverTimestamp(),
     });
-    setLentContent(''); //navigate 설정되면 지울 예정
-    navigate('/mypage', {
+    setLentContent(""); //navigate 설정되면 지울 예정
+    navigate("/mypage", {
       state: {
         pagenum: 1,
       },
@@ -69,15 +69,15 @@ const WriteLent = ({ userObj }) => {
     const {
       target: { name, value },
     } = event;
-    if (name === 'title') {
+    if (name === "title") {
       setTitle(value);
       return;
     }
-    if (name === 'content') {
+    if (name === "content") {
       setLentContent(value);
       return;
     }
-    if (name === 'location') {
+    if (name === "location") {
       setLocation(value);
     }
   };
@@ -100,7 +100,7 @@ const WriteLent = ({ userObj }) => {
 
   //remove버튼 누르면 미리보기 사라지게
   const onClearImg = (event) => {
-    setImgfile('');
+    setImgfile("");
   };
 
   return (
@@ -128,7 +128,7 @@ const WriteLent = ({ userObj }) => {
                   type="file"
                   accept="image/*"
                   onChange={onFileChange}
-                  style={{ display: 'none' }}
+                  style={{ display: "none" }}
                 ></input>
               </>
             )}

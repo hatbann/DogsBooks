@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import Top from '../components/Top';
-import Top2 from '../components/Top2';
-import styles from './css/BookNeighbor.module.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import Top from "../components/Top";
+import Top2 from "../components/Top2";
+import styles from "./css/BookNeighbor.module.css";
+import { useNavigate } from "react-router-dom";
 
-import NeighborContent from '../components/NeighborContent';
-import { collection, getDocs, orderBy, query } from 'firebase/firestore';
-import { dbService } from '../fbase';
+import NeighborContent from "../components/NeighborContent";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { dbService } from "../fbase";
 
 const BookNeighbor = (props) => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [contents, setContents] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
       const q = query(
-        collection(dbService, 'lentContents'),
-        orderBy('createdAt', 'desc')
+        collection(dbService, "lentContents"),
+        orderBy("createdAt", "desc")
       );
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
@@ -49,7 +49,7 @@ const BookNeighbor = (props) => {
 
   const onClickLent = (e) => {
     try {
-      navigate('/writeLent');
+      navigate("/writeLent");
     } catch (error) {
       console.log(error);
     }
@@ -58,7 +58,7 @@ const BookNeighbor = (props) => {
   return (
     <div className={styles.container}>
       <Top2 />
-      <Top location={'책이웃'} />
+      <Top location={"책이웃"} />
       <div className={styles.search}>
         <form>
           <input
