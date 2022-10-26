@@ -94,7 +94,8 @@ button {
 
 .writeBtn {
   position: fixed;
-  bottom: 6%;
+  bottom: 8vh;
+  left: 33vw;
   z-index: 1000;
 }
 
@@ -274,6 +275,7 @@ label {
   font-size: 1.4rem;
   width: 75vw;
   line-height: 1.7rem;
+  margin-bottom: 20px;
 }
 
 .editDeleteBtn {
@@ -364,9 +366,8 @@ label {
   margin-right: 10px;
 }
 
-
 /*검색결과창*/
-.searchContainer{
+.searchContainer {
   font-family: 'GmarketSansMedium';
   display: flex;
   flex-direction: column;
@@ -374,23 +375,23 @@ label {
   margin-top: 10vh;
 }
 
-.searchContent{
+.searchContent {
   display: flex;
   width: 80vw;
   margin-bottom: 30px;
 }
-.searchContent img{
+.searchContent img {
   width: 20vw;
   height: 15vh;
   margin-right: 20px;
 }
 
-.searchContent_right h1{
+.searchContent_right h1 {
   font-size: 1.7rem;
   font-weight: 500;
   margin-bottom: 10px;
 }
-.searchContent_date{
+.searchContent_date {
   font-size: 1rem;
   font-weight: 200;
   color: rgb(110, 110, 110);
@@ -398,6 +399,6 @@ label {
   margin-bottom: 5px;
 }
 
-.searchContent_right p{
+.searchContent_right p {
   font-size: 1.3rem;
 }

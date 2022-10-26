@@ -1,10 +1,9 @@
-
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 40px;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .content {
@@ -31,7 +30,7 @@
   border-radius: 5%;
   /*margin-right: 30px;*/
   width: 40%;
-  
+
   filter: drop-shadow(3px 3px 3px #727272);
 }
 
@@ -42,7 +41,7 @@
   background-color: whitesmoke;
   filter: drop-shadow(2px 2px 3px #9b9b9b);
   padding: 20px;
-  border-radius:5%;
+  border-radius: 5%;
 }
 
 .detail > div span {
@@ -77,11 +76,10 @@
 
 .settings {
   width: 80vw;
-  margin-top:40px;
+  margin-top: 40px;
   font-size: 22px;
-  font-family: "GmarketSansMedium";
- /* display: block;*/
- 
+  font-family: 'GmarketSansMedium';
+  /* display: block;*/
 }
 
 .setting {
