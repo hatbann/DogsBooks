@@ -110,22 +110,25 @@ const Home = ({ userObj }) => {
   return (
     <div className={styles.container}>
     <Top2/>
-      <Top location={"home"} />
+
       <div className={styles.bookSearchForm}>
         <form>
           <label htmlFor="bookSearch"></label>
           <input
             type="text"
             id="bookSearch"
-            placeholder="도서 검색"
+            placeholder="책을 기록해볼까요?"
             value={search}
             onChange={onChange}
+           
           />
           <button type="button" id={styles.bookSearchBtn} onClick={onSearch}>
             검색
           </button>
         </form>
       </div>
+
+
       <div className={styles.profile}>
         <div
           className={styles.profile_comment}
@@ -136,15 +139,15 @@ const Home = ({ userObj }) => {
           className={styles.profile_img}
         ></img>
         <Link to="/mypage" className={styles.plant}>
-          <span>내가 모은 강아지들 보기</span>
+          <span>내가 모은 독스들 보기</span>
         </Link>
       </div>
       <div className={styles.recommands}>
-        <span>{`추리를 좋아하는 ${userObj.displayName}님을 위한 추천도서`}</span>
+        <span>{`${userObj.displayName}님을 위한 추천도서`}</span>
         <CustomSlider contents={recommands} className={styles.slider} />
       </div>
       <div className={styles.todays}>
-        <span>오늘의 도서</span>
+        <span>오늘의 독스북스</span>
         <TodaysSlider contents={todays} />
       </div>
     </div>

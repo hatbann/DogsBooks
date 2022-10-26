@@ -90,7 +90,12 @@ const BookNeighbor = (props) => {
   return (
     <div className={styles.container}>
       <Top2 />
-      <Top location={"책이웃"} />
+
+      <div className={styles.settings}>
+
+    <div className={styles.setting}>
+      이웃도서관 </div>
+      
       <div className={styles.search}>
         <form>
           <input
@@ -114,7 +119,7 @@ const BookNeighbor = (props) => {
       <div className={styles.writeBtn}>
         <button onClick={onClickLent}>책 빌려주기</button>
       </div>
-    </div>
+    </div></div>
   );
 };
 
