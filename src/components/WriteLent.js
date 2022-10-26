@@ -142,7 +142,7 @@ const WriteLent = ({ userObj }) => {
             )}
           </div>
           <div className={styles.writeLent_Title}>
-            <label htmlFor="title">제목</label>
+            <label htmlFor="title">책제목</label>
             <input
               id="title"
               type="text"

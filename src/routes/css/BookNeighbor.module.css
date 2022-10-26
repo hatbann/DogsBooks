@@ -59,7 +59,7 @@ button {
 .content {
   margin: 30px;
   margin-bottom: 20px;
-  width: 70vw;
+  width: 75vw;
   display: flex;
 }
 
@@ -73,13 +73,13 @@ button {
 }
 
 .content_title {
-  font-size: 13px;
+  font-size: 1.7rem;
   font-weight: 500;
   margin-bottom: 10px;
 }
 
 .date {
-  font-size: 10px;
+  font-size: 1rem;
   font-weight: 200;
   color: rgb(110, 110, 110);
   margin-left: 2px;
@@ -87,7 +87,7 @@ button {
 }
 
 .content_detail {
-  font-size: 10px;
+  font-size: 1.2rem;
 }
 
 /*책 빌려주기 버튼 CSS*/
@@ -362,4 +362,42 @@ label {
 
 #editBtn button:first-child {
   margin-right: 10px;
+}
+
+
+/*검색결과창*/
+.searchContainer{
+  font-family: 'GmarketSansMedium';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+.searchContent{
+  display: flex;
+  width: 80vw;
+  margin-bottom: 30px;
+}
+.searchContent img{
+  width: 20vw;
+  height: 15vh;
+  margin-right: 20px;
+}
+
+.searchContent_right h1{
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.searchContent_date{
+  font-size: 1rem;
+  font-weight: 200;
+  color: rgb(110, 110, 110);
+  margin-left: 2px;
+  margin-bottom: 5px;
+}
+
+.searchContent_right p{
+  font-size: 1.3rem;
 }

@@ -12,7 +12,7 @@ import BottomTab from '../components/BottomTab';
 import Auth from '../routes/Auth';
 import Home from '../routes/Home';
 import Library from '../routes/Library';
-import BookNeighbor from '../routes/BookNeighbor';
+import BookNeighbor, {BookNeighborSearchResult} from '../routes/BookNeighbor';
 import Borrow from '../components/Borrow';
 import Mypage from '../routes/Mypage';
 import Search from '../routes/Search';
@@ -79,6 +79,10 @@ const AppRouter = ({ isLoggedIn, userObj, refreshUser }) => {
               <Route
                 path="/bookneighbor/neighborContent"
                 element={<BookNeighborDetailPage userObj={userObj} />}
+              ></Route>
+                <Route
+                path="/bookneighbor/searchResult"
+                element={<BookNeighborSearchResult userObj={userObj} />}
               ></Route>
             </Routes>
             <BottomTab />
