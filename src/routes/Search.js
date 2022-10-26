@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLocation,useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './css/Search.module.css';
-import Top from "../components/Top";
-import Top2 from "../components/Top2";
+import Top from '../components/Top';
+import Top2 from '../components/Top2';
 
 const Search = () => {
   const location = useLocation();
@@ -10,36 +10,50 @@ const Search = () => {
 
   const data = location.state.data;
   const searchKeyword = location.state.search;
-  const onClick =(bookinfo)=>{
+  const onClick = (bookinfo) => {
     try {
-      navigate('/search/bookinfo', {state : {
-        bookinfo, searchKeyword
-      }});
+      navigate('/search/bookinfo', {
+        state: {
+          bookinfo,
+          searchKeyword,
+        },
+      });
     } catch (error) {
       console.log(error);
     }
-  }
-
+  };
 
   return (
     <div className={styles.container}>
-      <Top2/>
+      <Top2 />
       <div className={styles.title}>( 검색결과 )</div>
-      {
-        data.map((bookinfo) =>{
-          return (
-            <div className={styles.bookContent}>
-              <div className={styles.bookContentLeft} onClick={(e)=> {onClick(bookinfo)}}>
-              <div className= {styles.cover}><img src={bookinfo.cover}/></div>
+      {data.map((bookinfo) => {
+        return (
+          <div className={styles.bookContent}>
+            <div
+              className={styles.bookContentLeft}
+              onClick={(e) => {
+                onClick(bookinfo);
+              }}
+            >
+              <div className={styles.cover}>
+                <img src={bookinfo.cover} />
+              </div>
               <span>{bookinfo.title}</span>
-              </div>
-              <div className={styles.bookContentRight}  onClick={(e)=> {onClick(bookinfo)}}>
-                {(bookinfo.description.length >= 80)? bookinfo.description.substr(0,80) + '...': bookinfo.description}
-              </div>
             </div>
-          )
-        })
-      }
+            <div
+              className={styles.bookContentRight}
+              onClick={(e) => {
+                onClick(bookinfo);
+              }}
+            >
+              {bookinfo.description.length >= 80
+                ? bookinfo.description.substr(0, 80) + '...'
+                : bookinfo.description}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

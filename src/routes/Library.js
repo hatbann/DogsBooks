@@ -26,7 +26,7 @@ const Library = (props) => {
           ...prev,
           {
             id: doc.data().createdAt.seconds,
-            cid: doc.data().creatorId,
+            cid: doc.id,
             title: doc.data().title,
             text: doc.data().text,
             star: doc.data().star,

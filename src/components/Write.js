@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { dbService } from "../fbase";
-import { getAuth } from "firebase/auth";
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { dbService } from '../fbase';
+import { getAuth } from 'firebase/auth';
 import {
   collection,
   addDoc,
@@ -11,36 +11,36 @@ import {
   orderBy,
   updateDoc,
   increment,
-} from "firebase/firestore";
-import styles from "./css/Write.module.css";
-import like from "../assets/like.png";
-import dislike from "../assets/dislike.png";
-import { faL } from "@fortawesome/free-solid-svg-icons";
+} from 'firebase/firestore';
+import styles from './css/Write.module.css';
+import like from '../assets/like.png';
+import dislike from '../assets/dislike.png';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 const Write = ({ userObj }) => {
   const { state } = useLocation();
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
   const dateObj = new Date();
   const today = `${dateObj.getFullYear()}/${dateObj.getMonth()}/${dateObj.getDate()}`;
-  const [review, setReview] = useState(""); //review하는 거, form
+  const [review, setReview] = useState(''); //review하는 거, form
   const [reviews, setReviews] = useState([]); //review들을 가져오는 것
   const [recommend, setRecommend] = useState(true);
   console.log(state);
 
   const auth = getAuth();
-  const userRef = doc(dbService, "UserInfo", `${auth.currentUser.uid}`);
+  const userRef = doc(dbService, 'UserInfo', `${auth.currentUser.uid}`);
 
   const navigate = useNavigate();
 
   //추천 알고리즘을 위해 장르 1depth로 설정해주는 거
   const categoryName = state.categoryName;
-  const cnSplit = categoryName.split(">");
+  const cnSplit = categoryName.split('>');
   const genre = cnSplit[1];
 
   useEffect(() => {
     const q = query(
-      collection(dbService, "reviews"), //collection "reviwes"을 사용함
-      orderBy("createdAt", "desc") //내림차순
+      collection(dbService, 'reviews'), //collection "reviwes"을 사용함
+      orderBy('createdAt', 'desc') //내림차순
     );
     onSnapshot(q, (snapshot) => {
       //새로운 스냅샷을 받을 때 배열을 만든다
@@ -62,7 +62,7 @@ const Write = ({ userObj }) => {
     const author = state.author;
 
     //reviews에 생성된 doc들 제목이 너무 중구난방인데 userObj.uid로 설정하는 게 나을까?
-    const docRef = addDoc(collection(dbService, "reviews"), {
+    const docRef = addDoc(collection(dbService, 'reviews'), {
       text: review, //독서록 내용
       createdAt: dateObj, //독서록 작성한 날짜
       creatorId: userObj.uid, //독서록 작성한 유저의 아이디
@@ -75,162 +75,162 @@ const Write = ({ userObj }) => {
     });
 
     switch (String(genre)) {
-      case "가정/요리/뷰티":
+      case '가정/요리/뷰티':
         updateDoc(userRef, {
           genre1: increment(1),
         });
         break;
-      case "건강/취미/레저":
+      case '건강/취미/레저':
         updateDoc(userRef, {
           genre2: increment(1),
         });
         break;
-      case "경제경영":
+      case '경제경영':
         updateDoc(userRef, {
           genre3: increment(1),
         });
         break;
-      case "고등학교참고서":
+      case '고등학교참고서':
         updateDoc(userRef, {
           genre4: increment(1),
         });
         break;
-      case "고전":
+      case '고전':
         updateDoc(userRef, {
           genre5: increment(1),
         });
         break;
-      case "과학":
+      case '과학':
         updateDoc(userRef, {
           genre6: increment(1),
         });
         break;
-      case "달력/기타":
+      case '달력/기타':
         updateDoc(userRef, {
           genre7: increment(1),
         });
         break;
-      case "대학교재/전문서적":
+      case '대학교재/전문서적':
         updateDoc(userRef, {
           genre8: increment(1),
         });
         break;
-      case "만화":
+      case '만화':
         updateDoc(userRef, {
           genre9: increment(1),
         });
         break;
-      case "사회과학":
+      case '사회과학':
         updateDoc(userRef, {
           genre10: increment(1),
         });
         break;
-      case "소설/시/희곡":
+      case '소설/시/희곡':
         updateDoc(userRef, {
           genre11: increment(1),
         });
         break;
-      case "수험서/자격증":
+      case '수험서/자격증':
         updateDoc(userRef, {
           genre12: increment(1),
         });
         break;
-      case "어린이":
+      case '어린이':
         updateDoc(userRef, {
           genre13: increment(1),
         });
         break;
-      case "에세이":
+      case '에세이':
         updateDoc(userRef, {
           genre14: increment(1),
         });
         break;
-      case "여행":
+      case '여행':
         updateDoc(userRef, {
           genre15: increment(1),
         });
         break;
-      case "역사":
+      case '역사':
         updateDoc(userRef, {
           genre16: increment(1),
         });
         break;
-      case "예술/대중문화":
+      case '예술/대중문화':
         updateDoc(userRef, {
           genre17: increment(1),
         });
         break;
-      case "외국어":
+      case '외국어':
         updateDoc(userRef, {
           genre18: increment(1),
         });
         break;
-      case "유아":
+      case '유아':
         updateDoc(userRef, {
           genre19: increment(1),
         });
         break;
-      case "인문학":
+      case '인문학':
         updateDoc(userRef, {
           genre20: increment(1),
         });
         break;
-      case "일본도서":
+      case '일본도서':
         updateDoc(userRef, {
           genre21: increment(1),
         });
         break;
-      case "자기계발":
+      case '자기계발':
         updateDoc(userRef, {
           genre22: increment(1),
         });
         break;
-      case "잡지":
+      case '잡지':
         updateDoc(userRef, {
           genre23: increment(1),
         });
         break;
-      case "장르소설":
+      case '장르소설':
         updateDoc(userRef, {
           genre24: increment(1),
         });
         break;
-      case "전집/중고전집":
+      case '전집/중고전집':
         updateDoc(userRef, {
           genre25: increment(1),
         });
         break;
-      case "종교/역학":
+      case '종교/역학':
         updateDoc(userRef, {
           genre26: increment(1),
         });
         break;
-      case "좋은부모":
+      case '좋은부모':
         updateDoc(userRef, {
           genre27: increment(1),
         });
         break;
-      case "중학교참고서":
+      case '중학교참고서':
         updateDoc(userRef, {
           genre28: increment(1),
         });
         break;
-      case "청소년":
+      case '청소년':
         updateDoc(userRef, {
           genre29: increment(1),
         });
         break;
-      case "청소년 추천도서":
+      case '청소년 추천도서':
         updateDoc(userRef, {
           genre30: increment(1),
         });
         break;
-      case "초등학교참고서":
+      case '초등학교참고서':
         updateDoc(userRef, {
           genre31: increment(1),
         });
         break;
-      case "컴퓨터/모바일":
+      case '컴퓨터/모바일':
         updateDoc(userRef, {
           genre32: increment(1),
         });
@@ -242,18 +242,18 @@ const Write = ({ userObj }) => {
         break;
     }
 
-    setReview(""); //디비에 제출 됐는지 확인하려고 설정해둠. 문제 없으면 ""로 바꿀 예정
-    navigate("/library/*");
+    setReview(''); //디비에 제출 됐는지 확인하려고 설정해둠. 문제 없으면 ""로 바꿀 예정
+    navigate('/library/*');
   };
 
   const onChange = (e) => {
     const {
       target: { value, name },
     } = e;
-    if (name === "title") {
+    if (name === 'title') {
       setTitle(value);
     }
-    if (name === "review") {
+    if (name === 'review') {
       setReview(value); //리뷰 작성
     }
   };
@@ -271,12 +271,12 @@ const Write = ({ userObj }) => {
         </div>
       </section>
 
-      <form id="writeForm" onSubmit={onSubmit}>
+      <form id="writeForm" onSubmit={onSubmit} className={styles.writeForm}>
         <div className={styles.title}>
           <label for="title">책 제목</label>
           <input
             type="text"
-            placeholder={state ? `${state.title}` : "제목"}
+            placeholder={state ? `${state.title}` : '제목'}
             value={state ? `${state.title}` : `${title}`}
             onChange={onChange}
             name="title"

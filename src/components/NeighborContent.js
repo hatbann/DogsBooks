@@ -1,23 +1,20 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import styles from '../routes/css/BookNeighbor.module.css';
+import { getAuth } from 'firebase/auth';
+import { deleteDoc, doc, updateDoc, serverTimestamp } from 'firebase/firestore';
+import { dbService } from '../fbase';
 
-import React, { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import styles from "../routes/css/BookNeighbor.module.css";
-import { getAuth } from "firebase/auth";
-import { deleteDoc, doc, updateDoc, serverTimestamp } from "firebase/firestore";
-import { dbService } from "../fbase";
-
-import Comment from "./Comment";
-import { async } from "@firebase/util";
-
+import Comment from './Comment';
+import { async } from '@firebase/util';
 
 const LIMIT = 100;
 
 const NeighborContent = ({ content }) => {
   const [limit, setLimit] = useState(LIMIT);
-  const [region, setRegion] = useState("");
-  const time = String(Date(content.createdAt)).split(" ");
+  const [region, setRegion] = useState('');
+  const time = String(Date(content.createdAt)).split(' ');
   const timestr = `${time[3]}/${time[1]}/${time[2]}/${time[0]}`;
-
   const navigate = useNavigate();
 
   const summary = content.content.slice(0, LIMIT);
@@ -26,79 +23,79 @@ const NeighborContent = ({ content }) => {
   useEffect(() => {
     switch (Number(regionNum)) {
       case 1:
-        setRegion("강남구");
+        setRegion('강남구');
         break;
       case 2:
-        setRegion("강동구");
+        setRegion('강동구');
         break;
       case 3:
-        setRegion("강서구");
+        setRegion('강서구');
         break;
       case 4:
-        setRegion("강북구");
+        setRegion('강북구');
         break;
       case 5:
-        setRegion("관악구");
+        setRegion('관악구');
         break;
       case 6:
-        setRegion("광진구");
+        setRegion('광진구');
         break;
       case 7:
-        setRegion("구로구");
+        setRegion('구로구');
         break;
       case 8:
-        setRegion("금천구");
+        setRegion('금천구');
         break;
       case 9:
-        setRegion("노원구");
+        setRegion('노원구');
         break;
       case 10:
-        setRegion("동대문구");
+        setRegion('동대문구');
         break;
       case 11:
-        setRegion("도봉구");
+        setRegion('도봉구');
         break;
       case 12:
-        setRegion("동작구");
+        setRegion('동작구');
         break;
       case 13:
-        setRegion("마포구");
+        setRegion('마포구');
         break;
       case 14:
-        setRegion("서대문구");
+        setRegion('서대문구');
         break;
       case 15:
-        setRegion("성동구");
+        setRegion('성동구');
         break;
       case 16:
-        setRegion("성북구");
+        setRegion('성북구');
         break;
       case 17:
-        setRegion("서초구");
+        setRegion('서초구');
         break;
       case 18:
-        setRegion("송파구");
+        setRegion('송파구');
         break;
       case 19:
-        setRegion("영등포구");
+        setRegion('영등포구');
         break;
       case 20:
-        setRegion("용산구");
+        setRegion('용산구');
         break;
       case 21:
-        setRegion("양천구");
+        setRegion('양천구');
         break;
       case 22:
-        setRegion("은평구");
+        setRegion('은평구');
         break;
       case 23:
-        setRegion("종로구");
+        setRegion('종로구');
         break;
       case 24:
-        setRegion("중구");
+        setRegion('중구');
         break;
       case 25:
-        setRegion("중랑구");
+        setRegion('중랑구');
         break;
       default:
         break;
@@ -106,7 +103,7 @@ const NeighborContent = ({ content }) => {
   });
 
   const onClick = (e) => {
-    navigate("/bookneighbor/neighborContent", {
+    navigate('/bookneighbor/neighborContent', {
       state: {
         region,
         timestr,
@@ -115,7 +112,7 @@ const NeighborContent = ({ content }) => {
         img: content.imgfile,
         id: content.id,
         uid: content.cid,
-        page: "bookneighbor",
+        page: 'bookneighbor',
       },
     });
     console.log(content);
@@ -130,10 +127,10 @@ const NeighborContent = ({ content }) => {
             {content.title}
             <span
               style={{
-                marginLeft: "5px",
-                fontSize: "10px",
-                fontWeight: "400",
-                color: "#a8a8a8",
+                marginLeft: '5px',
+                fontSize: '10px',
+                fontWeight: '400',
+                color: '#a8a8a8',
               }}
             >
               {region}
@@ -141,7 +138,7 @@ const NeighborContent = ({ content }) => {
           </div>
           <div className={styles.date}>{timestr}</div>
           {content.content.length < LIMIT ? (
-            <p className={styles.content_detail}>{content.detail}</p>
+            <p className={styles.content_detail}>{content.content}</p>
           ) : (
             <>
               <p className={styles.content_detail}>{summary}...더보기</p>
@@ -174,21 +171,21 @@ const BookNeighborDetailPage = () => {
 
   const navigate = useNavigate();
 
-  const contentRef = doc(dbService, "lentContents", `${location.state.id}`);
+  const contentRef = doc(dbService, 'lentContents', `${location.state.id}`);
 
   //게시글 삭제
   const onDeleteClick = async () => {
-    const ok = window.confirm("정말로 삭제하시겠습니까?");
+    const ok = window.confirm('정말로 삭제하시겠습니까?');
     if (ok) {
       try {
         await deleteDoc(contentRef);
-        if (page === "bookneighbor") {
-          navigate("/bookneighbor");
-        } else if (page === "profile") {
-          navigate("/mypage");
+        if (page === 'bookneighbor') {
+          navigate('/bookneighbor');
+        } else if (page === 'profile') {
+          navigate('/mypage');
         }
       } catch (error) {
-        window.alert("삭제에 실패했습니다");
+        window.alert('삭제에 실패했습니다');
       }
     }
   };
@@ -214,15 +211,15 @@ const BookNeighborDetailPage = () => {
       target: { name, value },
     } = event;
 
-    if (name === "title") {
+    if (name === 'title') {
       setTitle(value);
       return;
     }
-    if (name === "content") {
+    if (name === 'content') {
       setContent(value);
       return;
     }
-    if (name === "locationNum") {
+    if (name === 'locationNum') {
       setLocNum(value);
     }
   };
@@ -240,7 +237,7 @@ const BookNeighborDetailPage = () => {
         <div className={styles.editContainer}>
           <img src={img}></img>
           <div className={styles.editForm}>
-            <form id="lentForm">
+            <form id="lentEditForm">
               <div>
                 <label htmlFor="title">제목</label>
                 <input
@@ -255,7 +252,7 @@ const BookNeighborDetailPage = () => {
                 <label htmlFor="content">내용</label>
                 <textarea
                   id="content"
-                  form="lentForm"
+                  form="lentEditForm"
                   name="content"
                   value={content}
                   onChange={onChange}
@@ -308,7 +305,7 @@ const BookNeighborDetailPage = () => {
                 </select>
               </div>
             </form>
-            <div>
+            <div id={styles.editBtn}>
               <button onClick={onToggleEdit}>수정취소</button>
               <button onClick={onEdit}>수정완료</button>
             </div>
@@ -350,16 +347,10 @@ const BookNeighborDetailPage = () => {
           )}
           <Comment user={userobj} />
         </>
-
       )}
     </div>
   );
 };
-
-
-
-
-
 
 export { BookNeighborDetailPage };
 
