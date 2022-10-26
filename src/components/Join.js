@@ -1,31 +1,33 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   createUserWithEmailAndPassword,
   getAuth,
   updateProfile,
-} from "firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
-import styles from "../routes/css/Auth.module.css";
+} from 'firebase/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { dbService } from '../fbase';
+import {doc, setDoc} from "firebase/firestore";
+import styles from '../routes/css/Auth.module.css';
 
 const Join = ({ toggleToSignIn }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [userName, setUserName] = useState("");
-  const [userNickname, setUserNickname] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState('');
+  const [userNickname, setUserNickname] = useState('');
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
   const onChange = (event) => {
     const {
       target: { name, value },
     } = event;
-    if (name === "email") {
+    if (name === 'email') {
       setEmail(value);
-    } else if (name === "password") {
+    } else if (name === 'password') {
       setPassword(value);
-    } else if (name === "userName") {
+    } else if (name === 'userName') {
       setUserName(value);
-    } else if (name === "userNickname") {
+    } else if (name === 'userNickname') {
       setUserNickname(value);
     }
   };
@@ -40,10 +42,11 @@ const Join = ({ toggleToSignIn }) => {
       updateProfile(auth.currentUser, {
         displayName: userNickname,
       });
-      navigate("/selectGenre");
+
+      navigate('/selectGenre', );
     } catch (e) {
-      if (e.message === "Firebase: Error (auth/email-already-in-use).") {
-        setError("이미 계정이 존재합니다");
+      if (e.message === 'Firebase: Error (auth/email-already-in-use).') {
+        setError('이미 계정이 존재합니다');
       } else {
         setError(e.message);
       }
@@ -55,7 +58,7 @@ const Join = ({ toggleToSignIn }) => {
       <h1 className={styles.title}>회원가입</h1>
       <form onSubmit={onSubmit} className={styles.inputForm}>
         <div>
-          <div>
+          <div className={styles.inputs}>
             <input
               name="email"
               onChange={onChange}
@@ -63,6 +66,7 @@ const Join = ({ toggleToSignIn }) => {
               placeholder="Email"
               required
               value={email}
+              className={styles.input}
             />
             <input
               name="password"
@@ -71,6 +75,7 @@ const Join = ({ toggleToSignIn }) => {
               placeholder="Password"
               required
               value={password}
+              className={styles.input}
             />
             <input
               name="userName"
@@ -79,6 +84,7 @@ const Join = ({ toggleToSignIn }) => {
               placeholder="이름"
               required
               value={userName}
+              className={styles.input}
             />
             <input
               name="userNickname"
@@ -87,19 +93,23 @@ const Join = ({ toggleToSignIn }) => {
               placeholder="닉네임"
               required
               value={userNickname}
+              className={styles.input}
             />
-          </div>
-          <div>
-              <input
+            <input
               type="submit"
-              value={"장르 선택하기"}
-              className={styles.submit}
+              value={'장르 선택하기'}
+              className={`${styles.btn} ${styles.genre_btn}`}
               onClick={onSubmit}
             ></input>
           </div>
         </div>
       </form>
-      <button onClick={toggleToSignIn}>로그인</button>
+      <button
+        onClick={toggleToSignIn}
+        className={`${styles.btn} ${styles.join}`}
+      >
+        로그인
+      </button>
     </div>
   );
 };

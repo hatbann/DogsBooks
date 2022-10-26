@@ -8,16 +8,16 @@ const BottomTab = (props) => {
     <div className={styles.container}>
       <div className={styles.bottomTabs}>
         <Link to="/">
-          <span className={styles.tab}>Home</span>
+          <span className={styles.tab}>홈</span>
         </Link>
         <Link to="/library">
-          <span className={styles.tab}>Library</span>
+          <span className={styles.tab}>북스</span>
         </Link>
         <Link to="/bookneighbor">
-          <span className={styles.tab}>책이웃</span>
+          <span className={styles.tab}>이웃도서관</span>
         </Link>
         <Link to="/mypage">
-          <span className={styles.tab}>Mypage</span>
+          <span className={styles.tab}>마이페이지</span>
         </Link>
       </div>
     </div>

@@ -1,8 +1,27 @@
+.container {
+  position: relative;
+}
+
 .contents {
   margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
+ 
+}
+
+.total {
+  margin-top: 20px;
+  font-size: 50px;
+  font-family: "Happiness-Sans-Regular";
+  /*text-decoration: underline;
+  text-underline-position:under;*/
+}
+
+.hr{
+  height: 3px;
+  background-color : rgb(0, 0, 0);
+  border : 0;
 }
 
 .pagename {
@@ -10,14 +29,15 @@
   font-weight: 500;
   margin: 20px;
   margin-top: 40px;
+  font-family: 'GmarketSansMedium';
 }
 
 .profile {
   width: 80vw;
   border-radius: 1vw;
   display: flex;
-  margin-left: 10px;
-  justify-content: center;
+  /* margin-left: 10px;
+  justify-content: center;*/
 }
 
 .profileImg {
@@ -33,6 +53,7 @@
   justify-content: center;
   color: #474747;
   margin-right: 10px;
+  margin-bottom: 10 px;
 }
 
 .name {
@@ -45,29 +66,67 @@
   font-size: 12px;
 }
 
+.back {
+  background-color: rgb(54, 35, 35);
+  margin-top:40px;
+ /* display: block;*/
+}
+
 .settings {
   width: 80vw;
-  margin-top: 50px;
-  font-size: 14px;
-  margin-left: 40px;
+  margin-top:40px;
+  font-size: 22px;
+  font-family: "GmarketSansMedium";
+ /* display: block;*/
 }
 
 .setting {
-  margin-top: 30px;
+  margin-top: 40px;
   display: flex;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .setting img {
-  width: 17px;
-  height: 17px;
-  margin-right: 6px;
+  width: 20px;
+  height: 20px;
+  padding:4px;
+  margin-bottom: 4px;
+  
 }
+.dogs {
+   width: 76%;
+   margin: 10px auto;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 
-.logout{
+
+.dogs img {
+  /* border: 1px solid red; */
+    float: left;
+    width:40%;
+    box-sizing: border-box;
+    margin-right: 10px;
+    border-radius: 3%;
+    justify-content:space-between;
+    
+ }
+
+.message{
+  margin-top: 10px;
+  font-size: 12px;
+  font-family: "Happiness-Sans-Regular";
+ 
+}
+.logout {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  margin-bottom: 100px;
 }
 
 .frined_list {
@@ -109,12 +168,75 @@
 }
 
 .lendBooks {
-  width: 330px;
-  display: flex;
-  flex-wrap: wrap;
+  width: 78vw;
+  font-family: 'GmarketSansMedium';
 }
 
 .lendBook {
-  width: 27%;
-  margin: 20px 10px;
+  display: inline-block;
+  width: 22vw;
+  height: 15vh;
+  margin: 2vw;
 }
+
+.lendBook img {
+  width: 22vw;
+}
+
+.lendBook h1 {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.LendBookContainer {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'GmarketSansMedium';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15vh;
+}
+
+.LendBookContainer img {
+  width: 35vw;
+  height: 24vh;
+}
+
+.LendBookContainer h1 {
+  font-size: 2.5rem;
+  margin-top: 20px;
+}
+
+.LendBookContainer span {
+  margin-top: 10px;
+}
+
+.LendBookContainer p {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  width: 80vw;
+  text-align: center;
+}
+
+
+.taste{
+  width: 76%;
+  margin: 10px auto;
+   
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+
+}
+
+.taste img {
+  /* border: 1px solid red; */
+    float: left;
+    width:40%;
+    box-sizing: border-box;
+    margin-right: 10px;
+    border-radius: 3%;
+    justify-content:space-between;
+    
+ }

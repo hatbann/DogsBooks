@@ -1,62 +1,93 @@
-import React, { useState } from 'react';
-import Top from '../components/Top';
-import Top2 from '../components/Top2';
-import styles from './css/BookNeighbor.module.css';
-import Borrow from '../components/Borrow';
-import Lend from '../components/Lend';
-import Switch from '../components/Switch';
+import React, { useState, useEffect } from "react";
+import Top from "../components/Top";
+import Top2 from "../components/Top2";
+import styles from "./css/BookNeighbor.module.css";
+import { useNavigate } from "react-router-dom";
 
-const options = [
-  {
-    label: '빌리기',
-    page: <Borrow />,
-    id: 0,
-  },
-  {
-    label: '빌려준 목록',
-    page: <Lend />,
-    id: 1,
-  },
-];
+import NeighborContent from "../components/NeighborContent";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { dbService } from "../fbase";
 
 const BookNeighbor = (props) => {
-  const [pageNum, setPageNum] = useState(0);
+  const [search, setSearch] = useState("");
+  const [contents, setContents] = useState([]);
+  const navigate = useNavigate();
 
-  const onClick = (e) => {
-    const text = e.target.textContent;
-    options.map((option) => {
-      if (option.label === text) {
-        setPageNum(option.id);
-      }
-    });
+  useEffect(() => {
+    async function fetchData() {
+      const q = query(
+        collection(dbService, "lentContents"),
+        orderBy("createdAt", "desc")
+      );
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        setContents((prev) => [
+          ...prev,
+          {
+            id: doc.id,
+            cid: doc.data().creatorId,
+            title: doc.data().title,
+            content: doc.data().content,
+            imgfile: doc.data().imgfile,
+            location: doc.data().location,
+            createdAt: doc.data().createdAt,
+          },
+        ]);
+      });
+    }
+    fetchData();
+  }, []);
+
+  const onChange = (e) => {
+    const {
+      target: { value },
+    } = e;
+    setSearch(value);
+  };
+
+  const onSearch = async (e) => {};
+
+  const onClickLent = (e) => {
+    try {
+      navigate("/writeLent");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div className={styles.container}>
-      <Top2/>
-      <Top location={'책이웃'} />
-      <div className={styles.top}>
-        {' '}
-        <div className={styles.location}>성산제2동</div>
-        <div className={styles.switch}>
-          <Switch
-            onClick={onClick}
-            options={options}
-            className={styles.switch}
-          />
+      <Top2 />
+
+      <div className={styles.settings}>
+
+    <div className={styles.setting}>
+      이웃도서관 </div>
+      
+      <div className={styles.search}>
+        <form>
+          <input
+            type="text"
+            placeholder="빌리고 싶은 책 검색"
+            value={search}
+            onChange={onChange}
+          ></input>
+          <button type="button" id={styles.bookSearchBtn} onClick={onSearch}>
+            검색
+          </button>
+        </form>
+      </div>
+      <section>
+        <div className={styles.contents_Container}>
+          {contents.map((content) => {
+            return <NeighborContent key={content.id} content={content} />;
+          })}
         </div>
-        <button className={styles.top_chat}>
-          <img src="https://cdn-icons-png.flaticon.com/512/786/786205.png" />
-        </button>
+      </section>
+      <div className={styles.writeBtn}>
+        <button onClick={onClickLent}>책 빌려주기</button>
       </div>
-      <div className={styles.page}>
-        {options.map((option) => {
-          if (option.id === pageNum) {
-            return <div key={option.id}>{option.page}</div>;
-          }
-        })}
-      </div>
-    </div>
+    </div></div>
   );
 };
 

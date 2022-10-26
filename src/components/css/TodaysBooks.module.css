@@ -7,17 +7,19 @@
 }
 
 .img {
-  width: 30%;
+  width: 80%;
   height: auto;
   border-radius: 5%;
   filter: drop-shadow(3px 5px 3px #727272);
+  margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .title {
   width: 80%;
   font-weight: 500;
-  font-size: 13px;
-  margin-top: 20px;
+  font-size: 14px;
+  
   text-align: center;
   font-family: "Happiness-Sans-Regular";
 }
@@ -25,7 +27,7 @@
 .content {
   font-size: 10px;
   margin-top: 8px;
-  text-align: center;
-  width: 40%;
+  text-align: left;
+  width: 68%;
   font-family: "Happiness-Sans-Regular";
 }

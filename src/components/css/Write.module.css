@@ -3,12 +3,11 @@
   background-color: rgb(255, 255, 255);
   border-radius: 15vw;
   padding: 2px;
-  margin-top:60px;
+  margin-top: 60px;
   text-align: center;
 }
 
-
-.wrapper{
+.wrapper {
   margin: 100px 50px;
   display: flex;
   flex-direction: column;
@@ -22,7 +21,7 @@
   font-size: 13px;
   margin-top: 20px;
   text-align: center;
-  font-family: "Happiness-Sans-Regular";
+  font-family: 'Happiness-Sans-Regular';
 }
 
 a {
@@ -36,51 +35,48 @@ a:visited {
 .btn:last-child {
   margin-right: 0;
 }
-.section{
+.section {
   display: flex;
   flex-direction: column;
 }
 
-.sectionTop{
+.sectionTop {
   display: flex;
   flex-direction: column;
   align-items: center;
   border-bottom: 1px solid rgba(128, 128, 128, 0.247);
-  
 }
 
-.sectionTop h2{
+.sectionTop h2 {
   font-size: 18px;
   font-weight: 500;
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
-.sectionTop span{
+.sectionTop span {
   font-size: 11px;
   margin-bottom: 10px;
 }
-.coverImg{
+.coverImg {
   width: 130px;
   border-radius: 5%;
-
 }
 
-.sectionBottom{
+.sectionBottom {
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  
 }
 
-.sectionBottom div{
+.sectionBottom div {
   font-size: 13px;
   width: 90%;
   text-align: center;
   line-height: 20px;
 }
 
-.Btn{
+.Btn {
   background-color: black;
   border: none;
   color: white;
@@ -88,13 +84,61 @@ a:visited {
   margin-top: 30px;
   cursor: pointer;
 
-
-  border-radius:5px;
-  box-shadow: 0px 0px 1px 1px rgb(0,0,0);    font-family: "GmarketSansMedium";
-
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px 1px rgb(0, 0, 0);
+  font-family: 'GmarketSansMedium';
 }
 
-.Btn:hover{
-  color:black;
+.Btn:hover {
+  color: black;
   background-color: skyblue;
+}
+
+.recommendSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.WriteContainer {
+  height: 100vh;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.writeTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.writeTop img {
+  width: 80px;
+}
+
+.writeTop section {
+  margin-left: 15px;
+  margin-top: 5px;
+  font-family: 'GmarketSansMedium';
+}
+
+.writeTop section h1 {
+  font-size: 20px;
+
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.writeTop section span {
+  display: block;
+  margin: 5px 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.review {
+  width: 70vw;
 }

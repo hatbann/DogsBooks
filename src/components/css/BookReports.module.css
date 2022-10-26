@@ -1,0 +1,50 @@
+
+
+.reportContainer {
+  font-family: 'GmarketSansMedium';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+.reportTop {
+  display: flex;
+  font-size: 0.8rem;
+  width: 80vw;
+}
+
+.reportTop img {
+  margin-right: 15px;
+  width: 26vw;
+  height: 22vh;
+}
+
+.shorttitle {
+  font-size: 2rem;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.longtitle {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.reportTop section span {
+  display: block;
+  color: rgb(58, 58, 58);
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.reportContainer section {
+  width: 80vw;
+}
+
+.review {
+  margin-top: 30px;
+  margin-bottom: 80px;
+  font-size: 1.3rem;
+}
