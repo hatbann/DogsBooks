@@ -7,10 +7,11 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 60px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 0px 1px 1px rgb(0,0,0);
-  padding: 0 10px;
+  height: 80px;
+  background-color: white;
+  /* box-shadow: 0px 0px 1px 1px rgb(0,0,0);*/ 
+  padding: 0 26px;
+  filter: drop-shadow(2px 2px 10px rgb(214, 214, 214))
 }
 
 .bottomTabs {
@@ -23,7 +24,8 @@
   text-align: center;
   align-items: center;
   margin: 0 15px;
-  font-size: 17px;
+  font-size: 15px;
+  font-family: "GmarketSansMedium";
 }
 
 
