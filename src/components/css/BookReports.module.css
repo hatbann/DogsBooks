@@ -1,5 +1,3 @@
-
-
 .reportContainer {
   font-family: 'GmarketSansMedium';
   display: flex;
@@ -47,4 +45,82 @@
   margin-top: 30px;
   margin-bottom: 80px;
   font-size: 1.3rem;
+}
+
+.editDeleteBtn {
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+.editDeleteBtn button {
+  border: none;
+  outline: none;
+  background-color: #0a0a23;
+  color: white;
+  padding: 10px 30px;
+  font-family: 'GmarketSansMedium';
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.editDeleteBtn button:first-child {
+  margin-right: 10px;
+}
+
+#editBtn {
+  text-align: center;
+}
+
+#editBtn button {
+  background-color: #0a0a23;
+  padding: 10px 30px;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+}
+
+#editBtn button:first-child {
+  margin-right: 10px;
+}
+
+.editContainer {
+  text-align: center;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.editForm * {
+  font-family: 'GmarketSansMedium';
+}
+.editForm div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+.editForm input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #696969;
+  padding: 5px;
+  width: 55vw;
+}
+
+.editForm label {
+  margin-right: 10px;
+}
+
+.editForm textarea {
+  height: 20vh;
+  padding: 0;
+  outline: none;
+  font-size: 1.4rem;
+  width: 100%;
+  margin-top: 10px;
 }
