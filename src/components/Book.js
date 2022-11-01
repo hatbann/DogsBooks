@@ -1,15 +1,15 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-import styles from '../routes/css/Library.module.css';
+import styles from "../routes/css/Library.module.css";
 
 const Book = ({ bookInfo }) => {
   const navigate = useNavigate();
-  const time = String(bookInfo.createdAt).split(' ');
+  const time = String(bookInfo.createdAt).split(" ");
   const timestr = `${time[3]}/${time[1]}/${time[2]}/${time[0]}`;
 
   const onClick = () => {
-    navigate('/libary/reports', { state: bookInfo });
+    navigate("/libary/reports", { state: bookInfo });
   };
   console.log(bookInfo);
   return (
@@ -24,9 +24,9 @@ const Book = ({ bookInfo }) => {
       <li className={styles.bookContainer} onClick={onClick}>
         <img className={styles.bookImg} src={bookInfo.bookimg} />
         <div className={styles.detail}>
-          {' '}
-          <div style={{ marginBottom: '8px' }}>
-            {' '}
+          {" "}
+          <div style={{ marginBottom: "8px" }}>
+            {" "}
             <span className={styles.title}>{bookInfo.title}</span>
             <span className={styles.author}>{bookInfo.author}</span>
           </div>

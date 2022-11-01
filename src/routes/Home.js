@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Recommend } from "../components/Recommend";
 
 import Top from "../components/Top";
 import Top2 from "../components/Top2";
@@ -99,9 +100,12 @@ const Home = ({ userObj }) => {
       const arr = response.data.item;
       arr.map((info) => data.push(info));
 
-      navigate("/search", { state:  {
-        data,search
-      }});
+      navigate("/search", {
+        state: {
+          data,
+          search,
+        },
+      });
     } catch (e) {
       console.log(e);
     }
@@ -109,7 +113,9 @@ const Home = ({ userObj }) => {
 
   return (
     <div className={styles.container}>
+
     <Top2/>
+
 
       <div className={styles.bookSearchForm}>
         <form>
@@ -134,7 +140,6 @@ const Home = ({ userObj }) => {
           className={styles.profile_comment}
         >{`프로추리러, ${userObj.displayName}님의 세계`}</div>
         <img
-
           src={require("../assets/titledog.png")}
           className={styles.profile_img}
         ></img>
