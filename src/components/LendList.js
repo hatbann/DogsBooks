@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  orderBy,
+  doc,
+  getDoc,
+} from "firebase/firestore";
 import { dbService } from "../fbase";
 import { getAuth } from "firebase/auth";
 
@@ -10,7 +18,6 @@ const LendList = ({ userobj }) => {
   const [lentBooks, setLentBooks] = useState([]);
   const navigate = useNavigate();
   const auth = getAuth();
-  
 
   useEffect(() => {
     async function fetchData() {
@@ -38,7 +45,6 @@ const LendList = ({ userobj }) => {
       });
     }
     fetchData();
-    
   }, []);
 
   const onClick = (lentbook) => {
@@ -134,7 +140,6 @@ const LendList = ({ userobj }) => {
         uid: lentbook.creatorId,
         id: lentbook.cid,
         page: "profile",
-
       },
     });
     console.log(lentbook);
