@@ -25,7 +25,9 @@ import LendList from "../components/LendList";
 
 const options = [
   {
-    label: "프로필",
+
+    label: '마이페이지',
+
     page: <Profile />,
     id: 0,
   },
@@ -410,9 +412,10 @@ const Mypage = ({ userObj }) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <Top2 />
-      <Top location={"설정"} />
+
+    
       <div className={styles.contents}>
         {" "}
         <Switch onClick={onClick} options={options} />
@@ -421,10 +424,11 @@ const Mypage = ({ userObj }) => {
             if (option.id === pageNum) {
               option.user = userObj;
               return (
-                <div>
-                  <h1 className={styles.pagename}>{option.label}</h1>
+                // <div>
+                 
+                  // <h1 className={styles.pagename}>{option.label}</h1>
                   <div key={option.id}>{option.page}</div>
-                </div>
+               // </div>
               );
             }
           })}

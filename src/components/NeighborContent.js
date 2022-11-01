@@ -15,7 +15,6 @@ const NeighborContent = ({ content }) => {
   const [region, setRegion] = useState('');
   const time = String(Date(content.createdAt)).split(' ');
   const timestr = `${time[3]}/${time[1]}/${time[2]}/${time[0]}`;
-
   const navigate = useNavigate();
 
   const summary = content.content.slice(0, LIMIT);
@@ -139,7 +138,7 @@ const NeighborContent = ({ content }) => {
           </div>
           <div className={styles.date}>{timestr}</div>
           {content.content.length < LIMIT ? (
-            <p className={styles.content_detail}>{content.detail}</p>
+            <p className={styles.content_detail}>{content.content}</p>
           ) : (
             <>
               <p className={styles.content_detail}>{summary}...더보기</p>

@@ -43,7 +43,8 @@ const Library = (props) => {
   return (
     <div className={styles.container}>
       <Top2 />
-      <Top location={'서재'} />
+      
+      
       <div className={styles.content}>
         {' '}
         <ul>
