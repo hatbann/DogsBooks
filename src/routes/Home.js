@@ -1,6 +1,9 @@
-import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import { dbService } from "../fbase";
+import { getDoc, query, doc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { Recommend } from "../components/Recommend";
 
 import Top from "../components/Top";
@@ -82,8 +85,257 @@ const todays = [
 let booktitle = "";
 
 const Home = ({ userObj }) => {
+  let location = useLocation();
+  const [pageNum, setPageNum] = useState(0);
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
+  const [genreArr, setGenreArr] = useState([]);
+  const auth = getAuth();
+
+  useEffect(() => {
+    if (location.state) {
+      setPageNum(1);
+    }
+
+    async function fetchData() {
+      const q = query(doc(dbService, "UserInfo", `${auth.currentUser.uid}`));
+      const genreArr = await getDoc(q);
+      let tempGenreArr = genreArr.data();
+
+      setGenreArr(tempGenreArr);
+    }
+    fetchData();
+  }, [pageNum]);
+
+  console.log("genreArr: ", genreArr);
+  let values = Object.values(genreArr);
+  console.log("values: ", values);
+  let maxValues = Math.max(...values);
+  console.log("maxValue: ", maxValues);
+
+  let j = 0;
+  let favorite = [];
+
+  for (let i in genreArr) {
+    if (genreArr[i] === maxValues) {
+      favorite[j] = i;
+      j++;
+    } else {
+      continue;
+    }
+  }
+
+  for (let i in favorite) {
+    switch (String(favorite[i])) {
+      case "genre1":
+        favorite[i] = "요리/살림";
+        break;
+      case "genre2":
+        favorite[i] = "건강/취미";
+        break;
+      case "genre3":
+        favorite[i] = "경제경영";
+        break;
+      case "genre4":
+        favorite[i] = "고등학교참고서";
+        break;
+      case "genre5":
+        favorite[i] = "고전";
+        break;
+      case "genre6":
+        favorite[i] = "과학";
+        break;
+      case "genre7":
+        favorite[i] = "달력/기타";
+        break;
+      case "genre8":
+        favorite[i] = "대학교재/전문서적";
+        break;
+      case "genre9":
+        favorite[i] = "만화";
+        break;
+      case "genre10":
+        favorite[i] = "사회과학";
+        break;
+      case "genre11":
+        favorite[i] = "소설/시/희곡";
+        break;
+      case "genre12":
+        favorite[i] = "수험서/자격증";
+        break;
+      case "genre13":
+        favorite[i] = "어린이";
+        break;
+      case "genre14":
+        favorite[i] = "에세이";
+        break;
+      case "genre15":
+        favorite[i] = "여행";
+        break;
+      case "genre16":
+        favorite[i] = "역사";
+        break;
+      case "genre17":
+        favorite[i] = "예술/대중문화";
+        break;
+      case "genre18":
+        favorite[i] = "외국어";
+        break;
+      case "genre19":
+        favorite[i] = "유아";
+        break;
+      case "genre20":
+        favorite[i] = "인문학";
+        break;
+      case "genre21":
+        favorite[i] = "일본도서";
+        break;
+      case "genre22":
+        favorite[i] = "자기계발";
+        break;
+      case "genre23":
+        favorite[i] = "잡지";
+        break;
+      case "genre24":
+        favorite[i] = "장르소설";
+        break;
+      case "genre25":
+        favorite[i] = "전집/중고전집";
+        break;
+      case "genre26":
+        favorite[i] = "종교/역학";
+        break;
+      case "genre27":
+        favorite[i] = "좋은부모";
+        break;
+      case "genre28":
+        favorite[i] = "중학교참고서";
+        break;
+      case "genre29":
+        favorite[i] = "청소년";
+        break;
+      case "genre30":
+        favorite[i] = "청소년 추천도서";
+        break;
+      case "genre31":
+        favorite[i] = "초등학교참고서";
+        break;
+      case "genre32":
+        favorite[i] = "컴퓨터/모바일";
+        break;
+      case "minor":
+        favorite[i] = "마이너";
+        break;
+    }
+  }
+
+  console.log("favoriteGenre: ", favorite);
+
+  const randomGenre = favorite[Math.floor(Math.random() * favorite.length)];
+  console.log("randomFavorite: ", randomGenre);
+  let recommendName;
+
+  switch (String(randomGenre)) {
+    case "요리/살림":
+      recommendName = "가정에 충실한, ";
+      break;
+    case "건강/취미":
+      recommendName = "건강튼튼이 최고!, ";
+      break;
+    case "경제경영":
+      recommendName = "경제는 내손에, ";
+      break;
+    case "고등학교참고서":
+      recommendName = "1등을 코앞에 둔, ";
+      break;
+    case "고전":
+      recommendName = "근본 클래식파, ";
+      break;
+    case "과학":
+      recommendName = "과학이 흥미로운, ";
+      break;
+    case "달력/기타":
+      recommendName = "스케줄 정리 달인, ";
+      break;
+    case "대학교재/전문서적":
+      recommendName = "놀 시간 없는, ";
+      break;
+    case "만화":
+      recommendName = "만화세상에 사는, ";
+      break;
+    case "사회과학":
+      recommendName = "세상소식이 궁금한, ";
+      break;
+    case "소설/시/희곡":
+      recommendName = "흥미진진한 감성러, ";
+      break;
+    case "수험서/자격증":
+      recommendName = "오늘도 열정적인, ";
+      break;
+    case "어린이":
+      recommendName = "상큼한 새싹, ";
+      break;
+    case "에세이":
+      recommendName = "에세이 수집가, ";
+      break;
+    case "여행":
+      recommendName = "떠나고 싶은, ";
+      break;
+    case "역사":
+      recommendName = "과거로부터 배움을 얻는, ";
+      break;
+    case "예술/대중문화":
+      recommendName = "예술적인, ";
+      break;
+    case "외국어":
+      recommendName = "오늘도 progress하는, ";
+      break;
+    case "유아":
+      recommendName = "새싹키우미, ";
+      break;
+    case "인문학":
+      recommendName = "박학다식, ";
+      break;
+    case "일본도서":
+      recommendName = "일본감성, ";
+      break;
+    case "자기계발":
+      recommendName = "성장하고 있는, ";
+      break;
+    case "잡지":
+      recommendName = "감각적인, ";
+      break;
+    case "장르소설":
+      recommendName = "소설은 장르가 중요한, ";
+      break;
+    case "전집/중고전집":
+      recommendName = "모든 걸 보고싶은, ";
+      break;
+    case "종교/역학":
+      recommendName = "독실한, ";
+      break;
+    case "좋은부모":
+      recommendName = "좋은 부모, ";
+      break;
+    case "중학교참고서":
+      recommendName = "학교 가기 싫은, ";
+      break;
+    case "청소년":
+      recommendName = "무궁무진한, ";
+      break;
+    case "청소년 추천도서":
+      recommendName = "무궁무진한, ";
+      break;
+    case "초등학교참고서":
+      recommendName = "무궁무진한, ";
+      break;
+    case "컴퓨터/모바일":
+      recommendName = "이게 왜 되는지 모르겠는, ";
+      break;
+    case "마이너":
+      recommendName = "유니크한, ";
+      break;
+  }
 
   let navigate = useNavigate();
   const onChange = (e) => {
@@ -113,9 +365,7 @@ const Home = ({ userObj }) => {
 
   return (
     <div className={styles.container}>
-
-    <Top2/>
-
+      <Top2 />
 
       <div className={styles.bookSearchForm}>
         <form>
@@ -126,7 +376,6 @@ const Home = ({ userObj }) => {
             placeholder="책을 기록해볼까요?"
             value={search}
             onChange={onChange}
-           
           />
           <button type="button" id={styles.bookSearchBtn} onClick={onSearch}>
             검색
@@ -134,11 +383,10 @@ const Home = ({ userObj }) => {
         </form>
       </div>
 
-
       <div className={styles.profile}>
         <div
           className={styles.profile_comment}
-        >{`프로추리러, ${userObj.displayName}님의 세계`}</div>
+        >{`${recommendName} ${userObj.displayName}님의 세계`}</div>
         <img
           src={require("../assets/titledog.png")}
           className={styles.profile_img}
