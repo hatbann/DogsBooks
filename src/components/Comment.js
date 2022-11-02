@@ -1,15 +1,41 @@
-import React, { useState } from 'react';
+import { async } from '@firebase/util';
+import { updateDoc, doc, getDoc } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
 import styles from './css/Comment.module.css';
+import { dbService } from '../fbase';
 
-const Comment = ({ user }) => {
+const Comment = ({ user, content }) => {
   let [comment, setComment] = useState(''); //사용자가 입력하는 댓글
   let [feedComments, setFeedComments] = useState([]); // 게시글 마다 댓글 리스트
   let [isValid, setIsValid] = useState(false);
 
-  const onPost = (e) => {
+  const contentRef = doc(dbService, 'lentContents', `${content.state.id}`);
+
+  useEffect(() => {
+    async function fetch() {
+      let docSnap = await getDoc(contentRef);
+      console.log('here');
+      if (
+        content.state.comments !== undefined &&
+        content.state.comments !== null
+      ) {
+        setFeedComments(docSnap.data().comments);
+      }
+    }
+    fetch();
+  }, []);
+  const onPost = async (e) => {
     const copyFeedComments = [...feedComments];
-    copyFeedComments.push(comment);
+    const ref = {
+      comment,
+      nickname: user.displayName,
+    };
+    copyFeedComments.push(ref);
     setFeedComments(copyFeedComments);
+
+    await updateDoc(contentRef, {
+      comments: copyFeedComments,
+    });
     setComment('');
   };
 
@@ -44,8 +70,8 @@ const Comment = ({ user }) => {
       {feedComments.map((commentArr, i) => {
         return (
           <CommentList
-            userName={user.displayName}
-            userComment={commentArr}
+            userName={commentArr.nickname}
+            userComment={commentArr.comment}
             key={i}
           />
         );

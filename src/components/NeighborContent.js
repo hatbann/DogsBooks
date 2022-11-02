@@ -113,6 +113,8 @@ const NeighborContent = ({ content }) => {
         id: content.id,
         uid: content.cid,
         page: 'bookneighbor',
+        comments: content.comments,
+        available: content.available,
       },
     });
     console.log(content);
@@ -158,6 +160,7 @@ const BookNeighborDetailPage = () => {
   const [title, setTitle] = useState(location.state.title);
   const img = location.state.img;
   const uid = location.state.uid;
+  const comments = location.state.comments;
 
   const page = location.state.page; //프로필에서 왔는지 책이웃에서 왔는지 구분
 
@@ -167,8 +170,7 @@ const BookNeighborDetailPage = () => {
   const [locNum, setLocNum] = useState(-1);
 
   //대여가능,불가능 여부
-  const [possible, setPossible] = useState(true);
-
+  const [possible, setPossible] = useState(location.state.available);
   const navigate = useNavigate();
 
   const contentRef = doc(dbService, 'lentContents', `${location.state.id}`);
@@ -225,7 +227,10 @@ const BookNeighborDetailPage = () => {
   };
 
   //대여가능,불가능 변경
-  const onPossible = (event) => {
+  const onPossible = async (event) => {
+    await updateDoc(contentRef, {
+      available: !possible,
+    });
     setPossible((prev) => !prev);
   };
 
@@ -345,7 +350,7 @@ const BookNeighborDetailPage = () => {
           ) : (
             <></>
           )}
-          <Comment user={userobj} />
+          <Comment user={userobj} content={location} />
         </>
       )}
     </div>

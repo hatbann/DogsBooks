@@ -34,6 +34,8 @@ const BookNeighbor = (props) => {
             imgfile: doc.data().imgfile,
             location: doc.data().location,
             createdAt: doc.data().createdAt,
+            comments: doc.data().comments,
+            available: doc.data().available,
           },
         ]);
       });
@@ -66,6 +68,8 @@ const BookNeighbor = (props) => {
             creatorId: doc.data().creatorId,
             content: doc.data().content,
             cid: doc.id,
+            commnets: doc.data().comments,
+            available: doc.data().available,
           };
           searchResult.push(result);
         });
