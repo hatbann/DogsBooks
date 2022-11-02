@@ -14,11 +14,6 @@ const Book = ({ bookInfo }) => {
   console.log(bookInfo);
   return (
 
-  
-    <div className={styles.settings}>
-
-    <div className={styles.setting}>
-      내 독스 </div>
 
     <div>
       <li className={styles.bookContainer} onClick={onClick}>
@@ -41,7 +36,7 @@ const Book = ({ bookInfo }) => {
           </div>
         </div>
       </li>
-    </div> </div>
+    </div> 
   );
 };
 

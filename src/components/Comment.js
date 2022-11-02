@@ -2,6 +2,7 @@ import { async } from '@firebase/util';
 import { updateDoc, doc, getDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import styles from './css/Comment.module.css';
+import { getAuth } from 'firebase/auth';
 import { dbService } from '../fbase';
 
 const Comment = ({ user, content }) => {
@@ -29,6 +30,7 @@ const Comment = ({ user, content }) => {
     const ref = {
       comment,
       nickname: user.displayName,
+      uid : user.uid,
     };
     copyFeedComments.push(ref);
     setFeedComments(copyFeedComments);
@@ -38,6 +40,51 @@ const Comment = ({ user, content }) => {
     });
     setComment('');
   };
+  
+  const onDelete = async(index)=>{
+    let commentsRef;
+    if(feedComments.length ===1){
+      console.log('한개');
+      feedComments = [];
+      await updateDoc(contentRef,{
+        comments:[],
+      });   
+    }else{
+        commentsRef = feedComments.splice(index-1,1);
+      setFeedComments(commentsRef);
+      await updateDoc(contentRef,{
+        comments:commentsRef,
+      });   
+    } 
+  }
+
+
+  const [edit, setEdit] = useState(false);
+  const [commentEditRef , setCommentEditRef] = useState('');
+
+  const onToggleEdit = (comment)=>{
+    setEdit((prev) => !prev);
+    setCommentEditRef(comment);
+  }
+
+  const onEdit = async(index,event)=>{
+    event.preventDefault();
+    for(let i = 0; i<feedComments.length; i++){
+      if(i === index){
+        feedComments[i].comment = commentEditRef;
+        break;
+      }
+    }
+    await updateDoc(contentRef,{
+      comments : feedComments,
+    })
+  }
+
+
+  const onChange = (e)=>{
+    let comment = e.target.value;
+    setCommentEditRef(comment);
+  }
 
   return (
     <div className={styles.commentContainer}>
@@ -69,23 +116,40 @@ const Comment = ({ user, content }) => {
       </form>
       {feedComments.map((commentArr, i) => {
         return (
-          <CommentList
-            userName={commentArr.nickname}
-            userComment={commentArr.comment}
-            key={i}
-          />
+          <div className={styles.commentList}>
+          <p>{commentArr.nickname}</p>
+          {
+            edit?
+            <>
+              <form>
+              <input type="text" value={commentEditRef} onChange={onChange}/>
+              <button  className={
+            commentEditRef.length > 0
+              ? `${styles.submitCommentActive}`
+              : `${styles.submitCommentInactive}`
+          } onClick={()=>onEdit(i)}>게시</button>
+              </form>
+            </>:
+            <>
+          <div>{commentArr.comment}</div>
+          {
+            user.uid === commentArr.uid ? 
+            <div>
+              <button onClick={()=> onDelete(i)}>삭제</button>
+              <button onClick={()=> onToggleEdit(commentArr.comment)}>수정</button>
+            </div>
+            :
+            <></>
+          }
+            </>
+          }
+        </div>
         );
       })}
     </div>
   );
 };
 
-const CommentList = (props) => {
-  return (
-    <div className={styles.commentList}>
-      <p>{props.userName}</p>
-      <div>{props.userComment}</div>
-    </div>
-  );
-};
+
+
 export default Comment;

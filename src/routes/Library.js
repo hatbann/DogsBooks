@@ -43,10 +43,9 @@ const Library = (props) => {
   return (
     <div className={styles.container}>
       <Top2 />
-      
-      
       <div className={styles.content}>
         {' '}
+
         <ul>
           {books.map((book) => {
             return <Book bookInfo={book} key={book.id} />;
