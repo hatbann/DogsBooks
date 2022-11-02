@@ -15,7 +15,6 @@ const Comment = ({ user, content }) => {
   useEffect(() => {
     async function fetch() {
       let docSnap = await getDoc(contentRef);
-      console.log('here');
       if (
         content.state.comments !== undefined &&
         content.state.comments !== null
@@ -25,69 +24,63 @@ const Comment = ({ user, content }) => {
     }
     fetch();
   }, []);
+
   const onPost = async (e) => {
     const copyFeedComments = [...feedComments];
     const ref = {
       comment,
       nickname: user.displayName,
-      uid : user.uid,
+      uid: user.uid,
     };
     copyFeedComments.push(ref);
     setFeedComments(copyFeedComments);
-
     await updateDoc(contentRef, {
       comments: copyFeedComments,
     });
     setComment('');
   };
-  
 
-  const onDelete = async(index)=>{
+  const onDelete = async (index) => {
     let commentsRef;
-    console.log(index);
-    console.log(feedComments.length);
-    if(feedComments.length ===1){
-      console.log('한개');
-      feedComments = [];
-      await updateDoc(contentRef,{
-        comments:[],
-      });   
-    }else{
-        commentsRef = feedComments.splice(index-1,1);
-      setFeedComments(commentsRef);
-      await updateDoc(contentRef,{
-        comments:commentsRef,
-      });   
-    } 
-  }
-
+    if (feedComments.length === 1) {
+      await updateDoc(contentRef, {
+        comments: [],
+      });
+    } else {
+      setFeedComments((curComment) =>
+        curComment.filter((comment, i) => i !== index)
+      );
+      await updateDoc(contentRef, {
+        comments: feedComments,
+      });
+    }
+  };
 
   const [edit, setEdit] = useState(false);
-  const [commentEditRef , setCommentEditRef] = useState('');
+  const [commentEditRef, setCommentEditRef] = useState('');
 
-  const onToggleEdit = (comment)=>{
+  const onToggleEdit = (comment) => {
     setEdit((prev) => !prev);
     setCommentEditRef(comment);
-  }
+  };
 
-  const onEdit = async(index,event)=>{
+  const onEdit = async (index, event) => {
     event.preventDefault();
-    for(let i = 0; i<feedComments.length; i++){
-      if(i === index){
+    for (let i = 0; i < feedComments.length; i++) {
+      if (i === index) {
         feedComments[i].comment = commentEditRef;
         break;
       }
     }
-    await updateDoc(contentRef,{
-      comments : feedComments,
-    })
-  }
+    await updateDoc(contentRef, {
+      comments: feedComments,
+    });
+  };
 
-
-  const onChange = (e)=>{
+  const onChange = (e) => {
     let comment = e.target.value;
     setCommentEditRef(comment);
-  }
+  };
 
   return (
     <div className={styles.commentContainer}>
@@ -119,44 +112,57 @@ const Comment = ({ user, content }) => {
       </form>
       {feedComments.map((commentArr, i) => {
         return (
-          <div className={styles.commentList}>
-          <p>{commentArr.nickname}</p>
-          {
-            user.uid === commentArr.uid ? 
+          <div className={styles.commentList} key={i}>
+            <p>{commentArr.nickname}</p>
+            {user.uid === commentArr.uid ? (
               <>
-                {edit?
+                {edit ? (
                   <>
                     <form>
-                      <input type="text" value={commentEditRef} onChange={onChange}/>
-                      <button  className={
-                           commentEditRef.length > 0
-                              ? `${styles.submitCommentActive}`
-                              : `${styles.submitCommentInactive}`
-                              } onClick={()=>onEdit(i)}>게시
+                      <input
+                        type="text"
+                        value={commentEditRef}
+                        onChange={onChange}
+                      />
+                      <button
+                        className={
+                          commentEditRef.length > 0
+                            ? `${styles.submitCommentActive}`
+                            : `${styles.submitCommentInactive}`
+                        }
+                        onClick={() => onEdit(i)}
+                      >
+                        게시
                       </button>
                     </form>
-                </>
-              :
-               <>
-                <div>{commentArr.comment}</div>
-                <div>
-                  <button onClick={()=> onDelete(commentArr.index)}>삭제</button>
-                  <button onClick={()=> onToggleEdit(commentArr.comment)}>수정</button>
-                </div>
-
-               </>
-          }
+                  </>
+                ) : (
+                  <>
+                    <div>{commentArr.comment}</div>
+                    <div>
+                      <button
+                        onClick={() => {
+                          console.log(i);
+                          onDelete(i);
+                        }}
+                      >
+                        삭제
+                      </button>
+                      <button onClick={() => onToggleEdit(commentArr.comment)}>
+                        수정
+                      </button>
+                    </div>
+                  </>
+                )}
               </>
-            :
-            <div>{commentArr.comment}</div>
-          }
-        </div>
+            ) : (
+              <div>{commentArr.comment}</div>
+            )}
+          </div>
         );
       })}
     </div>
   );
 };
-
-
 
 export default Comment;
