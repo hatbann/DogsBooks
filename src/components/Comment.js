@@ -41,8 +41,11 @@ const Comment = ({ user, content }) => {
     setComment('');
   };
   
+
   const onDelete = async(index)=>{
     let commentsRef;
+    console.log(index);
+    console.log(feedComments.length);
     if(feedComments.length ===1){
       console.log('한개');
       feedComments = [];
@@ -119,29 +122,33 @@ const Comment = ({ user, content }) => {
           <div className={styles.commentList}>
           <p>{commentArr.nickname}</p>
           {
-            edit?
-            <>
-              <form>
-              <input type="text" value={commentEditRef} onChange={onChange}/>
-              <button  className={
-            commentEditRef.length > 0
-              ? `${styles.submitCommentActive}`
-              : `${styles.submitCommentInactive}`
-          } onClick={()=>onEdit(i)}>게시</button>
-              </form>
-            </>:
-            <>
-          <div>{commentArr.comment}</div>
-          {
             user.uid === commentArr.uid ? 
-            <div>
-              <button onClick={()=> onDelete(i)}>삭제</button>
-              <button onClick={()=> onToggleEdit(commentArr.comment)}>수정</button>
-            </div>
-            :
-            <></>
+              <>
+                {edit?
+                  <>
+                    <form>
+                      <input type="text" value={commentEditRef} onChange={onChange}/>
+                      <button  className={
+                           commentEditRef.length > 0
+                              ? `${styles.submitCommentActive}`
+                              : `${styles.submitCommentInactive}`
+                              } onClick={()=>onEdit(i)}>게시
+                      </button>
+                    </form>
+                </>
+              :
+               <>
+                <div>{commentArr.comment}</div>
+                <div>
+                  <button onClick={()=> onDelete(commentArr.index)}>삭제</button>
+                  <button onClick={()=> onToggleEdit(commentArr.comment)}>수정</button>
+                </div>
+
+               </>
           }
-            </>
+              </>
+            :
+            <div>{commentArr.comment}</div>
           }
         </div>
         );
