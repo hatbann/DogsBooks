@@ -4,13 +4,16 @@ import React, { useEffect, useState } from 'react';
 import styles from './css/Comment.module.css';
 import { getAuth } from 'firebase/auth';
 import { dbService } from '../fbase';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const Comment = ({ user, content }) => {
+const Comment = ({ user, content, bookneighborContent }) => {
   let [comment, setComment] = useState(''); //사용자가 입력하는 댓글
   let [feedComments, setFeedComments] = useState([]); // 게시글 마다 댓글 리스트
   let [isValid, setIsValid] = useState(false);
 
   const contentRef = doc(dbService, 'lentContents', `${content.state.id}`);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetch() {
@@ -57,10 +60,12 @@ const Comment = ({ user, content }) => {
   };
 
   const [edit, setEdit] = useState(false);
+  const [editNum, setEditNum] = useState(-1);
   const [commentEditRef, setCommentEditRef] = useState('');
 
-  const onToggleEdit = (comment) => {
+  const onToggleEdit = (comment, num) => {
     setEdit((prev) => !prev);
+    setEditNum(num);
     setCommentEditRef(comment);
   };
 
@@ -75,6 +80,7 @@ const Comment = ({ user, content }) => {
     await updateDoc(contentRef, {
       comments: feedComments,
     });
+    setEdit(false);
   };
 
   const onChange = (e) => {
@@ -116,7 +122,7 @@ const Comment = ({ user, content }) => {
             <p>{commentArr.nickname}</p>
             {user.uid === commentArr.uid ? (
               <>
-                {edit ? (
+                {edit && editNum === i ? (
                   <>
                     <form>
                       <input
@@ -125,12 +131,18 @@ const Comment = ({ user, content }) => {
                         onChange={onChange}
                       />
                       <button
+                        onClick={onToggleEdit}
+                        className={styles.submitCommentActive}
+                      >
+                        취소
+                      </button>
+                      <button
                         className={
                           commentEditRef.length > 0
                             ? `${styles.submitCommentActive}`
                             : `${styles.submitCommentInactive}`
                         }
-                        onClick={() => onEdit(i)}
+                        onClick={(e) => onEdit(i, e)}
                       >
                         게시
                       </button>
@@ -139,7 +151,7 @@ const Comment = ({ user, content }) => {
                 ) : (
                   <>
                     <div>{commentArr.comment}</div>
-                    <div>
+                    <div className={styles.edit_delete_Btn}>
                       <button
                         onClick={() => {
                           console.log(i);
@@ -148,7 +160,9 @@ const Comment = ({ user, content }) => {
                       >
                         삭제
                       </button>
-                      <button onClick={() => onToggleEdit(commentArr.comment)}>
+                      <button
+                        onClick={() => onToggleEdit(commentArr.comment, i)}
+                      >
                         수정
                       </button>
                     </div>

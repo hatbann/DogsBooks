@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styles from '../routes/css/BookNeighbor.module.css';
 import { getAuth } from 'firebase/auth';
@@ -105,7 +105,7 @@ const NeighborContent = ({ content }) => {
   const onClick = (e) => {
     navigate('/bookneighbor/neighborContent', {
       state: {
-        region,
+        region: region,
         timestr,
         content: content.content,
         title: content.title,
@@ -153,16 +153,19 @@ const NeighborContent = ({ content }) => {
 };
 
 const BookNeighborDetailPage = () => {
-  const location = useLocation();
-  const region = location.state.region;
-  const timestr = location.state.timestr;
+  const [location, setLocation] = useState(useLocation());
+  const [region, setRegion] = useState(location.state.region);
+  const [timestr, setTimestr] = useState(location.state.timestr);
   const [content, setContent] = useState(location.state.content);
   const [title, setTitle] = useState(location.state.title);
-  const img = location.state.img;
-  const uid = location.state.uid;
-  const comments = location.state.comments;
+  const [img, setImg] = useState(location.state.img);
+  const [uid, setUid] = useState(location.state.uid);
+  const [comments, setComments] = useState(location.state.comments);
 
-  const page = location.state.page; //프로필에서 왔는지 책이웃에서 왔는지 구분
+  const [page, setPage] = useState(location.state.page); //프로필에서 왔는지 책이웃에서 왔는지 구분
+
+  const auth = getAuth();
+  const userobj = auth.currentUser;
 
   //수정을 위한 변수들
   const [edit, setEdit] = useState(false);
@@ -234,8 +237,6 @@ const BookNeighborDetailPage = () => {
     setPossible((prev) => !prev);
   };
 
-  const auth = getAuth();
-  const userobj = auth.currentUser;
   return (
     <div className={styles.bookNeighborDetailPage}>
       {edit ? (

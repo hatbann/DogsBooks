@@ -19,7 +19,7 @@
 .commentContainer form {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .commentContainer form button {
@@ -45,5 +45,27 @@
 }
 
 .commentList:last-child {
-  margin-bottom: 90px;
+  margin-bottom: 140px;
+}
+
+.edit_delete_Btn {
+  margin-top: -17px;
+}
+
+.edit_delete_Btn button {
+  border: none;
+  padding: 7px 13px;
+  margin-right: 7px;
+  color: white;
+  font-family: 'GmarketSansMedium';
+  border-radius: 7px;
+  font-size: 1rem;
+}
+
+.edit_delete_Btn button:first-child {
+  background-color: tomato;
+}
+
+.edit_delete_Btn button:last-child {
+  background-color: #3781c5;
 }
