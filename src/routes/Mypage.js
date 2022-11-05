@@ -78,10 +78,10 @@ const Mypage = ({ userObj }) => {
   for (let i in favorite) {
     switch (String(favorite[i])) {
       case "genre1":
-        favorite[i] = "가정/요리/뷰티";
+        favorite[i] = "요리/살림";
         break;
       case "genre2":
-        favorite[i] = "건강/취미/레저";
+        favorite[i] = "건강/취미";
         break;
       case "genre3":
         favorite[i] = "경제경영";

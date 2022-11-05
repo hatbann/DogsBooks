@@ -57,11 +57,6 @@ const Library = (props) => {
       });
     }
     fetchData();
-
-    setDoc(userWriteRef, {
-      reviewsNumber: 0,
-      lentsNumber: 0,
-    });
   }, []);
 
   return (
