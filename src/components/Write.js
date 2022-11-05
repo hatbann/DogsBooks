@@ -176,64 +176,54 @@ const Write = ({ userObj }) => {
           genre20: increment(3),
         });
         break;
-      case "일본도서":
+      case "자기계발":
         updateDoc(userRef, {
           genre21: increment(3),
         });
         break;
-      case "자기계발":
+      case "잡지":
         updateDoc(userRef, {
           genre22: increment(3),
         });
         break;
-      case "잡지":
+      case "장르소설":
         updateDoc(userRef, {
           genre23: increment(3),
         });
         break;
-      case "장르소설":
+      case "전집/중고전집":
         updateDoc(userRef, {
           genre24: increment(3),
         });
         break;
-      case "전집/중고전집":
+      case "종교/역학":
         updateDoc(userRef, {
           genre25: increment(3),
         });
         break;
-      case "종교/역학":
+      case "좋은부모":
         updateDoc(userRef, {
           genre26: increment(3),
         });
         break;
-      case "좋은부모":
+      case "중학교참고서":
         updateDoc(userRef, {
           genre27: increment(3),
         });
         break;
-      case "중학교참고서":
+      case "청소년":
         updateDoc(userRef, {
           genre28: increment(3),
         });
         break;
-      case "청소년":
+      case "초등학교참고서":
         updateDoc(userRef, {
           genre29: increment(3),
         });
         break;
-      case "청소년 추천도서":
-        updateDoc(userRef, {
-          genre30: increment(3),
-        });
-        break;
-      case "초등학교참고서":
-        updateDoc(userRef, {
-          genre31: increment(3),
-        });
-        break;
       case "컴퓨터/모바일":
         updateDoc(userRef, {
-          genre32: increment(3),
+          genre30: increment(3),
         });
         break;
       default:
