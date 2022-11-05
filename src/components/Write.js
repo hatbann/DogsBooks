@@ -76,164 +76,164 @@ const Write = ({ userObj }) => {
     });
 
     switch (String(genre)) {
-      case "가정/요리/뷰티":
+      case "요리/살림":
         updateDoc(userRef, {
-          genre1: increment(1),
+          genre1: increment(3),
         });
         break;
-      case "건강/취미/레저":
+      case "건강/취미":
         updateDoc(userRef, {
-          genre2: increment(1),
+          genre2: increment(3),
         });
         break;
       case "경제경영":
         updateDoc(userRef, {
-          genre3: increment(1),
+          genre3: increment(3),
         });
         break;
       case "고등학교참고서":
         updateDoc(userRef, {
-          genre4: increment(1),
+          genre4: increment(3),
         });
         break;
       case "고전":
         updateDoc(userRef, {
-          genre5: increment(1),
+          genre5: increment(3),
         });
         break;
       case "과학":
         updateDoc(userRef, {
-          genre6: increment(1),
+          genre6: increment(3),
         });
         break;
       case "달력/기타":
         updateDoc(userRef, {
-          genre7: increment(1),
+          genre7: increment(3),
         });
         break;
       case "대학교재/전문서적":
         updateDoc(userRef, {
-          genre8: increment(1),
+          genre8: increment(3),
         });
         break;
       case "만화":
         updateDoc(userRef, {
-          genre9: increment(1),
+          genre9: increment(3),
         });
         break;
       case "사회과학":
         updateDoc(userRef, {
-          genre10: increment(1),
+          genre10: increment(3),
         });
         break;
       case "소설/시/희곡":
         updateDoc(userRef, {
-          genre11: increment(1),
+          genre11: increment(3),
         });
         break;
       case "수험서/자격증":
         updateDoc(userRef, {
-          genre12: increment(1),
+          genre12: increment(3),
         });
         break;
       case "어린이":
         updateDoc(userRef, {
-          genre13: increment(1),
+          genre13: increment(3),
         });
         break;
       case "에세이":
         updateDoc(userRef, {
-          genre14: increment(1),
+          genre14: increment(3),
         });
         break;
       case "여행":
         updateDoc(userRef, {
-          genre15: increment(1),
+          genre15: increment(3),
         });
         break;
       case "역사":
         updateDoc(userRef, {
-          genre16: increment(1),
+          genre16: increment(3),
         });
         break;
       case "예술/대중문화":
         updateDoc(userRef, {
-          genre17: increment(1),
+          genre17: increment(3),
         });
         break;
       case "외국어":
         updateDoc(userRef, {
-          genre18: increment(1),
+          genre18: increment(3),
         });
         break;
       case "유아":
         updateDoc(userRef, {
-          genre19: increment(1),
+          genre19: increment(3),
         });
         break;
       case "인문학":
         updateDoc(userRef, {
-          genre20: increment(1),
+          genre20: increment(3),
         });
         break;
       case "일본도서":
         updateDoc(userRef, {
-          genre21: increment(1),
+          genre21: increment(3),
         });
         break;
       case "자기계발":
         updateDoc(userRef, {
-          genre22: increment(1),
+          genre22: increment(3),
         });
         break;
       case "잡지":
         updateDoc(userRef, {
-          genre23: increment(1),
+          genre23: increment(3),
         });
         break;
       case "장르소설":
         updateDoc(userRef, {
-          genre24: increment(1),
+          genre24: increment(3),
         });
         break;
       case "전집/중고전집":
         updateDoc(userRef, {
-          genre25: increment(1),
+          genre25: increment(3),
         });
         break;
       case "종교/역학":
         updateDoc(userRef, {
-          genre26: increment(1),
+          genre26: increment(3),
         });
         break;
       case "좋은부모":
         updateDoc(userRef, {
-          genre27: increment(1),
+          genre27: increment(3),
         });
         break;
       case "중학교참고서":
         updateDoc(userRef, {
-          genre28: increment(1),
+          genre28: increment(3),
         });
         break;
       case "청소년":
         updateDoc(userRef, {
-          genre29: increment(1),
+          genre29: increment(3),
         });
         break;
       case "청소년 추천도서":
         updateDoc(userRef, {
-          genre30: increment(1),
+          genre30: increment(3),
         });
         break;
       case "초등학교참고서":
         updateDoc(userRef, {
-          genre31: increment(1),
+          genre31: increment(3),
         });
         break;
       case "컴퓨터/모바일":
         updateDoc(userRef, {
-          genre32: increment(1),
+          genre32: increment(3),
         });
         break;
       default:

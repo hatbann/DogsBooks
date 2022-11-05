@@ -1,26 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
-import { dbService } from '../fbase';
-import { getAuth } from 'firebase/auth';
+import React, { useState, useEffect } from "react";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  orderBy,
+  setDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
+import { dbService } from "../fbase";
+import { getAuth } from "firebase/auth";
 
-import Top from '../components/Top';
-import Top2 from '../components/Top2';
-import styles from './css/Library.module.css';
-import Book from '../components/Book';
-import { async } from '@firebase/util';
+import Top from "../components/Top";
+import Top2 from "../components/Top2";
+import styles from "./css/Library.module.css";
+import Book from "../components/Book";
+import { async } from "@firebase/util";
 
 const Library = (props) => {
   const [books, setBooks] = useState([]);
   const auth = getAuth();
+  const userWriteRef = doc(
+    dbService,
+    "userWriteNumber",
+    `${auth.currentUser.uid}`
+  );
 
   useEffect(() => {
     async function fetchData() {
       const q = query(
-        collection(dbService, 'reviews'),
-        where('creatorId', '==', `${auth.currentUser.uid}`),
-        orderBy('createdAt', 'desc')
+        collection(dbService, "reviews"),
+        where("creatorId", "==", `${auth.currentUser.uid}`),
+        orderBy("createdAt", "desc")
       );
       const querySnapshot = await getDocs(q);
+      const count = querySnapshot.size;
+      console.log("count: ", count);
+      updateDoc(userWriteRef, {
+        reviewsNumber: count,
+      });
       querySnapshot.forEach((doc) => {
         setBooks((prev) => [
           ...prev,
@@ -38,14 +57,18 @@ const Library = (props) => {
       });
     }
     fetchData();
+
+    setDoc(userWriteRef, {
+      reviewsNumber: 0,
+      lentsNumber: 0,
+    });
   }, []);
 
   return (
     <div className={styles.container}>
       <Top2 />
       <div className={styles.content}>
-        {' '}
-
+        {" "}
         <ul>
           {books.map((book) => {
             return <Book bookInfo={book} key={book.id} />;
