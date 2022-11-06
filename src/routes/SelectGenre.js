@@ -26,38 +26,36 @@ const SelectGenre = () => {
   //console에 제대로 체크 됐는지 확인하려고 사용한것
   useEffect(() => {
     setDoc(userRef, {
-      genre1: 0,
-      genre2: 0,
-      genre3: 0,
-      genre4: 0,
-      genre5: 0,
-      genre6: 0,
-      genre7: 0,
-      genre8: 0,
-      genre9: 0,
-      genre10: 0,
-      genre11: 0,
-      genre12: 0,
-      genre13: 0,
-      genre14: 0,
-      genre15: 0,
-      genre16: 0,
-      genre17: 0,
-      genre18: 0,
-      genre19: 0,
-      genre20: 0,
-      genre21: 0,
-      genre22: 0,
-      genre23: 0,
-      genre24: 0,
-      genre25: 0,
-      genre26: 0,
-      genre27: 0,
-      genre28: 0,
-      genre29: 0,
-      genre30: 0,
-      genre31: 0,
-      genre32: 0,
+      genre1: 0, //요리/살림
+      genre2: 0, //건강/취미
+      genre3: 0, //경제경영
+      genre4: 0, //고등학교참고서
+      genre5: 0, //고전
+      genre6: 0, //과학
+      genre7: 0, //달력/기타
+      genre8: 0, //대학교재/전문서적
+      genre9: 0, //만화
+      genre10: 0, //사회과학
+      genre11: 0, //소설/시/희곡
+      genre12: 0, //수험서/자격증
+      genre13: 0, //어린이
+      genre14: 0, //에세이
+      genre15: 0, //여행
+      genre16: 0, //역사
+      genre17: 0, //예술/대중문화
+      genre18: 0, //외국어
+      genre19: 0, //유아
+      genre20: 0, //인문학
+      genre21: 0, //자기계발
+      genre22: 0, //잡지
+      genre23: 0, //장르소설
+      genre24: 0, //전집/중고전집
+      genre25: 0, //종교/역학
+      genre26: 0, //좋은부모
+      genre27: 0, //중학교참고서
+      genre28: 0, //청소년
+      genre29: 0, //초등학교참고서
+      genre30: 0, //컴퓨터/모바일
       minor: 0,
     });
     console.log(selected);
@@ -235,16 +233,6 @@ const SelectGenre = () => {
             genre30: increment(5),
           });
           break;
-        case 30:
-          updateDoc(userRef, {
-            genre31: increment(5),
-          });
-          break;
-        case 31:
-          updateDoc(userRef, {
-            genre32: increment(5),
-          });
-          break;
         default:
           updateDoc(userRef, {
             minor: increment(5),
@@ -266,7 +254,7 @@ const SelectGenre = () => {
         <div className={styles.input}>
           <input type="checkbox" id="checkbox0" value="0" onClick={onChecked} />
           <label className={styles.checkboxlabel} for="checkbox0"></label>
-          가정/요리/뷰티
+          요리/살림
         </div>
         <div className={styles.input}>
           <input
@@ -277,7 +265,7 @@ const SelectGenre = () => {
             className={styles.checkbox}
           />
           <label className={styles.checkboxlabel} for="checkbox1"></label>
-          건강/취미/레저
+          건강/취미
         </div>
         <div className={styles.input}>
           <input
@@ -486,7 +474,7 @@ const SelectGenre = () => {
             className={styles.checkbox}
           />
           <label className={styles.checkboxlabel} for="checkbox20"></label>
-          일본도서
+          자기계발
         </div>
         <div className={styles.input}>
           <input
@@ -497,7 +485,7 @@ const SelectGenre = () => {
             className={styles.checkbox}
           />
           <label className={styles.checkboxlabel} for="checkbox21"></label>
-          자기계발
+          잡지
         </div>
         <div className={styles.input}>
           <input
@@ -508,7 +496,7 @@ const SelectGenre = () => {
             className={styles.checkbox}
           />
           <label className={styles.checkboxlabel} for="checkbox22"></label>
-          잡지
+          장르소설
         </div>
         <div className={styles.input}>
           <input
@@ -519,7 +507,7 @@ const SelectGenre = () => {
             className={styles.checkbox}
           />
           <label className={styles.checkboxlabel} for="checkbox23"></label>
-          장르소설
+          전집/중고전집
         </div>
         <div className={styles.input}>
           <input
@@ -530,7 +518,7 @@ const SelectGenre = () => {
             className={styles.checkbox}
           />
           <label className={styles.checkboxlabel} for="checkbox24"></label>
-          전집/중고전집
+          종교/역학
         </div>
         <div className={styles.input}>
           <input
@@ -541,7 +529,7 @@ const SelectGenre = () => {
             className={styles.checkbox}
           />
           <label className={styles.checkboxlabel} for="checkbox25"></label>
-          종교/역학
+          좋은부모
         </div>
         <div className={styles.input}>
           <input
@@ -552,7 +540,7 @@ const SelectGenre = () => {
             className={styles.checkbox}
           />
           <label className={styles.checkboxlabel} for="checkbox26"></label>
-          좋은부모
+          중학교참고서
         </div>
         <div className={styles.input}>
           <input
@@ -563,7 +551,7 @@ const SelectGenre = () => {
             className={styles.checkbox}
           />
           <label className={styles.checkboxlabel} for="checkbox27"></label>
-          중학교참고서
+          청소년
         </div>
         <div className={styles.input}>
           <input
@@ -574,7 +562,7 @@ const SelectGenre = () => {
             className={styles.checkbox}
           />
           <label className={styles.checkboxlabel} for="checkbox28"></label>
-          청소년
+          초등학교참고서
         </div>
         <div className={styles.input}>
           <input
@@ -585,28 +573,6 @@ const SelectGenre = () => {
             className={styles.checkbox}
           />
           <label className={styles.checkboxlabel} for="checkbox29"></label>
-          청소년 추천도서
-        </div>
-        <div className={styles.input}>
-          <input
-            type="checkbox"
-            id="checkbox30"
-            value="30"
-            onClick={onChecked}
-            className={styles.checkbox}
-          />
-          <label className={styles.checkboxlabel} for="checkbox30"></label>
-          초등학교참고서
-        </div>
-        <div className={styles.input}>
-          <input
-            type="checkbox"
-            id="checkbox31"
-            value="31"
-            onClick={onChecked}
-            className={styles.checkbox}
-          />
-          <label className={styles.checkboxlabel} for="checkbox31"></label>
           컴퓨터/모바일
         </div>
         <div id={styles.formbtn}>

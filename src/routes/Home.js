@@ -188,39 +188,33 @@ const Home = ({ userObj }) => {
         favorite[i] = "인문학";
         break;
       case "genre21":
-        favorite[i] = "일본도서";
-        break;
-      case "genre22":
         favorite[i] = "자기계발";
         break;
-      case "genre23":
+      case "genre22":
         favorite[i] = "잡지";
         break;
-      case "genre24":
+      case "genre23":
         favorite[i] = "장르소설";
         break;
-      case "genre25":
+      case "genre24":
         favorite[i] = "전집/중고전집";
         break;
-      case "genre26":
+      case "genre25":
         favorite[i] = "종교/역학";
         break;
-      case "genre27":
+      case "genre26":
         favorite[i] = "좋은부모";
         break;
-      case "genre28":
+      case "genre27":
         favorite[i] = "중학교참고서";
         break;
-      case "genre29":
+      case "genre28":
         favorite[i] = "청소년";
         break;
-      case "genre30":
-        favorite[i] = "청소년 추천도서";
-        break;
-      case "genre31":
+      case "genre29":
         favorite[i] = "초등학교참고서";
         break;
-      case "genre32":
+      case "genre30":
         favorite[i] = "컴퓨터/모바일";
         break;
       case "minor":
@@ -296,9 +290,6 @@ const Home = ({ userObj }) => {
     case "인문학":
       recommendName = "박학다식, ";
       break;
-    case "일본도서":
-      recommendName = "일본감성, ";
-      break;
     case "자기계발":
       recommendName = "성장하고 있는, ";
       break;
@@ -321,9 +312,6 @@ const Home = ({ userObj }) => {
       recommendName = "학교 가기 싫은, ";
       break;
     case "청소년":
-      recommendName = "무궁무진한, ";
-      break;
-    case "청소년 추천도서":
       recommendName = "무궁무진한, ";
       break;
     case "초등학교참고서":

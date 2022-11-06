@@ -25,8 +25,7 @@ import LendList from "../components/LendList";
 
 const options = [
   {
-
-    label: '마이페이지',
+    label: "마이페이지",
 
     page: <Profile />,
     id: 0,
@@ -52,7 +51,6 @@ const Mypage = ({ userObj }) => {
       setPageNum(1);
     }
 
-    //-----------------------------------------------------------------
     async function fetchData() {
       const q = query(doc(dbService, "UserInfo", `${auth.currentUser.uid}`));
       const genreArr = await getDoc(q);
@@ -61,16 +59,10 @@ const Mypage = ({ userObj }) => {
       setGenreArr(tempGenreArr);
     }
     fetchData();
-
-    //--------------------------------------------------------------------
   }, [pageNum]);
 
-  //----------------------------------------------------------------------
-  console.log("genreArr: ", genreArr);
   let values = Object.values(genreArr);
-  console.log("values: ", values);
   let maxValues = Math.max(...values);
-  console.log("Max: ", maxValues);
   let j = 0;
   let favorite = [];
 
@@ -83,15 +75,13 @@ const Mypage = ({ userObj }) => {
     }
   }
 
-  console.log("favorite: ", favorite);
-
   for (let i in favorite) {
     switch (String(favorite[i])) {
       case "genre1":
-        favorite[i] = "가정/요리/뷰티";
+        favorite[i] = "요리/살림";
         break;
       case "genre2":
-        favorite[i] = "건강/취미/레저";
+        favorite[i] = "건강/취미";
         break;
       case "genre3":
         favorite[i] = "경제경영";
@@ -189,10 +179,7 @@ const Mypage = ({ userObj }) => {
     }
   }
 
-  console.log("change favorite: ", favorite);
-
   const randomGenre = favorite[Math.floor(Math.random() * favorite.length)];
-  console.log("randomGenre: ", randomGenre);
 
   switch (String(randomGenre)) {
     case "가정/요리/뷰티":
@@ -399,7 +386,6 @@ const Mypage = ({ userObj }) => {
       );
       break;
   }
-  //--------------------------------------------------------
 
   const onClick = (e) => {
     const text = e.target.textContent;
@@ -415,7 +401,6 @@ const Mypage = ({ userObj }) => {
     <div className={styles.container}>
       <Top2 />
 
-    
       <div className={styles.contents}>
         {" "}
         <Switch onClick={onClick} options={options} />
@@ -425,10 +410,10 @@ const Mypage = ({ userObj }) => {
               option.user = userObj;
               return (
                 // <div>
-                 
-                  // <h1 className={styles.pagename}>{option.label}</h1>
-                  <div key={option.id}>{option.page}</div>
-               // </div>
+
+                // <h1 className={styles.pagename}>{option.label}</h1>
+                <div key={option.id}>{option.page}</div>
+                // </div>
               );
             }
           })}
