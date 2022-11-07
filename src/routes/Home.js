@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { dbService } from "../fbase";
-import { getDoc, query, doc } from "firebase/firestore";
+import { getDoc, query, doc, getDocs, collection } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { Recommend } from "../components/Recommend";
 
@@ -90,6 +90,7 @@ const Home = ({ userObj }) => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
   const [genreArr, setGenreArr] = useState([]);
+  const [recommendBook, setRecommendBook] = useState([]);
   const auth = getAuth();
 
   useEffect(() => {
@@ -108,7 +109,8 @@ const Home = ({ userObj }) => {
   }, [pageNum]);
 
   console.log("genreArr: ", genreArr);
-  let values = Object.values(genreArr);
+
+  let values = Object.values(genreArr || {});
   console.log("values: ", values);
   let maxValues = Math.max(...values);
   console.log("maxValue: ", maxValues);
@@ -232,6 +234,25 @@ const Home = ({ userObj }) => {
   switch (String(randomGenre)) {
     case "요리/살림":
       recommendName = "가정에 충실한, ";
+      async function fetchData() {
+        const rq = query(
+          collection(dbService, "recommendData", "cook", "book")
+        );
+        const rquerySnapshot = await getDocs(rq);
+        rquerySnapshot.forEach((doc) => {
+          setRecommendBook((prev) => [
+            ...prev,
+            {
+              title: doc.data().title,
+              author: doc.data().author,
+              genre: doc.data().genre,
+              description: doc.data().description,
+              cover: doc.data().cover,
+            },
+          ]);
+        });
+      }
+      fetchData();
       break;
     case "건강/취미":
       recommendName = "건강튼튼이 최고!, ";
