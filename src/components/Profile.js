@@ -66,15 +66,24 @@ const Profile = () => {
 
   console.log("writeNum: ", writeNum);
   let evaluateNum;
+  let lentNum;
   for (let i in writeNum) {
     if (i === "reviewsNumber") {
       evaluateNum = writeNum[i];
       break;
     } else {
-      continue;
+      lentNum = writeNum[i];
     }
   }
   console.log("evaluateNum: ", evaluateNum);
+  console.log("lentNum: ", lentNum);
+
+  if (evaluateNum === undefined) {
+    evaluateNum = 0;
+  }
+  if (lentNum === undefined) {
+    lentNum = 0;
+  }
 
   const navigate = useNavigate();
 
@@ -97,6 +106,9 @@ const Profile = () => {
   const onclick = () => {
     navigate("/Mypage/ProfileUpdate");
   };
+
+  //evaluateNum: 독서록 작성한 개수(삭제한 것까지 반영)
+  //lentNum: 책 빌려주기 글 작성 개수(삭제한 것까지 반영)
 
   return (
     <div className={styles.settings}>

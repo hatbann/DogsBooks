@@ -6,7 +6,7 @@ const BookInfo = () => {
   const location = useLocation();
   const bookinfo = location.state.bookinfo;
   const searchKeyword = location.state.searchKeyword;
-  console.log(bookinfo);
+  console.log("bookInfo: ", bookinfo);
   const navigate = useNavigate();
 
   const onWrite = (bookinfo) => {

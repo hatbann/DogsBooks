@@ -1,11 +1,107 @@
 import { dbService } from "../fbase";
 import { getAuth } from "firebase/auth";
-import { getDoc, query, doc } from "firebase/firestore";
+import {
+  getDoc,
+  query,
+  doc,
+  setDoc,
+  addDoc,
+  collection,
+} from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 
 const Recommend = () => {
   const [genreArr, setGenreArr] = useState([]); //파이어베이스에 사용자 장르 객체 받아올 배열
   const auth = getAuth();
+  const cookRef = collection(dbService, "recommendData", "cook", "book");
+  const healthRef = collection(dbService, "recommendData", "health", "book");
+  const economyRef = collection(dbService, "recommendData", "economy", "book");
+  const highschoolRef = collection(
+    dbService,
+    "recommendData",
+    "highschool",
+    "book"
+  );
+  const classicRef = collection(dbService, "recommendData", "classic", "book");
+  const scienceRef = collection(dbService, "recommendData", "science", "book");
+  const calendarRef = collection(
+    dbService,
+    "recommendData",
+    "calendar",
+    "book"
+  );
+  const universityRef = collection(
+    dbService,
+    "recommendData",
+    "university",
+    "book"
+  );
+  const comicRef = collection(dbService, "recommendData", "comic", "book");
+  const socialScienceRef = collection(
+    dbService,
+    "recommendData",
+    "socialScience",
+    "book"
+  );
+  const novelRef = collection(dbService, "recommendData", "novel", "book");
+  const testRef = collection(dbService, "recommendData", "test", "book");
+  const kidRef = collection(dbService, "recommendData", "kid", "book");
+  const essayRef = collection(dbService, "recommendData", "essay", "book");
+  const travelRef = collection(dbService, "recommendData", "travel", "book");
+  const historyRef = collection(dbService, "recommendData", "history", "book");
+  const artRef = collection(dbService, "recommendData", "art", "book");
+  const languageRef = collection(
+    dbService,
+    "recommendData",
+    "language",
+    "book"
+  );
+  const babyRef = collection(dbService, "recommendData", "baby", "book");
+  const humanitiesRef = collection(
+    dbService,
+    "recommendData",
+    "humanities",
+    "book"
+  );
+  const selfDevelopeRef = collection(
+    dbService,
+    "recommendData",
+    "selfDevelope",
+    "book"
+  );
+  const allbookRef = collection(dbService, "recommendData", "allbook", "book");
+  const religionRef = collection(
+    dbService,
+    "recommendData",
+    "religion",
+    "book"
+  );
+  const goodParentRef = collection(
+    dbService,
+    "recommendData",
+    "goodParent",
+    "book"
+  );
+  const middleschoolRef = collection(
+    dbService,
+    "recommendData",
+    "middleschool",
+    "book"
+  );
+  const teenRef = collection(dbService, "recommendData", "teen", "book");
+  const elementaryRef = collection(
+    dbService,
+    "recommendData",
+    "elementary",
+    "book"
+  );
+  const computerRef = collection(
+    dbService,
+    "recommendData",
+    "computer",
+    "book"
+  );
+  const minorRef = collection(dbService, "recommendData", "minor", "book");
 
   useEffect(() => {
     async function fetchData() {
@@ -34,7 +130,6 @@ const Recommend = () => {
       continue;
     }
   }
-  console.log("favorite: ", favorite);
 
   for (let i in favorite) {
     //favorite에는 genre1, genre2 이런식으로 저장되어 있어서 바꿔줘야 함
