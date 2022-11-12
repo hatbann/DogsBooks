@@ -22,6 +22,11 @@ const SelectGenre = () => {
   const auth = getAuth();
 
   const userRef = doc(dbService, "UserInfo", `${auth.currentUser.uid}`);
+  const userWriteRef = doc(
+    dbService,
+    "userWriteNumber",
+    `${auth.currentUser.uid}`
+  );
 
   //console에 제대로 체크 됐는지 확인하려고 사용한것
   useEffect(() => {
@@ -57,6 +62,10 @@ const SelectGenre = () => {
       genre29: 0, //초등학교참고서
       genre30: 0, //컴퓨터/모바일
       minor: 0,
+    });
+    setDoc(userWriteRef, {
+      reviewsNumber: 0,
+      lentsNumber: 0,
     });
     console.log(selected);
   }, [selected]);
