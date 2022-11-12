@@ -11,6 +11,7 @@ const Comment = ({ user, content, bookneighborContent }) => {
   let [feedComments, setFeedComments] = useState([]); // 게시글 마다 댓글 리스트
   let [isValid, setIsValid] = useState(false);
 
+
   const contentRef = doc(dbService, 'lentContents', `${content.state.id}`);
 
   const navigate = useNavigate();
@@ -50,11 +51,11 @@ const Comment = ({ user, content, bookneighborContent }) => {
         comments: [],
       });
     } else {
-      setFeedComments((curComment) =>
-        curComment.filter((comment, i) => i !== index)
-      );
+      commentsRef = feedComments.filter((comment, i) => i!==index);
+      console.log(commentsRef);
+      setFeedComments(commentsRef);
       await updateDoc(contentRef, {
-        comments: feedComments,
+        comments: commentsRef,
       });
     }
   };

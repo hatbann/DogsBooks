@@ -7,6 +7,7 @@ import {
   orderBy,
   doc,
   getDoc,
+  updateDoc,
 } from 'firebase/firestore';
 import { dbService } from '../fbase';
 import { getAuth } from 'firebase/auth';
@@ -18,6 +19,11 @@ const LendList = ({ userobj }) => {
   const [lentBooks, setLentBooks] = useState([]);
   const navigate = useNavigate();
   const auth = getAuth();
+  const userWriteRef = doc(
+    dbService,
+    'userWriteNumber',
+    `${auth.currentUser.uid}`
+  );
 
   useEffect(() => {
     async function fetchData() {
@@ -27,6 +33,11 @@ const LendList = ({ userobj }) => {
         orderBy('createdAt', 'desc')
       );
       const querySnapshot = await getDocs(q);
+      const count = querySnapshot.size;
+      console.log('lentcount: ', count);
+      updateDoc(userWriteRef, {
+        lentsNumber: count,
+      });
       querySnapshot.forEach((doc) => {
         console.log(doc.data());
         setLentBooks((prev) => [
