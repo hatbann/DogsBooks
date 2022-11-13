@@ -1,10 +1,9 @@
 .container {
   position: relative;
-  
 }
 
 .profile {
-  align-items:center;
+  align-items: center;
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -13,7 +12,7 @@
 
 .profile_comment {
   font-size: 22px;
-  font-family: "GmarketSansMedium";
+  font-family: 'GmarketSansMedium';
 }
 
 .profile_img {
@@ -21,15 +20,14 @@
   height: 80%;
   border-radius: 3%;
   margin-top: 20px;
-  
 }
 
 .plant {
   margin-top: 10px;
   font-size: 13px;
-  font-family: "Happiness-Sans-Regular";
+  font-family: 'Happiness-Sans-Regular';
   text-decoration: underline;
-  text-underline-position:under;
+  text-underline-position: under;
 }
 
 .recommands {
@@ -39,8 +37,30 @@
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  font-family: "GmarketSansMedium";
-  
+  font-family: 'GmarketSansMedium';
+  width: 100vw;
+  cursor: pointer;
+}
+
+.recommands div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.recommands img {
+  width: 130px;
+  border-radius: 5%;
+  filter: drop-shadow(3px 5px 3px #727272);
+  margin-bottom: 20px;
+}
+
+.recommands h3 {
+  font-size: 15px;
+  width: 250px;
+  text-align: center;
 }
 
 .todays {
@@ -50,7 +70,7 @@
   align-items: center;
   margin-bottom: 120px;
   font-size: 22px;
-  font-family: "GmarketSansMedium";
+  font-family: 'GmarketSansMedium';
 }
 
 .bookSearchForm {
@@ -59,35 +79,32 @@
   justify-content: center;
 }
 
-.bookSearchForm form input{
+.bookSearchForm form input {
   border: none;
   border-bottom: 1px solid rgb(166, 166, 166);
   margin-right: 10px;
-
 }
 
-.bookSearchForm form input:focus{
+.bookSearchForm form input:focus {
   outline: none;
 }
 
-.bookSearchForm form input:focus::placeholder{
+.bookSearchForm form input:focus::placeholder {
   color: transparent;
 }
-
 
 #bookSearchBtn {
   width: auto;
   height: auto;
-  background-color:#0a0a23;
+  background-color: #0a0a23;
   color: #fff;
-  border:none;
-  border-radius:5px;
-  box-shadow: 0px 0px 1px 1px rgb(0,0,0);
-  font-family: "GmarketSansMedium";
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px 1px rgb(0, 0, 0);
+  font-family: 'GmarketSansMedium';
 }
 
-#bookSearchBtn:hover{
-  color:black;
+#bookSearchBtn:hover {
+  color: black;
   background-color: skyblue;
 }
-
