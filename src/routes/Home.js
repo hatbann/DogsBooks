@@ -309,25 +309,31 @@ let booktitle = '';
 
 const Home = ({ userObj }) => {
   let location = useLocation();
-  const bestsellerURL =
-    'https://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttblcyeon461605002&QueryType=Bestseller&MaxResults=5&start=1&SearchTarget=Book&output=xml&Version=20131101';
   const [pageNum, setPageNum] = useState(0);
   const [search, setSearch] = useState('');
   const [data, setData] = useState([]);
   const [genreArr, setGenreArr] = useState([]);
   const auth = getAuth();
+  const [bestseller, setBestseller] = useState([]);
 
   useEffect(() => {
     if (location.state) {
       setPageNum(1);
     }
-
     async function fetchData() {
       const q = query(doc(dbService, 'UserInfo', `${auth.currentUser.uid}`));
+      const time = new Date();
+      const year = Number(time.getFullYear());
+      const month = Number(time.getMonth());
+
+      const bestsellerURL = `https://cors-anywhere.herokuapp.com/https://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttblcyeon461605002&QueryType=Bestseller&MaxResults=5&start=1&SearchTarget=Book&output=js&Version=20131101`;
       const genreArr = await getDoc(q);
       let tempGenreArr = genreArr.data();
-
       setGenreArr(tempGenreArr);
+      const response = await axios.get(bestsellerURL);
+      const arr = response.data.item;
+      setBestseller(arr);
+      console.log(arr);
     }
     fetchData();
   }, [pageNum]);
@@ -671,7 +677,7 @@ const Home = ({ userObj }) => {
       </div>
       <div className={styles.todays}>
         <span>오늘의 독스북스</span>
-        <TodaysSlider contents={todays} />
+        <TodaysSlider contents={bestseller} />
       </div>
     </div>
   );

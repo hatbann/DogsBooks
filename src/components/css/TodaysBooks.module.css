@@ -7,7 +7,8 @@
 }
 
 .img {
-  width: 80%;
+  height: 200px !important;
+  width: 140px;
   height: auto;
   border-radius: 5%;
   filter: drop-shadow(3px 5px 3px #727272);
@@ -19,9 +20,10 @@
   width: 80%;
   font-weight: 500;
   font-size: 14px;
-  
   text-align: center;
-  font-family: "Happiness-Sans-Regular";
+  font-family: 'Happiness-Sans-Regular';
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .content {
@@ -29,5 +31,5 @@
   margin-top: 8px;
   text-align: left;
   width: 68%;
-  font-family: "Happiness-Sans-Regular";
+  font-family: 'Happiness-Sans-Regular';
 }

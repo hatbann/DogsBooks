@@ -43,7 +43,7 @@ export const TodaysSlider = ({ contents }) => {
     <div className={styles.container}>
       <Slider {...settings} className={styles.slider}>
         {contents.map((content) => (
-          <TodaysBooks contentObj={content} key={content.id} />
+          <TodaysBooks contentObj={content} key={content.isbn} />
         ))}
       </Slider>
     </div>
