@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { getAuth } from "firebase/auth";
-import { dbService } from "../fbase";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { getAuth } from 'firebase/auth';
+import { dbService } from '../fbase';
 import {
   addDoc,
   doc,
@@ -9,8 +9,8 @@ import {
   onSnapshot,
   setDoc,
   updateDoc,
-} from "firebase/firestore";
-import styles from "./css/SelectGenre.module.css";
+} from 'firebase/firestore';
+import styles from './css/SelectGenre.module.css';
 
 const $ = (type) => {
   return document.querySelector(type);
@@ -21,10 +21,10 @@ const SelectGenre = () => {
   const [selected, setSelected] = useState([]); //유저가 회원가입 시 최초로 선호하는 장르 선택: selected
   const auth = getAuth();
 
-  const userRef = doc(dbService, "UserInfo", `${auth.currentUser.uid}`);
+  const userRef = doc(dbService, 'UserInfo', `${auth.currentUser.uid}`);
   const userWriteRef = doc(
     dbService,
-    "userWriteNumber",
+    'userWriteNumber',
     `${auth.currentUser.uid}`
   );
 
@@ -249,7 +249,7 @@ const SelectGenre = () => {
           break;
       }
     }
-    navigate("/dogsbooks");
+    navigate('/dogsbooks');
   };
 
   return (
@@ -585,7 +585,7 @@ const SelectGenre = () => {
           컴퓨터/모바일
         </div>
         <div id={styles.formbtn}>
-          <input type="submit" value={"완료"} onClick={onSubmit}></input>
+          <input type="submit" value={'완료'} onClick={onSubmit}></input>
         </div>
       </form>
     </div>

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { dbService } from "../fbase";
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { dbService } from '../fbase';
 import {
   collection,
   addDoc,
@@ -12,26 +12,27 @@ import {
   getDocs,
   doc,
   orderBy,
-} from "firebase/firestore";
-import { getAuth, onAuthStateChanged, updateCurrentUser } from "firebase/auth";
+} from 'firebase/firestore';
+import { getAuth, onAuthStateChanged, updateCurrentUser } from 'firebase/auth';
 
-import Top from "../components/Top";
-import Top2 from "../components/Top2";
-import styles from "./css/Mypage.module.css";
-import Switch from "../components/Switch";
-import Profile from "../components/Profile";
-import Friend from "../components/Friends";
-import LendList from "../components/LendList";
+import Top from '../components/Top';
+import Top2 from '../components/Top2';
+import styles from './css/Mypage.module.css';
+import Switch from '../components/Switch';
+import Profile from '../components/Profile';
+import Friend from '../components/Friends';
+import LendList from '../components/LendList';
 
 const options = [
   {
-    label: "마이페이지",
-
+    label: '마이페이지',
+    key: 0,
     page: <Profile />,
     id: 0,
   },
   {
-    label: "빌려준 책 목록",
+    label: '빌려준 책 목록',
+    key: 1,
     page: <LendList />,
     id: 1,
   },
@@ -66,7 +67,7 @@ const Mypage = ({ userObj }) => {
       <Top2 />
 
       <div className={styles.contents}>
-        {" "}
+        {' '}
         <Switch onClick={onClick} options={options} />
         <div>
           {options.map((option) => {
