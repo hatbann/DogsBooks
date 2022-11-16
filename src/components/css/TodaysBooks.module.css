@@ -11,9 +11,10 @@
   width: 140px;
   height: auto;
   border-radius: 5%;
-  filter: drop-shadow(3px 5px 3px #727272);
+  /* filter: drop-shadow(3px 5px 3px #727272);*/
   margin-bottom: 20px;
   margin-bottom: 20px;
+
 }
 
 .title {

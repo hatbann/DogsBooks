@@ -29,17 +29,17 @@
 .bookImg {
   border-radius: 5%;
   /*margin-right: 30px;*/
-  width: 40%;
+  width: 40;
 
-  filter: drop-shadow(3px 3px 3px #727272);
+  /*filter: drop-shadow(3px 3px 3px #727272);*/
 }
 
 .detail {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+  margin-left: 10px;
   background-color: whitesmoke;
-  filter: drop-shadow(2px 2px 3px #9b9b9b);
+  filter: drop-shadow(1px 1px 2px #9b9b9b);
   padding: 20px;
   border-radius: 5%;
 }

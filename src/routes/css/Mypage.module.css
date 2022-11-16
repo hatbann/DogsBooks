@@ -108,12 +108,17 @@
 .dogs img {
   /* border: 1px solid red; */
     float: left;
-    width:40%;
+    width:30%;
     box-sizing: border-box;
-    margin-right: 10px;
+    margin-right: 0px;
     border-radius: 3%;
     justify-content:space-between;
     
+ }
+ .dogs button {
+  width:20%;
+  margin-right: 8px;
+
  }
 
 .message{
@@ -240,3 +245,4 @@
     justify-content:space-between;
     
  }
+
