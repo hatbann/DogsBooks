@@ -102,8 +102,11 @@ button {
 .writeBtn {
   position: fixed;
   bottom: 8vh;
-  left: 33vw;
+  width: 100vw;
+  left: 0;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
 }
 
 .writeBtn button {
@@ -113,7 +116,7 @@ button {
   font-size: 1.5rem;
   padding: 10px 20px;
   border-radius: 20px;
-  width: 100%;
+  width: 130px;
   height: 100%;
 }
 
