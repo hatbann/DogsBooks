@@ -177,7 +177,7 @@ const Profile = () => {
           <div className={styles.message}>
         <span>레벨업으로 새로운 독스를 만날 수 있어요!</span>
       </div>
-          <div class={styles.dogscontainer}>
+          <div className={styles.dogscontainer}>
           <div className={styles.dogs}>
           <img src={require("../assets/01.png")} />
           <button id="1" onClick={onMain}>level 1</button>   </div>
@@ -191,7 +191,7 @@ const Profile = () => {
           <button id="3" disabled={writelevelNum<=2}>level 3</button> </div>
           </div>
           
-          <div class={styles.dogscontainer}>
+          <div className={styles.dogscontainer}>
           <div className={styles.dogs}>
           <img src={require("../assets/04.png")} />
           <button id="4" disabled={writelevelNum<=3}>level 4</button> </div>
@@ -229,7 +229,7 @@ const Profile = () => {
           <div className={styles.message}>
             <span>빌려주고 싶은 책을 업로드해 히든 아이템을 얻으세요</span>
           </div>
-          <div class={styles.dogscontainer}>
+          <div className={styles.dogscontainer}>
           <div className={styles.dogs}>
           <img src={require("../assets/001.png")} />
           <button id="1" disabled={lentlevelNum==0} >level 1</button>   </div>
@@ -243,7 +243,7 @@ const Profile = () => {
           <button id="3" disabled={lentlevelNum<=2}>level 3</button> </div>
           </div>
           
-          <div class={styles.dogscontainer}>
+          <div className={styles.dogscontainer}>
           <div className={styles.dogs}>
           <img src={require("../assets/004.png")} />
           <button id="4" disabled={lentlevelNum<=3}>level 4</button> </div>
