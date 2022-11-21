@@ -19,6 +19,7 @@ const cook = [
     title:
       "사유 식탁 - 양장, 영혼의 허기를 달래는 알랭 드 보통의 132가지 레시피",
     author: "알랭 드 보통",
+    categoryName: "국내도서>요리/살림",
     dscr:
       "연애와 철학을 접목한 독특한 글쓰기로 ‘닥터 러브’라는 별칭까지 얻은 알랭 드 보통이 뜻밖…‘인생학교’를 통해 출간한 이 책에서 알랭 드 보통은 요리와 식사를 철학으로 사유한다.\n",
   },
@@ -29,6 +30,7 @@ const cook = [
     title:
       "만 원으로 차리는 파인 다이닝 - 식비 걱정 NO! 요리용디 가성비 레시피",
     author: "요리용디",
+    categoryName: "국내도서>요리/살림",
     dscr:
       "87만 구독자가 인정한 푸드 크리에이터 요리용디의 ‘만 원으로 차리는 파인 다이닝’은 만 …쉽게 찾을 수 있는 재료로 파인 다이닝 레스토랑에서나 볼 법한 근사한 요리를 만들어낸다.",
   },
@@ -40,6 +42,7 @@ const health = [
     id: 0,
     title: "백년 허리 1 : 진단편 - 내 허리 통증 해석하기",
     author: "정선근",
+    categoryName: "국내도서>건강/취미",
     dscr:
       "서울대 의대 재활의학과 정선근 교수의 스테디셀러인 '백년허리'의 개정증보판이다. 백년허리의…을 뿐 아니라, 허리 통증은 진화의 축복이라는 요통에 대한 새로운 관점을 제시하고 있다.",
   },
@@ -47,6 +50,7 @@ const health = [
     uri:
       "https://image.aladin.co.kr/product/30083/38/coversum/k472839475_1.jpg",
     id: 1,
+    categoryName: "국내도서>건강/취미",
     title:
       "이게 다 호르몬 때문이야 - 내 몸과 마음이 달라지는 49가지 호르몬 법칙",
     author: "마쓰무라 게이코 (지은이), 이은혜 (옮긴이)",
@@ -59,6 +63,7 @@ const economy = [
     uri:
       "https://image.aladin.co.kr/product/30169/22/coversum/8959897094_3.jpg",
     id: 0,
+    categoryName: "국내도서>경제경영",
     title: "트렌드 코리아 2023 - 서울대 소비트렌드 분석센터의 2023 전망",
     author:
       "김난도, 전미영, 최지혜, 이수진, 권정윤, 이준영, 이향은, 한다혜, 이혜원, 추예린",
@@ -69,6 +74,7 @@ const economy = [
     uri:
       "https://image.aladin.co.kr/product/23616/25/coversum/k652638520_2.jpg",
     id: 1,
+    categoryName: "국내도서>경제경영",
     title: "부자의 언어 - 어떻게 살아야 부자가 되는지 묻는 아들에게",
     author: "존 소포릭 (지은이), 이한이 (옮긴이)",
     dscr:
@@ -80,6 +86,7 @@ const highschool = [
     uri:
       "https://image.aladin.co.kr/product/27800/72/coversum/8928333369_1.jpg",
     id: 0,
+    categoryName: "국내도서>고등학교참고서",
     title: "신사고 쎈 고등 수학 (상) (2023년용)",
     author:
       "홍범준, 김의석, 김형정, 김형균, 김윤희, 신사고수학콘텐츠연구회 (지은이)",
@@ -90,6 +97,7 @@ const highschool = [
     uri:
       "https://image.aladin.co.kr/product/28101/59/coversum/8968062285_1.jpg",
     id: 1,
+    categoryName: "국내도서>고등학교참고서",
     title:
       "천일문 기본 Basic 1001 Sentences - 2021년 최신개정판/고1 대상/천일비급 별책포함",
     author: "김기훈, 쎄듀 영어교육연구센터 (지은이)",
@@ -102,6 +110,7 @@ const classic = [
     uri: "https://image.aladin.co.kr/product/26/0/coversum/s742633278_1.jpg",
     id: 0,
     title: "데미안",
+    categoryName: "국내도서>고전",
     author: "헤르만 헤세 (지은이), 전영애 (옮긴이)",
     dscr:
       "2차 세계대전 중 많은 독일 젊은이들이 전장에 나가면서 군복 주머니 속에 품고 갔던 책. …이들을 그렸다. 지금까지도 젊은이들에게 '통과의례'처럼 읽히고 있는 명작을 새로 옮겼다.",
@@ -110,6 +119,7 @@ const classic = [
     uri: "https://image.aladin.co.kr/product/49/16/coversum/893746103x_3.jpg",
     id: 1,
     title: "인간 실격",
+    categoryName: "국내도서>고전",
     author: "다자이 오사무 (지은이), 김춘미 (옮긴이)",
     dscr:
       "자살 미수와 약물 중독, 39세의 젊은 나이에 자살로 생을 마감한 다자이 오사무의 작품 <…타임스는 '인간의 나약함을 드러내는 데 있어 다자이보다 뛰어난 작가는 드물다'고 평했다.",
@@ -120,6 +130,7 @@ const science = [
     uri:
       "https://image.aladin.co.kr/product/30275/28/coversum/k962839725_1.jpg",
     id: 0,
+    categoryName: "국내도서>과학",
     title: "생물은 왜 죽는가",
     author: "고바야시 다케히코",
     dscr:
@@ -128,6 +139,7 @@ const science = [
   {
     uri: "https://image.aladin.co.kr/product/54/7/coversum/898371154x_2.jpg",
     id: 1,
+    categoryName: "국내도서>과학",
     title: "코스모스",
     author: "칼 세이건 (지은이), 홍승수 (옮긴이)",
     dscr:
@@ -141,12 +153,14 @@ const calendar = [
     id: 0,
     title: "2023 오늘도 빵먹일력 (스프링)",
     author: "주쓰",
+    categoryName: "국내도서>달력/기타",
     dscr:
       "밥 없이는 살아도, 빵 없이는 못 사는 전국의 빵순이들을 위해 준비한 '다운타운믹스주쓰' …, 귀엽지만 어딘가 이상하면서 파괴적인 캐릭터들이 특징인 다믹주 세계관을 기반으로 한다.",
   },
   {
     uri: "https://image.aladin.co.kr/product/30314/1/coversum/k572839130_1.jpg",
     id: 1,
+    categoryName: "국내도서>달력/기타",
     title: "2023 인생일력",
     author: "민음사 편집부 (지은이)",
     dscr:
@@ -160,12 +174,14 @@ const university = [
     id: 0,
     title: "이기적 유전자, 반격의 사피엔스 - 진화생물학에서 찾은 행복의 기원",
     author: "권행백 (지은이)",
+    categoryName: "국내도서>대학교재/전문서적",
     dscr:
       "나의 개성과 존재의 근원은 무엇인가?”라는 물음에서 출발하는 인문서이며,  ‘자기답게 살기’의 노하우를 진화생물학에서 구하는 행복론이다.",
   },
   {
     uri: "https://image.aladin.co.kr/product/2499/38/coversum/8931007329_1.jpg",
     id: 1,
+    categoryName: "국내도서>대학교재/전문서적",
     title: "군중심리",
     author: "귀스타브 르 봉 (지은이), 이재형 (옮긴이)",
     dscr:
@@ -177,6 +193,7 @@ const comic = [
     uri:
       "https://image.aladin.co.kr/product/30342/47/coversum/k382839443_1.jpg",
     id: 0,
+    categoryName: "국내도서>만화",
     title: "주술회전 20",
     author: "아쿠타미 게게 (지은이), 이정운 (옮긴이)",
     dscr:
@@ -186,6 +203,7 @@ const comic = [
     uri:
       "https://image.aladin.co.kr/product/30154/21/coversum/k302839487_1.jpg",
     id: 1,
+    categoryName: "국내도서>만화",
     title: "체인소 맨 : 버디 스토리즈",
     author: "히시카와 사카쿠 (지은이), 후지모토 타츠키 (원작)",
     dscr:
@@ -198,6 +216,7 @@ const socialScience = [
     id: 0,
     title: "말을 부수는 말 - 왜곡되고 둔갑되는 권력의 언어를 해체하기",
     author: "이라영",
+    categoryName: "국내도서>사회과학",
     dscr:
       "한국 사회의 뜨거운 논제들을 치밀하고 날카롭게 다뤄오며, 시대를 통찰하는 저서를 집필해온 예술사회학자 이라영의 2년 만의 단독 저서이다.",
   },
@@ -205,6 +224,7 @@ const socialScience = [
     uri:
       "https://image.aladin.co.kr/product/30313/93/coversum/k212839130_1.jpg",
     id: 1,
+    categoryName: "국내도서>사회과학",
     title: "제국의 충돌 - ‘차이메리카’에서 ‘신냉전’으로",
     author: "훙호펑 (지은이), 하남석 (옮긴이)",
     dscr:
@@ -216,6 +236,7 @@ const novel = [
     uri:
       "https://image.aladin.co.kr/product/27692/63/coversum/s772839857_2.jpg",
     id: 0,
+    categoryName: "국내도서>소설/시/희곡",
     title: "지구 끝의 온실",
     author: "김초엽",
     dscr:
@@ -224,46 +245,55 @@ const novel = [
   {
     uri: "https://image.aladin.co.kr/product/610/30/coversum/8937462346_3.jpg",
     id: 1,
+    categoryName: "국내도서>소설/시/희곡",
     title: "참을 수 없는 존재의 가벼움",
     author: "밀란 쿤데라 (지은이), 이재룡 (옮긴이)",
     dscr:
       "역사의 상처에서 태어나 단 한 번도 존재의 가벼움을 느껴 보지 못한 현대인, 그들의 삶과 … 약한 테레자, 사비나의 외로운 삶. 토마시에게 테레자는 무거움이요 사비나는 가벼움이다.",
   },
 ];
-/*
-const test=[
+const test = [
   {
     uri:
+      "https://image.aladin.co.kr/product/30260/99/coversum/k722839710_1.jpg",
     id: 0,
-    title:
-    author:
+    title: "2023 써니 행정법총론 기출문제집 - 전2권",
+    categoryName: "국내도서>수험서/자격증",
+    author: "박준철 (지은이)",
     dscr:
+      "16년간(2007~2022년) 필수 기출문제를 철저히 분석하였다. 최신 기출문제로 2022…급과 2021년 국가직 7급, 지방직ㆍ서울시 7급, 경행경채, 행정사 문제를 수록하였다.",
   },
   {
-    uri:
+    uri: "https://image.aladin.co.kr/product/30258/0/coversum/k062839604_1.jpg",
     id: 1,
-    title:
-    author:
+    title: "2023 전한길 한국사 기출 회독 트레이닝 모의고사",
+    categoryName: "국내도서>수험서/자격증",
+    author: "전한길 (지은이)",
     dscr:
+      "최근 출제 경향에 가장 적합한 기출문제를 변형하거나 재배치하여 모의고사 형태로 구현한 기출…면밀히 분석하고, 빈출 쟁점에 대한 사료 및 선택지를 조합하여 기출 문제를 재구성하였다.",
   },
 ];
-const kid=[
+const kid = [
   {
     uri:
+      "https://image.aladin.co.kr/product/26302/71/coversum/8954677150_1.jpg",
     id: 0,
-    title:
-    author:
+    categoryName: "국내도서>어린이>동화/명작/고전>국내창작동화",
+    title: "긴긴밤 - 제21회 문학동네어린이문학상 대상 수상작",
+    author: "루리 (지은이)",
     dscr:
+      "제21회 문학동네어린이문학상 대상 수상작. 지구상의 마지막 하나가 된 흰바위코뿔소 노든과 버려진 알에서 태어난 어린 펭귄이 수없는 긴긴밤을 함께하며, 바다를 찾아가는 이야기이다.",
   },
   {
-    uri:
+    uri: "https://image.aladin.co.kr/product/6232/31/coversum/8936442805_1.jpg",
     id: 1,
-    title:
-    author:
+    categoryName: "국내도서>어린이>동화/명작/고전>국내창작동화",
+    title: "푸른 사자 와니니",
+    author: "이현 (지은이), 오윤화 (그림)",
     dscr:
+      "창비아동문고 시리즈 280권. '짜장면 불어요!', '로봇의 별'의 작가 이현의 장편동화. 쓸모없다는 이유로 무리에서 쫓겨난 사자 와니니가 초원을 떠돌며 겪는 일들을 그린 동화로, 아프리카의 광활한 초원에서 펼쳐지는 모험을 사실적이고 감동적으로 담아냈다.",
   },
 ];
-*/
 const essay = [
   {
     uri:
@@ -271,6 +301,7 @@ const essay = [
     id: 0,
     title: "인생의 역사 - '공무도하가'에서 '사랑의 발명'까지",
     author: "신형철 ",
+    categoryName: "국내도서>에세이",
     dscr:
       "우리 문학을 향한 '정확한 사랑'이자 시대를 읽는 탁월한 문장, 평론가 신형철이 4년 만의…를 읽고 시를 나누는 이야기, 그리하여 시에서 인생을 배우고 인생을 시로 이루는 글이다.",
   },
@@ -280,28 +311,32 @@ const essay = [
     id: 1,
     title: "땅콩일기 - 쩡찌 그림 에세이",
     author: "쩡찌",
+    categoryName: "국내도서>에세이",
     dscr:
       "작가 쩡찌가 ‘땅콩’을 통해 일상에서 겪는 마음의 일들을 진솔하게 담아낸 그림일기. 201…롭게 편집해 선보이는 소장판이다. 이에 더해 추가컷, 미공개 에피소드 등을 다수 담았다.",
   },
 ];
-/*
-const travel=[
+const travel = [
   {
-    uri:
+    uri: "https://image.aladin.co.kr/product/29960/9/coversum/k922838147_1.jpg",
     id: 0,
-    title:
-    author:
+    categoryName: "국내도서>여행>미국여행>미국여행 에세이",
+    title: "뉴욕에 살고 있습니다 - 유튜버 하루데이가 기록한 낭만적인 도시 풍경",
+    author: "하루 (지은이)",
     dscr:
+      "감성적이고 따스한 시선으로 뉴욕에서의 일상을 기록한 영상으로 많은 사랑을 받고 있는 유튜버 하루데이가 걷다가 멈추어 서서 바라본 뉴욕의 풍경들을 담았다.저자의 시선 속에 맺힌 도시의 풍경은 마치 영화의 스틸컷 같고, 단정하고 담백한 문장들은 정제된 대사처럼 느껴진다.",
   },
   {
     uri:
+      "https://image.aladin.co.kr/product/18827/60/coversum/8954655971_3.jpg",
     id: 1,
-    title:
-    author:
+    categoryName: "국내도서>에세이>한국에세이",
+    title: "여행의 이유 - 김영하 산문",
+    author: "김영하 (지은이)",
     dscr:
+      "'이 책을 쓰는 데 내 모든 여행의 경험이 필요했다.' 작가 김영하가 처음 여행을 떠났던 순간부터 최근의 여행까지, 오랜 시간 여행을 하면서 느끼고 생각했던 것들을 아홉 개의 이야기로 풀어낸 산문이다.",
   },
 ];
-*/
 const history = [
   {
     uri:
