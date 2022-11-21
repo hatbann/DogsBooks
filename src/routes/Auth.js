@@ -27,13 +27,6 @@ const Auth = () => {
     <div className={styles.container}>
       <AuthForm />
 
-      <button
-        onClick={onSocialClick}
-        name="google"
-        className={`${styles.btn} ${styles.Google}`}
-      >
-        Continue with Google
-      </button>
     </div>
   );
 };
