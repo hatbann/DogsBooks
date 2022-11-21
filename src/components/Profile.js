@@ -21,7 +21,7 @@ import {
   Firestore,
   collection,
 } from 'firebase/firestore';
-import ImageButton from 'react-image-button';
+import { async } from '@firebase/util';
 
 
 /*const user = {
@@ -78,37 +78,46 @@ const Profile = () => {
         'userWriteNumber',
         `${auth.currentUser.uid}`
       );
+      let docSnap;
       const getData = async () => {
-        const docSnap = await getDoc(docRef);
+        docSnap = await getDoc(docRef);
         console.log(docSnap.data());
-        setWriteNum(docSnap.data().reviewsNumber);
-        setLentNum(docSnap.data().lentsNumber);
+        leveling(docSnap.data().reviewsNumber);
       };
+
       getData();
+
+
     }
     fetchData();
 
-    //레벨 설정 (1-5: leve1 / 6-10: level2 / ....)
-    if (0<writeNum <=5){
-      setWriteLevelNum(2);
-    }else if (5<writeNum <=10){
-      setWriteLevelNum(2);
-      setWriteNum(writeNum-5); //프로그래스바 맞추기
-    }else if (10<writeNum <=15){
-      setWriteLevelNum(3);
-      setWriteNum(writeNum-10); //프로그래스바 맞추기
-    }
 
-  });
+
+  },[]);
 
   
+  /*
   console.log('writeNum: ', writeNum);//쓴횟수
   console.log('lentNum: ', lentNum);//빌린횟수
   console.log('writelevelNum: ', writelevelNum);
   console.log('lentlevelNum: ', lentlevelNum);
 
-  
+  */
 
+  const leveling = function(num){
+    if (num > 0 && num<=5){
+      console.log('here');
+      setWriteLevelNum(2);
+    }else if (num>5 && num <=10){
+      setWriteLevelNum(2);
+      console.log('here');
+      setWriteNum(num-5); //프로그래스바 맞추기
+    }else if (num>10 && num<=15){
+      setWriteLevelNum(3);
+      console.log('here');
+      setWriteNum(num-10); //프로그래스바 맞추기
+    }
+  }
 
   const navigate = useNavigate();
 
