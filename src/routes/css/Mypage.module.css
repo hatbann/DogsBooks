@@ -12,16 +12,11 @@
 
 .total {
   margin-top: 20px;
-  font-size: 50px;
+  font-size: 30px;
   font-family: "Happiness-Sans-Regular";
+  color: #838383;
   /*text-decoration: underline;
   text-underline-position:under;*/
-}
-
-.hr{
-  height: 3px;
-  background-color : rgb(0, 0, 0);
-  border : 0;
 }
 
 .pagename {
@@ -51,19 +46,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #474747;
   margin-right: 10px;
   margin-bottom: 10 px;
 }
 
 .name {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   margin-right: 10px;
 }
 
 .level {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .back {
@@ -74,14 +68,24 @@
 
 .settings {
   width: 80vw;
-  margin-top:40px;
+  margin-top:10px;
   font-size: 22px;
   font-family: "GmarketSansMedium";
+  margin-bottom:120px;
+ /* display: block;*/
+}
+
+.settings2 {
+  width: 80vw;
+  margin-top:5px;
+  font-size: 22px;
+  font-family: "GmarketSansMedium";
+  margin-bottom:20px;
  /* display: block;*/
 }
 
 .setting {
-  margin-top: 40px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -93,38 +97,61 @@
   height: 20px;
   padding:4px;
   margin-bottom: 4px;
-  
+}
+
+.hr{
+  height: 3px;
+  background-color : rgb(0, 0, 0);
+  border : 0;
+}
+
+
+.dogscontainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
 }
 .dogs {
-   width: 76%;
-   margin: 10px auto;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+}
+  
 .dogs img {
   /* border: 1px solid red; */
-    float: left;
-    width:30%;
+   /*float: left;*/
+    width:88%;
     box-sizing: border-box;
     margin-right: 0px;
-    border-radius: 3%;
-    justify-content:space-between;
+    border-radius:6px 6px 0px 0px
+   /* justify-content:space-between;*/
     
  }
  .dogs button {
-  width:20%;
-  margin-right: 8px;
+  width:88%;
+  background-color: skyblue;
+  color: #fff;
+  border-radius:0px 0px 6px 6px;
+  border: 1px solid skyblue;
 
  }
 
+
+ .dogs button:disabled{
+  background:  black;
+  color: #ccc;
+  border: 1px solid black;
+}
+
+
 .message{
-  margin-top: 10px;
-  font-size: 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 10px;
   font-family: "Happiness-Sans-Regular";
+  color: #474747;
  
 }
 .logout {
