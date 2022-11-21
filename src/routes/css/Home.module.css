@@ -42,16 +42,16 @@
   cursor: pointer;
 }
 
-.recommands div {
+#recommandDetail{
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  width: 80vw;
   margin-top: 20px;
 }
 
+
 .recommands img {
-  width: 130px;
+  width: 100px;
   border-radius: 5%;
   /* filter: drop-shadow(3px 5px 3px #727272);*/
   margin-bottom: 20px;
@@ -59,8 +59,19 @@
 
 .recommands h3 {
   font-size: 15px;
-  width: 250px;
-  text-align: center;
+}
+
+#recommandAuthor{
+  font-size: 15px !important;
+}
+
+#detailRight{
+  width: 160px !important;
+  margin-left: 20px;
+}
+
+#recommandDscr{
+  font-size: 12px;
 }
 
 .todays {

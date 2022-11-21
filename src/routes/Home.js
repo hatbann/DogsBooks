@@ -1021,9 +1021,13 @@ const Home = ({ userObj }) => {
       </div>
       <div className={styles.recommands} onClick={onClick}>
         <span>{`${userObj.displayName}님을 위한 추천도서`}</span>
-        <div>
+        <div id={styles.recommandDetail}>
           <img src={recommendBook.uri}></img>
-          <h3>{recommendBook.title}</h3>
+          <div id={styles.detailRight}>
+             <h3>{recommendBook.title}</h3>
+             <p id={styles.recommandAuthor}>{recommendBook.author}</p>
+              <p id={styles.recommandDscr}>{recommendBook.dscr}</p>
+          </div>
         </div>
       </div>
       <div className={styles.todays}>
@@ -1035,3 +1039,4 @@ const Home = ({ userObj }) => {
 };
 
 export default Home;
+
