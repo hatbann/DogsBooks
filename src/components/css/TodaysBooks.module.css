@@ -4,23 +4,23 @@
   justify-content: center;
   margin-top: 20px;
   flex-direction: column;
+ 
 }
 
 .img {
-  height: 200px !important;
-  width: 140px;
+  height: 180px !important;
+  width: 120px;
   height: auto;
   border-radius: 5%;
   /* filter: drop-shadow(3px 5px 3px #727272);*/
   margin-bottom: 20px;
-  margin-bottom: 20px;
-
+  margin-top: 10px;
 }
 
 .title {
   width: 80%;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   font-family: 'Happiness-Sans-Regular';
   font-weight: 600;

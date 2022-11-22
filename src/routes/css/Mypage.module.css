@@ -10,11 +10,27 @@
  
 }
 
-.total {
-  margin-top: 20px;
+.total1 {
+  margin-top: 6px;
   font-size: 30px;
   font-family: "Happiness-Sans-Regular";
-  color: #838383;
+  color: #3781C5;
+  /*text-decoration: underline;
+  text-underline-position:under;*/
+}
+.total2 {
+  margin-top: 6px;
+  font-size: 30px;
+  font-family: "Happiness-Sans-Regular";
+  color: #C1A64A;
+  /*text-decoration: underline;
+  text-underline-position:under;*/
+}
+.total3 {
+  margin-top: 7px;
+  font-size: 30px;
+  font-family: "Happiness-Sans-Regular";
+  color: #795BAA;
   /*text-decoration: underline;
   text-underline-position:under;*/
 }
@@ -123,7 +139,7 @@
   /* border: 1px solid red; */
    /*float: left;*/
     width:88%;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     margin-right: 0px;
     border-radius:6px 6px 0px 0px
    /* justify-content:space-between;*/
@@ -134,7 +150,7 @@
   background-color: skyblue;
   color: #fff;
   border-radius:0px 0px 6px 6px;
-  border: 1px solid skyblue;
+  border: 8px solid skyblue;
 
  }
 
@@ -142,7 +158,7 @@
  .dogs button:disabled{
   background:  black;
   color: #ccc;
-  border: 1px solid black;
+  border: 8px solid black;
 }
 
 

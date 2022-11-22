@@ -1,13 +1,20 @@
 .container {
   position: relative;
-}
 
+}
+.hr{
+  height: 3px;
+  background-color : rgb(0, 0, 0);
+  border : 0;
+  margin-top: 30px;
+}
 .profile {
   align-items: center;
   margin-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+ 
 }
 
 .profile_comment {
@@ -18,28 +25,33 @@
 .profile_img {
   width: 80vw;
   height: 80%;
-  border-radius: 3%;
+  border-radius: 10px;
   margin-top: 20px;
 }
 
 .plant {
-  margin-top: 10px;
+  margin-top: 13px;
   font-size: 13px;
   font-family: 'Happiness-Sans-Regular';
-  text-decoration: underline;
-  text-underline-position: under;
+  /*text-decoration: underline;
+  text-underline-position: under;*/
 }
 
 .recommands {
-  margin-top: 60px;
+  padding-top:50px;
+  padding-bottom:30px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  font-family: 'GmarketSansMedium';
-  width: 100vw;
   cursor: pointer;
+  background-color: #D69A63;
+}
+
+.recommands span{
+  font-family: 'GmarketSansMedium';
 }
 
 .recommands div {
@@ -47,30 +59,36 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
+  
 }
 
 .recommands img {
-  width: 130px;
+  width: 100px;
   border-radius: 5%;
   /* filter: drop-shadow(3px 5px 3px #727272);*/
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .recommands h3 {
-  font-size: 15px;
-  width: 250px;
+  font-size: 13px;
+  width: 160px;
   text-align: center;
+  font-family: 'Happiness-Sans-Regular';
 }
 
 .todays {
-  margin-top: 60px;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 120px;
   font-size: 22px;
   font-family: 'GmarketSansMedium';
+  padding-bottom: 40px;
+  background-color: whitesmoke;
+
+  
 }
 
 .bookSearchForm {
