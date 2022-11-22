@@ -54,14 +54,16 @@
   font-family: 'GmarketSansMedium';
 }
 
-.recommands div {
+#recommandDetail{
   display: flex;
-  flex-direction: column;
   justify-content: center;
+
   align-items: center;
   margin-top: 30px;
   
+
 }
+
 
 .recommands img {
   width: 100px;
@@ -71,10 +73,22 @@
 }
 
 .recommands h3 {
-  font-size: 13px;
-  width: 160px;
-  text-align: center;
-  font-family: 'Happiness-Sans-Regular';
+
+  font-size: 15px;
+}
+
+#recommandAuthor{
+  font-size: 15px !important;
+}
+
+#detailRight{
+  width: 160px !important;
+  margin-left: 20px;
+}
+
+#recommandDscr{
+  font-size: 12px;
+
 }
 
 .todays {

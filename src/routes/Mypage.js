@@ -70,15 +70,11 @@ const Mypage = ({ userObj }) => {
         {' '}
         <Switch onClick={onClick} options={options} />
         <div>
-          {options.map((option) => {
+          {options.map((option,index) => {
             if (option.id === pageNum) {
               option.user = userObj;
               return (
-                // <div>
-
-                // <h1 className={styles.pagename}>{option.label}</h1>
-                <div key={option.id}>{option.page}</div>
-                // </div>
+                <div key={index}>{option.page}</div>
               );
             }
           })}
