@@ -7,11 +7,6 @@ import {
 } from "firebase/auth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-
-import styles from '../routes/css/Mypage.module.css';
-import ProgressBar from '@ramonak/react-progress-bar';
-import { dbService } from '../fbase';
-
 import userImg from "../assets/img1.png";
 /*import rankImg1 from '../assets/05.png';
 import rankImg2 from '../assets/06.png';*/
@@ -28,8 +23,6 @@ import {
   collection,
 } from "firebase/firestore";
 import { async } from "@firebase/util";
-
-
 
 /*const user = {
   img: userImg,
@@ -70,7 +63,6 @@ const Profile = () => {
   const [writelevelNum, setWriteLevelNum] = useState(1);
   const [lentlevelNum, setLentLevelNum] = useState(1);
   const [disable, setDisable] = React.useState(true);
-  const [genreArr, setGenreArr] = useState([]);
   //useEffect 밖으로 변수데이터 가져가려면
   //데이터를 useState 변수로 사용하기.
   //그리고 setData함수를 useEffect 내부 호출.
@@ -101,10 +93,7 @@ const Profile = () => {
         leveling2(docSnap.data().lentsNumber);
       };
 
-
       getData();
-
-
     }
     fetchData();
   }, []);
@@ -220,12 +209,6 @@ const Profile = () => {
   }
   console.log("독서취향모아보기: favorite: ", favorite);
 
-
-
-
-  },[]);
-
-  
   /*
   console.log('writeNum: ', writeNum);//쓴횟수
   console.log('lentNum: ', lentNum);//빌린횟수
@@ -234,179 +217,63 @@ const Profile = () => {
 
   */
 
-
   console.log("genreArr: ", genreArr);
-
-  let values = Object.values(genreArr || {});
-  let maxValues = Math.max(...values);
- 
-  let j = 0;
-  let favorite = [];
-
-  for (let i in genreArr) {
-    if (genreArr[i] === maxValues) {
-      favorite[j] = i;
-      j++;
-    } else {
-      continue;
-    }
-  }
-
-  for (let i in favorite) {
-    switch (String(favorite[i])) {
-      case "genre1":
-        favorite[i] = "요리/살림";
-        break;
-      case "genre2":
-        favorite[i] = "건강/취미";
-        break;
-      case "genre3":
-        favorite[i] = "경제경영";
-        break;
-      case "genre4":
-        favorite[i] = "고등학교참고서";
-        break;
-      case "genre5":
-        favorite[i] = "고전";
-        break;
-      case "genre6":
-        favorite[i] = "과학";
-        break;
-      case "genre7":
-        favorite[i] = "달력/기타";
-        break;
-      case "genre8":
-        favorite[i] = "대학교재/전문서적";
-        break;
-      case "genre9":
-        favorite[i] = "만화";
-        break;
-      case "genre10":
-        favorite[i] = "사회과학";
-        break;
-      case "genre11":
-        favorite[i] = "소설/시/희곡";
-        break;
-      case "genre12":
-        favorite[i] = "수험서/자격증";
-        break;
-      case "genre13":
-        favorite[i] = "어린이";
-        break;
-      case "genre14":
-        favorite[i] = "에세이";
-        break;
-      case "genre15":
-        favorite[i] = "여행";
-        break;
-      case "genre16":
-        favorite[i] = "역사";
-        break;
-      case "genre17":
-        favorite[i] = "예술/대중문화";
-        break;
-      case "genre18":
-        favorite[i] = "외국어";
-        break;
-      case "genre19":
-        favorite[i] = "유아";
-        break;
-      case "genre20":
-        favorite[i] = "인문학";
-        break;
-      case "genre21":
-        favorite[i] = "자기계발";
-        break;
-      case "genre22":
-        favorite[i] = "잡지";
-        break;
-      case "genre23":
-        favorite[i] = "장르소설";
-        break;
-      case "genre24":
-        favorite[i] = "전집/중고전집";
-        break;
-      case "genre25":
-        favorite[i] = "종교/역학";
-        break;
-      case "genre26":
-        favorite[i] = "좋은부모";
-        break;
-      case "genre27":
-        favorite[i] = "중학교참고서";
-        break;
-      case "genre28":
-        favorite[i] = "청소년";
-        break;
-      case "genre29":
-        favorite[i] = "초등학교참고서";
-        break;
-      case "genre30":
-        favorite[i] = "컴퓨터/모바일";
-        break;
-      case "minor":
-        favorite[i] = "마이너";
-        break;
-    }
-  }
-
   console.log("favoriteGenre: ", favorite);
 
-  const leveling = function(num){
-    if (num > 0 && num<=5){
-     // console.log('here');
+  const leveling = function(num) {
+    if (num > 0 && num <= 5) {
+      // console.log('here');
       setWriteLevelNum(1);
-    }else if (num>5 && num <=10){
-
+    } else if (num > 5 && num <= 10) {
       setWriteLevelNum(2);
       console.log("here");
       setWriteNum(num - 5); //프로그래스바 맞추기
     } else if (num > 10 && num <= 15) {
       setWriteLevelNum(3);
 
-     // console.log('here');
-      setWriteNum(num-10); 
-    }else if (num>15 && num<=20){
+      // console.log('here');
+      setWriteNum(num - 10);
+    } else if (num > 15 && num <= 20) {
       setWriteLevelNum(4);
-     // console.log('here');
-      setWriteNum(num-15); 
-    }else if (num>20 && num<=25){
+      // console.log('here');
+      setWriteNum(num - 15);
+    } else if (num > 20 && num <= 25) {
       setWriteLevelNum(5);
-     // console.log('here');
-      setWriteNum(num-20); 
-    }else if (num>25 && num<=30){
+      // console.log('here');
+      setWriteNum(num - 20);
+    } else if (num > 25 && num <= 30) {
       setWriteLevelNum(6);
       //console.log('here');
-      setWriteNum(num-25); 
-    } 
-  }
+      setWriteNum(num - 25);
+    }
+  };
 
-
-  const leveling2 = function(num){
-    if (num > 0 && num<=5){
-      console.log('here');
+  const leveling2 = function(num) {
+    if (num > 0 && num <= 5) {
+      console.log("here");
       setLentLevelNum(1);
-    }else if (num>5 && num <=10){
+    } else if (num > 5 && num <= 10) {
       setLentLevelNum(2);
-      console.log('here');
-      setLentNum(num-5); 
-    }else if (num>10 && num<=15){
+      console.log("here");
+      setLentNum(num - 5);
+    } else if (num > 10 && num <= 15) {
       setLentLevelNum(3);
-      console.log('here');
-      setLentNum(num-10); 
-    }else if (num>15 && num<=20){
+      console.log("here");
+      setLentNum(num - 10);
+    } else if (num > 15 && num <= 20) {
       setLentLevelNum(4);
-     // console.log('here');
-      setLentNum(num-15); 
-    }else if (num>20 && num<=25){
+      // console.log('here');
+      setLentNum(num - 15);
+    } else if (num > 20 && num <= 25) {
       setLentLevelNum(5);
-     // console.log('here');
-      setLentNum(num-20); 
-    }else if (num>25 && num<=30){
+      // console.log('here');
+      setLentNum(num - 20);
+    } else if (num > 25 && num <= 30) {
       setLentLevelNum(6);
       //console.log('here');
-      setLentNum(num-25); 
-  }}
+      setLentNum(num - 25);
+    }
+  };
 
   const navigate = useNavigate();
 
@@ -467,20 +334,26 @@ const Profile = () => {
         <span>레벨업으로 새로운 독스를 만날 수 있어요!</span>
       </div>
 
-          <div class={styles.dogscontainer}>
-          <div className={styles.dogs}>
-          
-          <img src={require("../assets/01.png")}/>
-          <Link to={'/'} state={{ imgNum:1}}>
-          <button id="1" onClick={onMain}>level 1</button> </Link>  </div>
-          
-          <div className={styles.dogs}>
-          <img src={require("../assets/02.png")} />
-          <Link to={'/'} state={{imgNum:2}}>
-          <button id="2" disabled={writelevelNum===1}>level 2</button> </Link> </div>
-          
-          <div className={styles.dogs}>
+      <div class={styles.dogscontainer}>
+        <div className={styles.dogs}>
+          <img src={require("../assets/01.png")} />
+          <Link to={"/"} state={{ imgNum: 1 }}>
+            <button id="1" onClick={onMain}>
+              level 1
+            </button>{" "}
+          </Link>{" "}
+        </div>
 
+        <div className={styles.dogs}>
+          <img src={require("../assets/02.png")} />
+          <Link to={"/"} state={{ imgNum: 2 }}>
+            <button id="2" disabled={writelevelNum === 1}>
+              level 2
+            </button>{" "}
+          </Link>{" "}
+        </div>
+
+        <div className={styles.dogs}>
           <img src={require("../assets/03.png")} />
           <button id="3" disabled={writelevelNum <= 2}>
             level 3
@@ -522,9 +395,7 @@ const Profile = () => {
           </div>
           <div style={{ marginBottom: "1px" }}>
             <ProgressBar
-
-              completed={lentNum*20}
-
+              completed={lentNum * 20}
               bgColor="skyblue"
               width="80vw"
               height="3.5vw"
@@ -584,52 +455,47 @@ const Profile = () => {
           </div>
 
           <div className={styles.settings2}>
-
-            <div style={{ marginTop: '50px' }}>
-
+            <div style={{ marginTop: "50px" }}>
               <span>{`지금까지 ${userObj.displayName}님이`}</span>
               <br></br>
               <span>평가한 북스</span>
               <div></div>
 
-              <Link to="/Library"> 
-              <div className={styles.total1}>
-                {(writelevelNum-1)*5+writeNum}
-                </div></Link>
-
+              <Link to="/Library">
+                <div className={styles.total1}>
+                  {(writelevelNum - 1) * 5 + writeNum}
+                </div>
+              </Link>
             </div>
             <hr className={styles.hr} />
           </div>
 
           <div className={styles.settings2}>
-
-            <div style={{ marginTop: '0px' }}>
-            <span>{`지금까지 ${userObj.displayName}님이`}</span>
+            <div style={{ marginTop: "0px" }}>
+              <span>{`지금까지 ${userObj.displayName}님이`}</span>
               <br></br>
               <span>빌려준 북스</span>
 
               <div></div>
-              <Link to="/Library"> 
-              <div className={styles.total2}>
-              {(lentlevelNum-1)*5+lentNum}
-            </div> </Link></div>
+              <Link to="/Library">
+                <div className={styles.total2}>
+                  {(lentlevelNum - 1) * 5 + lentNum}
+                </div>{" "}
+              </Link>
+            </div>
             <hr className={styles.hr} />
           </div>
 
-
           <div className={styles.settings2}>
-            <div style={{ marginTop: '0px' }}>
-            <span>{`${userObj.displayName}님의`}</span>
+            <div style={{ marginTop: "0px" }}>
+              <span>{`${userObj.displayName}님의`}</span>
               <br></br>
               <span>독서취향은?</span>
               <div></div>
-              <div className={styles.total3}>
-              {favorite}</div>
+              <div className={styles.total3}>{favorite}</div>
             </div>
             <hr className={styles.hr} />
-
           </div>
-
 
           <div className={styles.setting}>
             <img
