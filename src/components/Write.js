@@ -26,7 +26,7 @@ const Write = ({ userObj }) => {
   const [review, setReview] = useState(""); //review하는 거, form
   const [reviews, setReviews] = useState([]); //review들을 가져오는 것
   const [recommend, setRecommend] = useState(true);
-  console.log(state);
+  console.log("state: ", state);
 
   const auth = getAuth();
   const userRef = doc(dbService, "UserInfo", `${auth.currentUser.uid}`);
@@ -35,8 +35,10 @@ const Write = ({ userObj }) => {
 
   //추천 알고리즘을 위해 장르 1depth로 설정해주는 거
   const categoryName = state.categoryName;
+  console.log("categoryName: ", categoryName);
   const cnSplit = categoryName.split(">");
   const genre = cnSplit[1];
+  console.log("genre: ", genre);
 
   useEffect(() => {
     const q = query(
@@ -71,7 +73,6 @@ const Write = ({ userObj }) => {
       star: star, //책에 준 별점
       bookimg: bookimg, // 책 이미지
       author: author, //저자
-      CID: state.categoryId, //책의 카테고리 아이디
       genre: genre,
     });
 
