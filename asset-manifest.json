@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/dogsbooks/static/css/main.1dd43a9b.css",
-    "main.js": "/dogsbooks/static/js/main.4f334e9b.js",
+    "main.css": "/dogsbooks/static/css/main.cd247f0d.css",
+    "main.js": "/dogsbooks/static/js/main.093da478.js",
     "static/media/Happiness-Sans-Title.ttf": "/dogsbooks/static/media/Happiness-Sans-Title.143128a5965c838acc63.ttf",
     "static/media/Happiness-Sans-Regular.ttf": "/dogsbooks/static/media/Happiness-Sans-Regular.5afb83fefa96d6db8c5e.ttf",
     "static/media/profile11.jpg": "/dogsbooks/static/media/profile11.9920e03ac6dba5282f39.jpg",
     "static/media/img1.png": "/dogsbooks/static/media/img1.58e7e84ff98a4bca4758.png",
     "static/media/profile12.png": "/dogsbooks/static/media/profile12.ab243d8e88cc87df3476.png",
+    "static/media/main6.png": "/dogsbooks/static/media/main6.3867fdb6c8092a6bff46.png",
     "static/media/06.png": "/dogsbooks/static/media/06.4d411ec47d9d58b0c93d.png",
-    "static/media/titledog.png": "/dogsbooks/static/media/titledog.0de7441e9c69842b530e.png",
     "static/media/005.png": "/dogsbooks/static/media/005.2884d8dd806442a9f474.png",
+    "static/media/main1.png": "/dogsbooks/static/media/main1.0869b17b3e38d7f88b21.png",
+    "static/media/main3.png": "/dogsbooks/static/media/main3.9db0766b59c51ffb92e3.png",
     "static/media/006.png": "/dogsbooks/static/media/006.3d705c8d6d3e387be026.png",
     "static/media/03.png": "/dogsbooks/static/media/03.5cf0eb45198a9876a4ad.png",
+    "static/media/main5.png": "/dogsbooks/static/media/main5.f69c658f285b0f714795.png",
+    "static/media/main4.png": "/dogsbooks/static/media/main4.ccbf86d0146cf211139d.png",
     "static/media/05.png": "/dogsbooks/static/media/05.e47b2c7bcd40ee2b3491.png",
     "static/media/01.png": "/dogsbooks/static/media/01.e04c96a96f0b085fcd3d.png",
-    "static/media/t3.png": "/dogsbooks/static/media/t3.c4b5a0ed08c334cc81e8.png",
-    "static/media/t1.png": "/dogsbooks/static/media/t1.d6412c3cdad4b758bc47.png",
     "static/media/04.png": "/dogsbooks/static/media/04.5810168d0e633e06335d.png",
-    "static/media/t2.png": "/dogsbooks/static/media/t2.98c96256333b2e81730d.png",
+    "static/media/main2.png": "/dogsbooks/static/media/main2.6940d28a4d7adc30fded.png",
     "static/media/02.png": "/dogsbooks/static/media/02.122fec606bfa07a4deea.png",
     "static/media/004.png": "/dogsbooks/static/media/004.8e9615b4fa4cf5f314a1.png",
     "static/media/003.png": "/dogsbooks/static/media/003.87d2c3a784d194089752.png",
@@ -29,11 +31,11 @@
     "static/media/slick.ttf": "/dogsbooks/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/dogsbooks/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/dogsbooks/index.html",
-    "main.1dd43a9b.css.map": "/dogsbooks/static/css/main.1dd43a9b.css.map",
-    "main.4f334e9b.js.map": "/dogsbooks/static/js/main.4f334e9b.js.map"
+    "main.cd247f0d.css.map": "/dogsbooks/static/css/main.cd247f0d.css.map",
+    "main.093da478.js.map": "/dogsbooks/static/js/main.093da478.js.map"
   },
   "entrypoints": [
-    "static/css/main.1dd43a9b.css",
-    "static/js/main.4f334e9b.js"
+    "static/css/main.cd247f0d.css",
+    "static/js/main.093da478.js"
   ]
 }
