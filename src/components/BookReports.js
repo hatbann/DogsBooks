@@ -76,7 +76,7 @@ const BookReports = () => {
   return (
     <div className={styles.reportContainer}>
       {edit ? (
-        <>
+        <> 
           <div className={styles.editContainer}>
             <img src={bookreports.state.bookimg}></img>
           </div>
@@ -114,7 +114,8 @@ const BookReports = () => {
               </select>
             </div>
             <div id={styles.editBtn}>
-              <button onClick={onToggleEdit}>수정취소</button>
+              <button onClick={onToggleEdit}>
+                <span>수정취소</span></button>
               <button onClick={onEdit}>수정완료</button>
             </div>
           </form>
@@ -138,9 +139,13 @@ const BookReports = () => {
               <span>별점 : {starNum}</span>
             </section>
           </div>
+          
+        
           <section className={styles.review}>
+            
             <p>{review}</p>
           </section>
+          
           <div className={styles.editDeleteBtn}>
             <button onClick={onToggleEdit}>수정</button>
             <button onClick={onDeleteClick}>삭제</button>
