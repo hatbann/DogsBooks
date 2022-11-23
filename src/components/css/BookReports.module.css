@@ -38,13 +38,17 @@
 }
 
 .reportContainer section {
-  width: 80vw;
+  width: 70vw;
 }
+
 
 .review {
   margin-top: 30px;
-  margin-bottom: 80px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
+  background-color: white;
+  filter: drop-shadow(0px 0px 1px #9b9b9b);
+  padding:20px;
 }
 
 .editDeleteBtn {
@@ -57,7 +61,7 @@
   outline: none;
   background-color: #0a0a23;
   color: white;
-  padding: 10px 30px;
+  padding: 10px 00px;
   font-family: 'GmarketSansMedium';
   border-radius: 10px;
   cursor: pointer;
@@ -65,10 +69,19 @@
 
 .editDeleteBtn button:first-child {
   margin-right: 10px;
+  padding-right: 60px;
+  padding-left: 60px;
+}
+
+.editDeleteBtn button:last-child {
+  margin-right: 10px;
+  padding-right: 60px;
+  padding-left: 60px;
 }
 
 #editBtn {
   text-align: center;
+  
 }
 
 #editBtn button {
@@ -81,8 +94,16 @@
   margin-top: 20px;
 }
 
+
 #editBtn button:first-child {
   margin-right: 10px;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+#editBtn button:last-child {
+  margin-right: 10px;
+  padding-right: 40px;
+  padding-left: 40px;
 }
 
 .editContainer {
@@ -102,6 +123,7 @@
   flex-direction: column;
   align-items: flex-start;
   margin: 10px 0;
+  
 }
 
 .editForm input {

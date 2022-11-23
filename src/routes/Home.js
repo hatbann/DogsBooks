@@ -15,6 +15,8 @@ import main1 from '../assets/main1.png';
 import main2 from '../assets/main2.png';
 import main3 from '../assets/main3.png';
 import main4 from '../assets/main4.png';
+import main5 from '../assets/main5.png';
+import main6 from '../assets/main6.png';
 
 const cook = [
   {
@@ -954,21 +956,13 @@ const Home = ({ userObj }) => {
     }
   };
 
-  /*const onMain=()=>{
-    switch (imgNum){
-      case 1:
-        return <img
-        src={require("../assets/main1.png")}
-        className={styles.profile_img}/>
-
-    }
-  }*/
-
   const mainimg = [
     { id: 1, imgSrc: main1 },
     { id: 2, imgSrc: main2 },
     { id: 3, imgSrc: main3 },
     { id: 4, imgSrc: main4 },
+    { id: 5, imgSrc: main5 },
+    { id: 6, imgSrc: main6 },
   ];
 
   return (
@@ -995,7 +989,7 @@ const Home = ({ userObj }) => {
         <div className={styles.profile_comment}>
           <span>{`${recommendName}`}</span>
           <br></br>
-          <span>{`${userObj.displayName}님의 세계`}</span>
+          <span>{`${userObj.displayName}님의 세계를 환영해요`}</span>
         </div>
 
         {mainimg.map((item) => {
@@ -1011,14 +1005,22 @@ const Home = ({ userObj }) => {
         <Link to="/mypage">
           {' '}
           <div className={styles.plant}>
-            <span>내가 모은 독스들 보기</span>
+            <span>내가 모은 독스들 보기!</span>
           </div>
         </Link>
       </div>
-
+      <hr className={styles.hr} />
       <div className={styles.recommands} onClick={onClick}>
-        <span>{`${userObj.displayName}님을 위한 추천도서`}</span>
+        <span>{`${userObj.displayName}님에게`} 
+        <br></br>
+        {`독스북스가 추천해요`}</span>
+        <div className={styles.detailmessage}>
+          태그와 읽은책 정보를 바탕으로 추천해드려요</div></div>
+
+      
+        <div className={styles.recommands2} onClick={onClick}>
         <div id={styles.recommandDetail}>
+          
           <img src={recommendBook.uri}></img>
           <div id={styles.detailRight}>
             <h3>{recommendBook.title}</h3>
@@ -1027,6 +1029,8 @@ const Home = ({ userObj }) => {
           </div>
         </div>
       </div>
+
+      <hr className={styles.hr} />
       <div className={styles.todays}>
         <span>오늘의 독스북스</span>
         <TodaysSlider contents={bestseller} />

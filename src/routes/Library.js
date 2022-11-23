@@ -62,6 +62,13 @@ const Library = (props) => {
   return (
     <div className={styles.container}>
       <Top2 />
+      <div className={styles.settings}>
+        <div className={styles.setting}>
+          <span>북스</span> </div>
+          <hr className={styles.hr} />
+          <div className={styles.message}>
+          <span>그동안 읽은 책과 기록들을 확인해보세요</span></div>
+    
       <div className={styles.content}>
         {" "}
         <ul>
@@ -69,7 +76,7 @@ const Library = (props) => {
             return <Book bookInfo={book} key={book.id} />;
           })}
         </ul>
-      </div>
+      </div></div>
     </div>
   );
 };

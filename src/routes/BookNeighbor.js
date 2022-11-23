@@ -99,6 +99,10 @@ const BookNeighbor = (props) => {
 
       <div className={styles.settings}>
         <div className={styles.setting}>이웃도서관 </div>
+        <hr className={styles.hr} />
+        <div className={styles.message}>
+          <span>추천하고 싶은 책을 이웃들과 나눠요</span></div>
+
 
         <div className={styles.search}>
           <form>
