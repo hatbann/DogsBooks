@@ -84,7 +84,7 @@
   font-family: "Happiness-Sans-Regular";
   margin-bottom: 20px;
   text-align: center;
-  font-size: 10px;
+  font-size: 2vw;
 
 }
 .hr{
@@ -117,17 +117,17 @@
 
 .recommands2 h3 {
   width: 29vw;
-  font-size: 2.5vw;
+  font-size: 2.2vw;
 }
 
 #recommandAuthor{
-  font-size: 1.8vw !important;
+  font-size: 1.5vw !important;
   width: 32vw;
 }
 
 
 #recommandDscr{
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   width: 36vw;
   margin-top: 20px;
 }

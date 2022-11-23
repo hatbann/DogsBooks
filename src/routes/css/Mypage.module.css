@@ -157,6 +157,7 @@
   color: #fff;
   border-radius:0px 0px 6px 6px;
   border: 8px solid skyblue;
+  font-size: 4vw;
 
  }
 
@@ -171,7 +172,7 @@
 .message{
   margin-top: 8px;
   margin-bottom: 6px;
-  font-size: 10px;
+  font-size: 2vw;
   font-family: "Happiness-Sans-Regular";
   color: #474747;
  
