@@ -90,7 +90,7 @@ button {
   display: flex;
   background-color: white;
   filter: drop-shadow(0px 1px 2px #9b9b9b);
-  padding:10px;
+  padding:20px;
   border-radius: 5px;
 }
 
@@ -98,20 +98,23 @@ button {
   margin-top: 24px;
 }
 .userImg {
-  width: 20vw;
+  width: 20vw15;
   height: 15vh;
   margin-right: 20px;
   border-radius: 5px;
+  filter: drop-shadow(0px 1px 2px #9b9b9b);
+  padding: 1vw;
 }
 
 .content_title {
-  margin-top: 4px;
+  padding: 1.5vw;
   font-size: 1.7rem;
   font-weight: 500;
   margin-bottom: 10px;
 }
 
 .date {
+  padding-left: 1.5vw;
   font-size: 1rem;
   font-weight: 200;
   color: rgb(110, 110, 110);
@@ -120,6 +123,8 @@ button {
 }
 
 .content_detail {
+  padding-left: 1.5vw;
+  margin-top:5vw;
   font-size: 1rem;
 }
 
@@ -165,7 +170,7 @@ label {
 
 .writeLent_Container {
   font-family: 'GmarketSansMedium';
-  margin-top: 150px;
+  margin-top: 200px;
   display: flex;
   justify-content: center;
 }
@@ -184,7 +189,7 @@ label {
   padding-top: 10px;
   background-color: white;
   box-shadow: 0px 0px 1px 1px rgb(0, 0, 0);
-  margin-top: 60px;
+  margin-top: 100px;
 }
 
 .writeLent_TopContainer_Content {
@@ -275,11 +280,11 @@ label {
 
 .writeLent_SubmitBtn {
   bottom: 20%;
-  background-color: #3781c5;
+  background-color: #000000;
   border: none;
   color: white;
   padding: 10px 20px;
-  width: 50vw;
+  width: 60vw;
   font-size: 1.5rem;
   font-family: 'GmarketSansMedium';
   border-radius: 15px;

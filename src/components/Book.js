@@ -13,6 +13,7 @@ const Book = ({ bookInfo }) => {
   };
   console.log(bookInfo);
   return (
+    
 
 
     <div>

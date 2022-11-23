@@ -26,21 +26,29 @@ const Search = () => {
   return (
     <div className={styles.container}>
       <Top2 />
-      <div className={styles.title}>( 검색결과 )</div>
+      <div className={styles.settings}>
+        <div className={styles.setting}>검색결과 </div>
+        <hr className={styles.hr} />
+        <div className={styles.message}>
+          <span>검색 결과는 다음과 같습니다</span></div>
+          
       {data.map((bookinfo) => {
         return (
-          <div className={styles.bookContent}>
-            <div
-              className={styles.bookContentLeft}
-              onClick={(e) => {
-                onClick(bookinfo);
-              }}
-            >
+          <div className={styles.content}>
+          <div className={styles.bookContent}
+              onClick={(e) => {onClick(bookinfo); }}>
+        
               <div className={styles.cover}>
                 <img src={bookinfo.cover} />
               </div>
+              </div>
+
+              <div className={styles.bookContent2}
+              onClick={(e) => {onClick(bookinfo); }}>
               <span>{bookinfo.title}</span>
-            </div>
+              <div className={styles.author}>
+              <span>{bookinfo.author}</span></div>
+         
             <div
               className={styles.bookContentRight}
               onClick={(e) => {
@@ -48,13 +56,13 @@ const Search = () => {
               }}
             >
               {bookinfo.description.length >= 80
-                ? bookinfo.description.substr(0, 80) + '...'
+                ? bookinfo.description.substr(0, 100) + '...'
                 : bookinfo.description}
             </div>
-          </div>
+          </div>   </div>
         );
       })}
-    </div>
+    </div></div>
   );
 };
 
