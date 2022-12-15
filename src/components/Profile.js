@@ -23,6 +23,7 @@ import {
   collection,
 } from "firebase/firestore";
 import { async } from "@firebase/util";
+import { connectStorageEmulator } from "firebase/storage";
 
 /*const user = {
   img: userImg,
@@ -88,6 +89,7 @@ const Profile = () => {
       const getData = async () => {
         docSnap = await getDoc(docRef);
         console.log(docSnap.data());
+        setWriteNum(docSnap.data().reviewsNumber);
         setLentNum(docSnap.data().lentsNumber);
         leveling(docSnap.data().reviewsNumber);
         leveling2(docSnap.data().lentsNumber);
@@ -97,6 +99,10 @@ const Profile = () => {
     }
     fetchData();
   }, []);
+  console.log("reveiwsNum:", writeNum);
+  console.log("lentNum????:", lentNum);
+  console.log("leveling????:", leveling);
+  console.log("leveling2???:", leveling2);
 
   let values = Object.values(genreArr || {});
   let maxValues = Math.max(...values);
@@ -209,13 +215,10 @@ const Profile = () => {
   }
   console.log("독서취향모아보기: favorite: ", favorite);
 
-  /*
-  console.log('writeNum: ', writeNum);//쓴횟수
-  console.log('lentNum: ', lentNum);//빌린횟수
-  console.log('writelevelNum: ', writelevelNum);
-  console.log('lentlevelNum: ', lentlevelNum);
-
-  */
+  console.log("writeNum: ", writeNum); //쓴횟수
+  console.log("lentNum: ", lentNum); //빌린횟수
+  console.log("writelevelNum: ", writelevelNum);
+  console.log("lentlevelNum: ", lentlevelNum);
 
   console.log("genreArr: ", genreArr);
   console.log("favoriteGenre: ", favorite);
