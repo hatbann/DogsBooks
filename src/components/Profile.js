@@ -301,8 +301,13 @@ const Profile = () => {
   };
 
   const onMain = () => {
-    alert("level1 독스를 선택!");
+    alert("독스를 선택!");
   };
+
+  const onMain2 = () => {
+    alert("축하합니다. 히든아이템을 얻었습니다. 추후 업데이트로 독스에 아이템을 추가할 수 있습니다.");
+  };
+
 
   return (
     <div className={styles.settings}>
@@ -313,7 +318,7 @@ const Profile = () => {
 
       <div className={styles.profile}>
         <div className={styles.profile_detail}>
-          <div style={{ marginBottom: "1px", marginTop: "6px" }}>
+          <div style={{ marginBottom: "4px", marginTop: "6px" }}>
             <span className={styles.name}>북스 기록하기</span>
             <span className={styles.level}>{writelevelNum} Lv</span>
           </div>
@@ -335,6 +340,8 @@ const Profile = () => {
 
       <div className={styles.message}>
         <span>레벨업으로 새로운 독스를 만날 수 있어요!</span>
+        <br></br>
+        <span>메인화면에서 확인해보세요</span>
       </div>
 
       <div class={styles.dogscontainer}>
@@ -350,7 +357,7 @@ const Profile = () => {
         <div className={styles.dogs}>
           <img src={require("../assets/02.png")} />
           <Link to={"/"} state={{ imgNum: 2 }}>
-            <button id="2" disabled={writelevelNum === 1}>
+            <button id="2" onClick={onMain} disabled={writelevelNum === 1}>
               level 2
             </button>{" "}
           </Link>{" "}
@@ -358,32 +365,40 @@ const Profile = () => {
 
         <div className={styles.dogs}>
           <img src={require("../assets/03.png")} />
-          <button id="3" disabled={writelevelNum <= 2}>
+          <Link to={"/"} state={{ imgNum: 3 }}>
+          <button id="3" onClick={onMain} disabled={writelevelNum <= 2}>
             level 3
           </button>{" "}
-        </div>
+        </Link>{" "}
+      </div> 
       </div>
 
       <div className={styles.dogscontainer}>
         <div className={styles.dogs}>
           <img src={require("../assets/04.png")} />
-          <button id="4" disabled={writelevelNum <= 3}>
+          <Link to={"/"} state={{ imgNum: 4 }}>
+          <button id="4" onClick={onMain} disabled={writelevelNum <= 3}>
             level 4
           </button>{" "}
+          </Link>{" "}
         </div>
 
         <div className={styles.dogs}>
           <img src={require("../assets/05.png")} />
-          <button id="4" disabled={writelevelNum <= 4}>
+          <Link to={"/"} state={{ imgNum: 5 }}>
+          <button id="5" onClick={onMain} disabled={writelevelNum <= 4}>
             level 5
           </button>{" "}
+          </Link>{" "}
         </div>
 
         <div className={styles.dogs}>
           <img src={require("../assets/06.png")} />
-          <button id="4" disabled={writelevelNum <= 5}>
+          <Link to={"/"} state={{ imgNum: 5 }}>
+          <button id="6" onClick={onMain} disabled={writelevelNum <= 5}>
             level 6
           </button>{" "}
+          </Link>{" "}
         </div>
       </div>
 
@@ -391,7 +406,7 @@ const Profile = () => {
 
       <div className={styles.profile}>
         <div className={styles.profile_detail}>
-          <div style={{ marginBottom: "1px", marginTop: "20px" }}>
+          <div style={{ marginBottom: "px", marginTop: "20px" }}>
             {" "}
             <span className={styles.name}>북스 빌려주기</span>
             <span className={styles.level}>{lentlevelNum} Lv</span>
@@ -414,21 +429,21 @@ const Profile = () => {
           <div className={styles.dogscontainer}>
             <div className={styles.dogs}>
               <img src={require("../assets/001.png")} />
-              <button id="1" disabled={lentlevelNum == 0}>
+              <button id="1" onClick={onMain2} disabled={lentlevelNum == 0}>
                 level 1
               </button>{" "}
             </div>
 
             <div className={styles.dogs}>
               <img src={require("../assets/002.png")} />
-              <button id="2" disabled={lentlevelNum <= 1}>
+              <button id="2" onClick={onMain2} disabled={lentlevelNum <= 1}>
                 level 2
               </button>{" "}
             </div>
 
             <div className={styles.dogs}>
               <img src={require("../assets/003.png")} />
-              <button id="3" disabled={lentlevelNum <= 2}>
+              <button id="3" onClick={onMain2} disabled={lentlevelNum <= 2}>
                 level 3
               </button>{" "}
             </div>
@@ -437,21 +452,21 @@ const Profile = () => {
           <div className={styles.dogscontainer}>
             <div className={styles.dogs}>
               <img src={require("../assets/004.png")} />
-              <button id="4" disabled={lentlevelNum <= 3}>
+              <button id="4"onClick={onMain2}  disabled={lentlevelNum <= 3}>
                 level 4
               </button>{" "}
             </div>
 
             <div className={styles.dogs}>
               <img src={require("../assets/005.png")} />
-              <button id="4" disabled={lentlevelNum <= 4}>
+              <button id="5" onClick={onMain2} disabled={lentlevelNum <= 4}>
                 level 5
               </button>{" "}
             </div>
 
             <div className={styles.dogs}>
               <img src={require("../assets/006.png")} />
-              <button id="4" disabled={lentlevelNum <= 5}>
+              <button id="6" onClick={onMain2} disabled={lentlevelNum <= 5}>
                 level 6
               </button>{" "}
             </div>
@@ -505,18 +520,20 @@ const Profile = () => {
               src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png"
               className={styles.setting_img}
             />
-            프로필 수정
+            <span>프로필 수정</span>
           </div>
-
+          
+          <div className={styles.setting2}>
           <button
             className={`${styles.setting} ${styles.logout}`}
             onClick={onLogOutClick}
           >
-            <img src="https://cdn-icons-png.flaticon.com/512/159/159707.png" />
-            로그아웃
+            <img src="https://cdn-icons-png.flaticon.com/512/159/159707.png" 
+            />
+            <span> 로그아웃</span>
           </button>
         </div>{" "}
-      </div>
+      </div></div>
     </div>
   );
 };

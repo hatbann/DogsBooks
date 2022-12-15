@@ -109,7 +109,7 @@ const WriteLent = ({ userObj }) => {
 
   return (
     <div className={styles.writeLent_Container}>
-      <Top2 />
+
       <div className={styles.writeLent_TopContainer}>
         <span
           className={styles.writeLent_TopContainer_Content}

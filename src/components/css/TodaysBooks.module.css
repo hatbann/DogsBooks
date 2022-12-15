@@ -18,13 +18,14 @@
 }
 
 .title {
-  width: 80%;
+  width: 60%;
   font-weight: 500;
   font-size: 12px;
   text-align: center;
-  font-family: 'Happiness-Sans-Regular';
+  font-family: 'Happiness-Sans-Medium';
   font-weight: 600;
   margin-bottom: 20px;
+  
 }
 
 .content {
